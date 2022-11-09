@@ -1,0 +1,27 @@
+scm commands: 
+
+login 
+./scm.sh login -r https://jazz.net/sandbox01-ccm/ -u kerim.cakmak -P p14k3431m54JAZZ
+
+
+load workspace: 
+./scm.sh load -r https://jazz.net/sandbox01-ccm/ -d /home/parallels/Downloads/workspace --all --allow -f kerimLinux
+
+
+accept all changes:
+./scm.sh accept -d /home/parallels/Downloads/workspace
+
+
+checkin changes 
+./scm.sh checkin -d /home/parallels/Downloads/workspace .
+
+
+show the status 
+./scm.sh show status -d /home/parallels/Downloads/workspace
+
+
+undo change: 
+./scm.sh undo change /home/parallels/Downloads/workspace/NVL/SETitanic/Projekt_SETitanic_rpy/ST_2400.sbsx
+
+load contents 
+./scm.sh load -r https://jazz.net/sandbox01-ccm/ -u kerim.cakmak -P p14k3431m54JAZZ --force -d /home/parallels/Downloads/workspace kerimLinux

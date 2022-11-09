@@ -1,0 +1,2500 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+
+
+
+
+<RhapsodyArchive>
+	<MagicNumber>_WPIvUUn3Ee2VS_Ua8O43gg</MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>109.0.1</version>
+	<RMMIndexVersion>109.1</RMMIndexVersion>
+	<lang>C++</lang>
+	<BuildNo>202006101734</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID 5927283b-789a-4d0b-9c2d-2ffb26f3383d</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8716045_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2400</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::8:9:57</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IDiagram</_hm2Class>
+					<_hfilename type="a">.\SB_HBA_2000.omdx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Breakdown::SB_X000_HBA</_hsubsystem>
+					<_hname type="a">SB_HBA_2000</_hname>
+					<_hid type="a">GUID cd349b05-2a59-4d3a-a5da-f36f857cb1c9</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">11.8.2022::8:9:57</_modifiedTime>
+			<_lastID type="a">3</_lastID>
+			<weakCGTime type="a">11.8.2022::8:9:57</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 3c92853c-57f2-47e6-90ca-c4416877e7ff</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">11.8.2022::8:9:57</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 9a45b27b-8b68-4755-b5b2-2f1ba828ea3c</value>
+				<value>GUID b468bc5d-29a3-4ff8-9d3b-a95cd6c833b6</value>
+				<value>GUID 85295768-a39e-46f5-9fde-bed9badee838</value>
+				<value>GUID 8c4e7dab-403f-4c0c-9494-079aab0e7b38</value>
+				<value>GUID 6fb9f37f-e198-44e6-a94b-4379433b20ee</value>
+				<value>GUID 55c3cf42-0735-4be6-a46c-851935303e30</value>
+				<value>GUID 4421c3d7-5312-4385-81d9-04659634e259</value>
+				<value>GUID fda244de-abda-40bf-9345-697e7dac72cb</value>
+				<value>GUID c5aaf04a-4b8f-4a12-b24a-98131fed7230</value>
+				<value>GUID 8dab5a01-736c-458a-a336-4446e4e93588</value>
+				<value>GUID 3c92853c-57f2-47e6-90ca-c4416877e7ff</value>
+				<value>GUID b55cca24-338f-4ebb-89fd-ae780cff2da4</value>
+			</AggregatesList>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<_id type="a">GUID 9a45b27b-8b68-4755-b5b2-2f1ba828ea3c</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234559_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2420</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::19:57:33</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID bcb35717-0fc9-4155-9f15-9e902bc23326</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID ddc4f47d-0688-48a6-a39d-f1bdf28b3f64</value>
+				<value>GUID bcb35717-0fc9-4155-9f15-9e902bc23326</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID ddc4f47d-0688-48a6-a39d-f1bdf28b3f64</_id>
+			<_rmmServerID type="a">9234502_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2420</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::19:57:33</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID bcb35717-0fc9-4155-9f15-9e902bc23326</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">9234402_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID b468bc5d-29a3-4ff8-9d3b-a95cd6c833b6</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234790_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+<_name type="a">ST_2410</_name>
+<_modifiedTimeWeak type="a">11.8.2022::7:50:45</_modifiedTimeWeak>
+<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+<_lastID type="a">1</_lastID>
+<weakCGTime type="a">11.8.2022::7:50:45</weakCGTime>
+<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+<_defaultComposite type="s">GUID 3e4840d8-c493-44aa-83f3-5f31f1703501</_defaultComposite>
+<_eventsBaseID type="a">-1</_eventsBaseID>
+<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+<AggregatesList type="e">
+<value>GUID 37858932-1a2c-4c6b-a190-91c33569ef6a</value>
+<value>GUID 3e4840d8-c493-44aa-83f3-5f31f1703501</value>
+<value>GUID bb66db2d-f7cb-4005-8ab4-953850dbd856</value>
+</AggregatesList>
+		</ISubsystem>
+			<ISubsystem type="e">
+			<_id type="a">GUID bb66db2d-f7cb-4005-8ab4-953850dbd856</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">10425286_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+<_name type="a">ST_AAAAAAAAAAAAAAAA</_name>
+<_modifiedTimeWeak type="a">Tue Nov  8 15:18:26 2022</_modifiedTimeWeak>
+<_modifiedTime type="a">Tue Nov  8 15:18:26 2022</_modifiedTime>
+<_lastID type="a">1</_lastID>
+<weakCGTime type="a">Tue Nov  8 15:18:26 2022</weakCGTime>
+<strongCGTime type="a">Tue Nov  8 15:18:26 2022</strongCGTime>
+<_defaultComposite type="s">GUID 7898160f-a9b6-4ef7-96f6-8eef88f37de4</_defaultComposite>
+<_eventsBaseID type="a">-1</_eventsBaseID>
+<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+<AggregatesList type="e">
+<value>GUID 7898160f-a9b6-4ef7-96f6-8eef88f37de4</value>
+<value>GUID 8dc3afc9-4f3a-4550-a399-085c9e9a58bd</value>
+<value>GUID 8dc3afc9-4f3a-4550-a399-085c9e9a58bd</value>
+</AggregatesList>
+		</ISubsystem>
+			<IClass type="e">
+			<_id type="a">GUID 8dc3afc9-4f3a-4550-a399-085c9e9a58bd</_id>
+			<_rmmServerID type="a">10425300_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">AAAAAAAAAAAAAAAA</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">Tue Nov  8 15:18:26 2022</_modifiedTimeWeak>
+			<_modifiedTime type="a">Tue Nov  8 15:18:26 2022</_modifiedTime>
+			<weakCGTime type="a">Tue Nov  8 15:18:26 2022</weakCGTime>
+			<strongCGTime type="a">Tue Nov  8 15:18:26 2022</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList>
+			</AggregatesList>
+		</IClass>
+
+
+		<IClass type="e">
+			<_id type="a">GUID 7898160f-a9b6-4ef7-96f6-8eef88f37de4</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">10425274_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">Tue Nov  8 15:18:26 2022</_modifiedTimeWeak>
+			<_modifiedTime type="a">Tue Nov  8 15:18:26 2022</_modifiedTime>
+			<weakCGTime type="a">Tue Nov  8 15:18:26 2022</weakCGTime>
+			<strongCGTime type="a">Tue Nov  8 15:18:26 2022</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+
+
+		<IClass type="e">
+			<_id type="a">GUID 37858932-1a2c-4c6b-a190-91c33569ef6a</_id>
+			<_rmmServerID type="a">9234716_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+<_name type="a">BL_HBGR_2410</_name>
+<Stereotypes type="c">
+<IRPYRawContainer type="e">
+
+<IHandle type="e">
+<_hm2Class type="a">IStereotype</_hm2Class>
+<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+<_hname type="a">Block</_hname>
+<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+</IHandle>
+
+</IRPYRawContainer>
+</Stereotypes>
+<_modifiedTimeWeak type="a">11.8.2022::8:9:51</_modifiedTimeWeak>
+<_theMainDiagram type="r">
+<IHandle type="e">
+<_hm2Class type="a">IDiagram</_hm2Class>
+<_hfilename type="a">.\block_definition_diagram_1.omdx</_hfilename>
+<_hsubsystem type="a">Diagrams</_hsubsystem>
+<_hname type="a">block definition diagram_1</_hname>
+<_hid type="a">GUID 3ebb7863-5c98-46c0-8593-a7b467b259ea</_hid>
+</IHandle>
+</_theMainDiagram>
+<_modifiedTime type="a">11.8.2022::8:9:51</_modifiedTime>
+<weakCGTime type="a">11.8.2022::8:9:51</weakCGTime>
+<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+<_itsStateChart type="r">
+<IHandle type="e">
+</IHandle>
+</_itsStateChart>
+<_classModifier type="a">Unspecified</_classModifier>
+<AggregatesList type="e">
+<value>GUID 6a41536d-491a-44ff-9540-1fafc6a9b917</value>
+<value>GUID 5208bdee-442c-4133-b302-6ac6264eb807</value>
+<value>GUID 0237216c-c230-4ddb-94eb-6fc9ba6cd161</value>
+</AggregatesList>
+		</IClass>
+			<IPart type="e">
+			<_id type="a">GUID 0237216c-c230-4ddb-94eb-6fc9ba6cd161</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">10425722_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">PT_AAAAAAAAAAAAAAAA</_name>
+			<_modifiedTimeWeak type="a">Tue Nov  8 15:18:26 2022</_modifiedTimeWeak>
+			<_modifiedTime type="a">Tue Nov  8 15:18:26 2022</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 8dc3afc9-4f3a-4550-a399-085c9e9a58bd</_hid>
+					<_hrmmServerID type="a">10425300_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+
+
+		<IPort type="e">
+			<_id type="a">GUID 6a41536d-491a-44ff-9540-1fafc6a9b917</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">10425417_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">kerim</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\IF_Software.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Interfaces::IF_Software</_hsubsystem>
+					<_hid type="a"></_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
+		<IPart type="e">
+			<_id type="a">GUID 5208bdee-442c-4133-b302-6ac6264eb807</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">10425371_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">PT_BGR_2412</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 16a68bce-543e-477a-9168-1b2943c424bd</_hid>
+					<_hrmmServerID type="a">10425723_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IClass type="e">
+			<_id type="a">GUID 3e4840d8-c493-44aa-83f3-5f31f1703501</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">9234610_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID 85295768-a39e-46f5-9fde-bed9badee838</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">10425691_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2412</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 289a2d3d-dd04-45a4-b74a-dfb5efc8c0fb</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 16a68bce-543e-477a-9168-1b2943c424bd</value>
+				<value>GUID 289a2d3d-dd04-45a4-b74a-dfb5efc8c0fb</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 16a68bce-543e-477a-9168-1b2943c424bd</_id>
+			<_rmmServerID type="a">10425723_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_BGR_2412</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID 289a2d3d-dd04-45a4-b74a-dfb5efc8c0fb</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">10425536_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID 8c4e7dab-403f-4c0c-9494-079aab0e7b38</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234426_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2490</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 715b7f08-8fd4-4001-bd43-2d194088ec5d</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 471f2229-5bfa-4035-b00d-18ca56104f2a</value>
+				<value>GUID 715b7f08-8fd4-4001-bd43-2d194088ec5d</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 471f2229-5bfa-4035-b00d-18ca56104f2a</_id>
+			<_rmmServerID type="a">9234407_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2490</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID 715b7f08-8fd4-4001-bd43-2d194088ec5d</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">9234680_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID 6fb9f37f-e198-44e6-a94b-4379433b20ee</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234653_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2480</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::9:10:4</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 64a97022-1a4a-4630-bba1-a670adac45c0</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 818fb615-c825-4fe2-9d60-46c498996d4b</value>
+				<value>GUID 64a97022-1a4a-4630-bba1-a670adac45c0</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 818fb615-c825-4fe2-9d60-46c498996d4b</_id>
+			<_rmmServerID type="a">9234735_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2480</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">.\MBGrV.sbsx</_hfilename>
+							<_hsubsystem type="a">NVL_Profile::Blocks::MBGrV::_2000::_2400</_hsubsystem>
+							<_hname type="a">2480_Zusatzeinrichtungen_fuer_Propellermotoren</_hname>
+							<_hid type="a">GUID 962dae89-9ec1-48f7-afdd-9fb02cff5bfb</_hid>
+							<_hrmmServerID type="a">8715949_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IDiagram</_hm2Class>
+					<_hfilename type="a">.\block_definition_diagram_1.omdx</_hfilename>
+					<_hsubsystem type="a">Diagrams</_hsubsystem>
+					<_hname type="a">block definition diagram_1</_hname>
+					<_hid type="a">GUID 3ebb7863-5c98-46c0-8593-a7b467b259ea</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">10.27.2022::16:48:55</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 6eb3fcf8-ee58-47ba-9a03-5d03111962cd</value>
+			</AggregatesList>
+		</IClass>
+		<IPort type="e">
+			<_id type="a">GUID 6eb3fcf8-ee58-47ba-9a03-5d03111962cd</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234788_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">portB</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">10.27.2022::9:10:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::9:10:47</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\IF_Mechanik.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Interfaces::IF_Mechanik</_hsubsystem>
+					<_hname type="a">IB_Welle</_hname>
+					<_hid type="a">GUID ec6b8fab-24ca-441b-ba30-171ef46577ce</_hid>
+					<_hrmmServerID type="a">8715852_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
+		<IClass type="e">
+			<_id type="a">GUID 64a97022-1a4a-4630-bba1-a670adac45c0</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">9234297_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID 55c3cf42-0735-4be6-a46c-851935303e30</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234182_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2460</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.20.2022::13:1:51</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 39bcf14e-7182-45dc-8c94-420d48a3f3c6</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 1bba19ac-e270-4971-8321-7b7c71c45aa4</value>
+				<value>GUID 39bcf14e-7182-45dc-8c94-420d48a3f3c6</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 1bba19ac-e270-4971-8321-7b7c71c45aa4</_id>
+			<_rmmServerID type="a">9234183_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2460</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.20.2022::13:1:51</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID 39bcf14e-7182-45dc-8c94-420d48a3f3c6</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">9234417_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID 4421c3d7-5312-4385-81d9-04659634e259</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">7329456_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2450</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::9:10:47</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 640ea5f1-5930-4521-9a5e-4c222498cf7d</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 1d125ed1-2c27-4f28-9617-1d7db06b8625</value>
+				<value>GUID 640ea5f1-5930-4521-9a5e-4c222498cf7d</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 1d125ed1-2c27-4f28-9617-1d7db06b8625</_id>
+			<_rmmServerID type="a">7329161_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2450</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">.\MBGrV.sbsx</_hfilename>
+							<_hsubsystem type="a">NVL_Profile::Blocks::MBGrV::_2000::_2400</_hsubsystem>
+							<_hname type="a">2450_Fahrbatterie_mit_Zubehoer</_hname>
+							<_hid type="a">GUID 6961fe86-98d4-42ad-9f1f-52590d1efb95</_hid>
+							<_hrmmServerID type="a">8715950_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.24.2022::11:42:46</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID ff5f47ca-27e5-4ad0-92a0-a7db6c24a12a</value>
+			</AggregatesList>
+		</IClass>
+		<IPort type="e">
+			<_id type="a">GUID ff5f47ca-27e5-4ad0-92a0-a7db6c24a12a</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">7328956_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">portABCD</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">10.13.2022::9:20:22</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::9:20:22</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\IF_Mechanik.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Interfaces::IF_Mechanik</_hsubsystem>
+					<_hname type="a">IB_Welle</_hname>
+					<_hid type="a">GUID ec6b8fab-24ca-441b-ba30-171ef46577ce</_hid>
+					<_hrmmServerID type="a">8715852_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
+		<IClass type="e">
+			<_id type="a">GUID 640ea5f1-5930-4521-9a5e-4c222498cf7d</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">7329254_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID fda244de-abda-40bf-9345-697e7dac72cb</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">7329324_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2430</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::7:35:59</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 209b1be3-b887-46c9-8595-8614d3cab0f4</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID c5050b75-87ce-47be-a68e-e2b341a773b1</value>
+				<value>GUID 209b1be3-b887-46c9-8595-8614d3cab0f4</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID c5050b75-87ce-47be-a68e-e2b341a773b1</_id>
+			<_rmmServerID type="a">7329366_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2430</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">.\MBGrV.sbsx</_hfilename>
+							<_hsubsystem type="a">NVL_Profile::Blocks::MBGrV::_2000::_2400</_hsubsystem>
+							<_hname type="a">2430_Stromerzeugungs_Aggregate_fuer_Antrieb</_hname>
+							<_hid type="a">GUID 7757abe3-8901-43d0-b1ce-aca11636e06a</_hid>
+							<_hrmmServerID type="a">8715943_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::7:47:0</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 3e1e7c2b-1aa8-4354-9ce2-1d8281b653b3</value>
+			</AggregatesList>
+		</IClass>
+		<IPort type="e">
+			<_id type="a">GUID 3e1e7c2b-1aa8-4354-9ce2-1d8281b653b3</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">7329422_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">portABC</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">10.13.2022::7:46:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::7:46:6</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\IF_Mechanik.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Interfaces::IF_Mechanik</_hsubsystem>
+					<_hname type="a">IB_Welle</_hname>
+					<_hid type="a">GUID ec6b8fab-24ca-441b-ba30-171ef46577ce</_hid>
+					<_hrmmServerID type="a">8715852_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
+		<IClass type="e">
+			<_id type="a">GUID 209b1be3-b887-46c9-8595-8614d3cab0f4</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">7329147_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<ISubsystem type="e">
+			<_id type="a">GUID c5aaf04a-4b8f-4a12-b24a-98131fed7230</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8715574_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2440</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_description type="p"><IDescription type="e">
+				<_text type="a">xxxx</_text>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">11.3.2022::13:44:18</_modifiedTime>
+			<_lastID type="a">2</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 270c1368-989c-4951-850f-3d6e49963c63</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">3.30.2022::12:22:11</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 81b7db61-d9db-46bc-9655-95bf873c86b3</value>
+				<value>GUID 270c1368-989c-4951-850f-3d6e49963c63</value>
+				<value>GUID add6c4bb-9a74-4bd1-ba9d-cf796a40400a</value>
+			</AggregatesList>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<_id type="a">GUID 81b7db61-d9db-46bc-9655-95bf873c86b3</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234477_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">ST_2441</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_defaultComposite type="s">GUID 780ff463-0dda-4d93-833d-5f278a82576a</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 152db08d-3535-4d58-b389-4690d4f37f51</value>
+				<value>GUID 780ff463-0dda-4d93-833d-5f278a82576a</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 152db08d-3535-4d58-b389-4690d4f37f51</_id>
+			<_rmmServerID type="a">9234330_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_BGR_2441</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">.\MBGrV.sbsx</_hfilename>
+							<_hsubsystem type="a">NVL_Profile::Blocks::MBGrV::_2000::_2400::_2440</_hsubsystem>
+							<_hname type="a">2441_Haupt_und_Fahrnetzschaltanlage</_hname>
+							<_hid type="a">GUID e28a94d9-5b22-4d33-a537-7225cf969a08</_hid>
+							<_hrmmServerID type="a">8715881_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.3.2022::13:25:28</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 4e544405-a86a-4ba6-a68f-df78dbfc0847</value>
+				<value>GUID 5de33e66-eba0-419f-86ae-a126ca9e3859</value>
+			</AggregatesList>
+		</IClass>
+		<IPort type="e">
+			<_id type="a">GUID 4e544405-a86a-4ba6-a68f-df78dbfc0847</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234480_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">portB</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\IF_Mechanik.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Interfaces::IF_Mechanik</_hsubsystem>
+					<_hname type="a">IB_Welle</_hname>
+					<_hid type="a">GUID ec6b8fab-24ca-441b-ba30-171ef46577ce</_hid>
+					<_hrmmServerID type="a">8715852_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
+		<IPort type="e">
+			<_id type="a">GUID 5de33e66-eba0-419f-86ae-a126ca9e3859</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">9234241_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">portA</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\IF_Mechanik.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Interfaces::IF_Mechanik</_hsubsystem>
+					<_hname type="a">IB_Welle</_hname>
+					<_hid type="a">GUID ec6b8fab-24ca-441b-ba30-171ef46577ce</_hid>
+					<_hrmmServerID type="a">8715852_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
+		<IClass type="e">
+			<_id type="a">GUID 780ff463-0dda-4d93-833d-5f278a82576a</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">9234371_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.9.2022::9:47:2</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID 270c1368-989c-4951-850f-3d6e49963c63</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">8715575_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">3.25.2022::9:17:26</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID add6c4bb-9a74-4bd1-ba9d-cf796a40400a</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8715978_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_HBGR_2440</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">.\MBGrV.sbsx</_hfilename>
+							<_hsubsystem type="a">NVL_Profile::Blocks::MBGrV::_2000::_2400</_hsubsystem>
+							<_hname type="a">2440_Schaltanlagen_fuer_E_Anlagen_des_Antriebs</_hname>
+							<_hid type="a">GUID 62efa184-67d1-4991-8a42-e860a75ad5b6</_hid>
+							<_hrmmServerID type="a">8715946_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_description type="p"><IDescription type="e">
+				<_text type="a">zdfg</_text>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">11.3.2022::13:35:39</_modifiedTime>
+			<_lastID type="a">2</_lastID>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID a7217748-0e95-4fc5-9b52-a49b4539991f</value>
+				<value>GUID bbfc404c-9aa5-47da-86ac-16724f720600</value>
+			</AggregatesList>
+		</IClass>
+		<IPort type="e">
+			<_id type="a">GUID a7217748-0e95-4fc5-9b52-a49b4539991f</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8715977_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">Schnittstelle_Ladedose</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">3.30.2022::12:22:11</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.12.2022::6:30:26</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID ed5ca607-fe31-4d64-9265-72d2247e6efa</_hid>
+					<_hrmmServerID type="a">8715979_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_implicitClass type="p"><IClass type="e">
+				<_id type="a">GUID ed5ca607-fe31-4d64-9265-72d2247e6efa</_id>
+				<_myState type="a">10240</_myState>
+				<_rmmServerID type="a">8715979_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+				<_name type="a">Schnittstelle_Ladedose_implicitContract</_name>
+				<Stereotypes type="c">
+					<IRPYRawContainer type="e">
+						
+							<IHandle type="e">
+								<_hm2Class type="a">IStereotype</_hm2Class>
+								<_hsubsystem type="a">PredefinedTypes</_hsubsystem>
+								<_hname type="a">Interface</_hname>
+								<_hid type="a">GUID 2a7b8a63-f54f-4379-bab0-02800a5084e1</_hid>
+							</IHandle>
+						
+					</IRPYRawContainer>
+				</Stereotypes>
+				<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+				<_modifiedTime type="a">3.30.2022::12:22:11</_modifiedTime>
+				<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+				<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+				<_itsStateChart type="r">
+					<IHandle type="e">
+					</IHandle>
+				</_itsStateChart>
+				<_classModifier type="a">Unspecified</_classModifier>
+			</IClass>
+			</_implicitClass>
+		</IPort>
+		<IPart type="e">
+			<_id type="a">GUID bbfc404c-9aa5-47da-86ac-16724f720600</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9234205_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">PT_BGR_2441</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 152db08d-3535-4d58-b389-4690d4f37f51</_hid>
+					<_hrmmServerID type="a">9234330_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<ISubsystem type="e">
+			<fileName type="a">ST_2470</fileName>
+			<_id type="a">GUID 8dab5a01-736c-458a-a336-4446e4e93588</_id>
+			<_rmmServerID type="a">8716105_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 3c92853c-57f2-47e6-90ca-c4416877e7ff</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">8716046_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_modifiedTime type="a">3.25.2022::9:17:26</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IClass type="e">
+			<_id type="a">GUID b55cca24-338f-4ebb-89fd-ae780cff2da4</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8715682_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">BL_BA_2400</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">Block</_hname>
+							<_hid type="a">GUID f685432f-691e-4ff1-be70-4d09d19457e1</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">.\MBGrV.sbsx</_hfilename>
+							<_hsubsystem type="a">NVL_Profile::Blocks::MBGrV::_2000</_hsubsystem>
+							<_hname type="a">2400_Elektrische_Anlagen_fuer_Antrieb</_hname>
+							<_hid type="a">GUID 70d4e26d-70a9-42d7-9677-b8e8c311933c</_hid>
+							<_hrmmServerID type="a">8715969_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">11.8.2022::7:48:28</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IDiagram</_hm2Class>
+					<_hfilename type="a">.\SB_HBA_2000.omdx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_SETitanic_Breakdown::SB_X000_HBA</_hsubsystem>
+					<_hname type="a">SB_HBA_2000</_hname>
+					<_hid type="a">GUID cd349b05-2a59-4d3a-a5da-f36f857cb1c9</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">10.27.2022::16:51:24</_modifiedTime>
+			<weakCGTime type="a">11.8.2022::7:48:28</weakCGTime>
+			<strongCGTime type="a">11.8.2022::7:48:28</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID dd7a79a7-30ab-4170-a808-62cf753a1b5a</value>
+				<value>GUID 38e66270-d855-4d50-b410-be17980dd0d6</value>
+				<value>GUID 05aeedc3-8624-4c2f-a772-2d4e06239412</value>
+				<value>GUID db71e1aa-34ca-4155-ab96-78b34fd4ffbd</value>
+				<value>GUID 9647b397-6b33-4bea-bd4d-ca5ac97a6ace</value>
+				<value>GUID 571a5a41-c86f-44e7-94eb-40553c706c1d</value>
+				<value>GUID 94cf3881-9941-43af-9916-c513b119f052</value>
+				<value>GUID d11cb314-0e6b-4e08-befe-a01d7574c677</value>
+				<value>GUID a56477f5-1c92-41c0-95ea-649360781ea3</value>
+				<value>GUID 14c239fa-a8f3-4c6f-9522-8f5bb26ac04d</value>
+			</AggregatesList>
+		</IClass>
+		<IPart type="e">
+			<_id type="a">GUID dd7a79a7-30ab-4170-a808-62cf753a1b5a</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9234688_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2420</_name>
+			<_modifiedTimeWeak type="a">10.27.2022::19:57:33</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::19:57:33</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID ddc4f47d-0688-48a6-a39d-f1bdf28b3f64</_hid>
+					<_hrmmServerID type="a">9234502_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID 38e66270-d855-4d50-b410-be17980dd0d6</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9234302_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2410</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 37858932-1a2c-4c6b-a190-91c33569ef6a</_hid>
+					<_hrmmServerID type="a">9234716_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID 05aeedc3-8624-4c2f-a772-2d4e06239412</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9234437_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2490</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::16:24:15</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 471f2229-5bfa-4035-b00d-18ca56104f2a</_hid>
+					<_hrmmServerID type="a">9234407_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID db71e1aa-34ca-4155-ab96-78b34fd4ffbd</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9234541_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2460</_name>
+			<_modifiedTimeWeak type="a">10.20.2022::13:1:51</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.20.2022::13:1:51</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 1bba19ac-e270-4971-8321-7b7c71c45aa4</_hid>
+					<_hrmmServerID type="a">9234183_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID 9647b397-6b33-4bea-bd4d-ca5ac97a6ace</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">7328990_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2450</_name>
+			<_modifiedTimeWeak type="a">10.13.2022::9:10:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::9:10:47</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 1d125ed1-2c27-4f28-9617-1d7db06b8625</_hid>
+					<_hrmmServerID type="a">7329161_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID 571a5a41-c86f-44e7-94eb-40553c706c1d</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">7329362_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2430</_name>
+			<_modifiedTimeWeak type="a">10.13.2022::7:35:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.13.2022::7:35:59</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID c5050b75-87ce-47be-a68e-e2b341a773b1</_hid>
+					<_hrmmServerID type="a">7329366_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID 94cf3881-9941-43af-9916-c513b119f052</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8715774_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">PT_HBGR_2440</_name>
+			<_modifiedTimeWeak type="a">10.12.2022::7:10:45</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.12.2022::7:10:45</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID add6c4bb-9a74-4bd1-ba9d-cf796a40400a</_hid>
+					<_hrmmServerID type="a">8715978_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID d11cb314-0e6b-4e08-befe-a01d7574c677</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">8715683_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">PT_HBGR_2470</_name>
+			<_modifiedTimeWeak type="a">3.25.2022::11:32:10</_modifiedTimeWeak>
+			<_modifiedTime type="a">3.25.2022::11:32:10</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\ST_2470.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_XYZ_Struktur::ST_Systems::ST_2000::ST_2400::ST_2470</_hsubsystem>
+					<_hname type="a">BL_HBGR_2470</_hname>
+					<_hid type="a">GUID f5746502-de3f-4901-bfb2-a3a4f63bfb2c</_hid>
+					<_hrmmServerID type="a">8715733_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IPart type="e">
+			<_id type="a">GUID a56477f5-1c92-41c0-95ea-649360781ea3</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9570861_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">itsBL_HBGR_2480</_name>
+			<_modifiedTimeWeak type="a">10.27.2022::16:51:24</_modifiedTimeWeak>
+			<_modifiedTime type="a">10.27.2022::16:51:24</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">GUID 818fb615-c825-4fe2-9d60-46c498996d4b</_hid>
+					<_hrmmServerID type="a">9234735_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>
+		<IObjectLink type="e">
+			<_id type="a">GUID 14c239fa-a8f3-4c6f-9522-8f5bb26ac04d</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">9234278_iOjfYfj9Eeyg2Yb4jthRGQ</_rmmServerID>
+			<_name type="a">PT_HBGR_2440_PT_BGR_2441</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">connector</_hname>
+							<_hid type="a">GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<_toLink type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPart</_hm2Class>
+					<_hid type="a">GUID bbfc404c-9aa5-47da-86ac-16724f720600</_hid>
+					<_hrmmServerID type="a">9234205_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IHandle>
+			</_toLink>
+			<_fromLink type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPart</_hm2Class>
+					<_hid type="a">GUID 94cf3881-9941-43af-9916-c513b119f052</_hid>
+					<_hrmmServerID type="a">8715774_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IHandle>
+			</_fromLink>
+			<_instantiates type="r">
+				<IMetaLinkHandle type="e">
+				</IMetaLinkHandle>
+			</_instantiates>
+			<_end1Multiplicity type="a">1</_end1Multiplicity>
+			<_end2Multiplicity type="a">1</_end2Multiplicity>
+			<_toPort type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPort</_hm2Class>
+					<_hid type="a">GUID 5de33e66-eba0-419f-86ae-a126ca9e3859</_hid>
+					<_hrmmServerID type="a">9234241_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IHandle>
+			</_toPort>
+			<_fromPort type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPort</_hm2Class>
+					<_hid type="a">GUID a7217748-0e95-4fc5-9b52-a49b4539991f</_hid>
+					<_hrmmServerID type="a">8715977_iOjfYfj9Eeyg2Yb4jthRGQ</_hrmmServerID>
+				</IHandle>
+			</_fromPort>
+		</IObjectLink>
+		
+	</RHAPSODY-MODEL>
+<RHAPSODY-INDEX>
+		<ELEMENT>
+			<ID>8716045_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 5927283b-789a-4d0b-9c2d-2ffb26f3383d</RHP-ID>
+			<NAME>ST_2400</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/11/8 8:9:57</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:8715682_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234559_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234790_iOjfYfj9Eeyg2Yb4jthRGQ | I:10425691_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234426_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234653_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234182_iOjfYfj9Eeyg2Yb4jthRGQ | I:7329456_iOjfYfj9Eeyg2Yb4jthRGQ | I:7329324_iOjfYfj9Eeyg2Yb4jthRGQ | I:8715574_iOjfYfj9Eeyg2Yb4jthRGQ | L:8716105_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234559_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 9a45b27b-8b68-4755-b5b2-2f1ba828ea3c</RHP-ID>
+			<NAME>ST_2420</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 19:57:33</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234502_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234502_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID ddc4f47d-0688-48a6-a39d-f1bdf28b3f64</RHP-ID>
+			<NAME>BL_HBGR_2420</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 19:57:33</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234790_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID b468bc5d-29a3-4ff8-9d3b-a95cd6c833b6</RHP-ID>
+			<NAME>ST_2410</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+<AGGREGATES>I:10425286_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234716_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>10425286_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID bb66db2d-f7cb-4005-8ab4-953850dbd856</RHP-ID>
+			<NAME>ST_AAAAAAAAAAAAAAAA</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>Tue Nov  8 15:18:26 2022</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:10425300_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+			</REFERENCES>
+		</ELEMENT>
+		<ELEMENT>
+			<ID>10425300_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 8dc3afc9-4f3a-4550-a399-085c9e9a58bd</RHP-ID>
+			<NAME>AAAAAAAAAAAAAAAA</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>Tue Nov  8 15:18:26 2022</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+
+
+
+
+		<ELEMENT>
+			<ID>9234716_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 37858932-1a2c-4c6b-a190-91c33569ef6a</RHP-ID>
+			<NAME>BL_HBGR_2410</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/11/8 8:9:51</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:10425371_iOjfYfj9Eeyg2Yb4jthRGQ | I:10425417_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>10425417_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 6a41536d-491a-44ff-9540-1fafc6a9b917</RHP-ID>
+			<NAME>kerim</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ELEMENT>
+						<TYPE>Class</TYPE>
+					</VALUE-ELEMENT>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>10425371_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 5208bdee-442c-4133-b302-6ac6264eb807</RHP-ID>
+			<NAME>PT_BGR_2412</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>10425723_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>10425691_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 85295768-a39e-46f5-9fde-bed9badee838</RHP-ID>
+			<NAME>ST_2412</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:10425723_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>10425723_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 16a68bce-543e-477a-9168-1b2943c424bd</RHP-ID>
+			<NAME>BL_BGR_2412</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234426_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 8c4e7dab-403f-4c0c-9494-079aab0e7b38</RHP-ID>
+			<NAME>ST_2490</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234407_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234407_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 471f2229-5bfa-4035-b00d-18ca56104f2a</RHP-ID>
+			<NAME>BL_HBGR_2490</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234653_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 6fb9f37f-e198-44e6-a94b-4379433b20ee</RHP-ID>
+			<NAME>ST_2480</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 9:10:4</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234735_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234735_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 818fb615-c825-4fe2-9d60-46c498996d4b</RHP-ID>
+			<NAME>BL_HBGR_2480</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 16:48:55</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234788_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+						<VALUE-ID>8715949_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234788_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 6eb3fcf8-ee58-47ba-9a03-5d03111962cd</RHP-ID>
+			<NAME>portB</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 9:10:47</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ID>8715852_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>9234182_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 55c3cf42-0735-4be6-a46c-851935303e30</RHP-ID>
+			<NAME>ST_2460</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/20 13:1:51</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234183_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234183_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 1bba19ac-e270-4971-8321-7b7c71c45aa4</RHP-ID>
+			<NAME>BL_HBGR_2460</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/20 13:1:51</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7329456_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 4421c3d7-5312-4385-81d9-04659634e259</RHP-ID>
+			<NAME>ST_2450</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 9:10:47</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:7329161_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7329161_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 1d125ed1-2c27-4f28-9617-1d7db06b8625</RHP-ID>
+			<NAME>BL_HBGR_2450</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/24 11:42:46</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:7328956_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+						<VALUE-ID>8715950_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7328956_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID ff5f47ca-27e5-4ad0-92a0-a7db6c24a12a</RHP-ID>
+			<NAME>portABCD</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 9:20:22</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ID>8715852_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>7329324_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID fda244de-abda-40bf-9345-697e7dac72cb</RHP-ID>
+			<NAME>ST_2430</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 7:35:59</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:7329366_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7329366_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID c5050b75-87ce-47be-a68e-e2b341a773b1</RHP-ID>
+			<NAME>BL_HBGR_2430</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 7:47:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:7329422_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+						<VALUE-ID>8715943_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7329422_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 3e1e7c2b-1aa8-4354-9ce2-1d8281b653b3</RHP-ID>
+			<NAME>portABC</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 7:46:6</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ID>8715852_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>8715574_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID c5aaf04a-4b8f-4a12-b24a-98131fed7230</RHP-ID>
+			<NAME>ST_2440</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/11/3 13:44:18</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:8715978_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234477_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES>
+			<DESCRIPTION>
+				<PLAIN-TEXT>xxxx</PLAIN-TEXT>
+			</DESCRIPTION></ELEMENT>
+		<ELEMENT>
+			<ID>9234477_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 81b7db61-d9db-46bc-9655-95bf873c86b3</RHP-ID>
+			<NAME>ST_2441</NAME>
+			<TYPE>Package</TYPE>
+			<DISPLAY-TYPE>Package</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Packages</DISPLAY-GROUP>
+			<BROWSER-ICON>Package~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Package~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234330_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES></REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234330_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 152db08d-3535-4d58-b389-4690d4f37f51</RHP-ID>
+			<NAME>BL_BGR_2441</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/11/3 13:25:28</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234480_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234241_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+						<VALUE-ID>8715881_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234480_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 4e544405-a86a-4ba6-a68f-df78dbfc0847</RHP-ID>
+			<NAME>portB</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ID>8715852_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>9234241_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 5de33e66-eba0-419f-86ae-a126ca9e3859</RHP-ID>
+			<NAME>portA</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ID>8715852_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>8715978_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID add6c4bb-9a74-4bd1-ba9d-cf796a40400a</RHP-ID>
+			<NAME>BL_HBGR_2440</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/11/3 13:35:39</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234205_iOjfYfj9Eeyg2Yb4jthRGQ | I:8715977_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+						<VALUE-ID>8715946_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES>
+			<DESCRIPTION>
+				<PLAIN-TEXT>zdfg</PLAIN-TEXT>
+			</DESCRIPTION></ELEMENT>
+		<ELEMENT>
+			<ID>8715977_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID a7217748-0e95-4fc5-9b52-a49b4539991f</RHP-ID>
+			<NAME>Schnittstelle_Ladedose</NAME>
+			<TYPE>Port</TYPE>
+			<DISPLAY-TYPE>ProxyPort</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Proxy Ports</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/12 6:30:26</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>proxyPort</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<OF-TYPE>
+					<VALUE-ELEMENT>
+						<NAME>Schnittstelle_Ladedose_implicitContract</NAME>
+						<TYPE>Interface</TYPE>
+					</VALUE-ELEMENT>
+				</OF-TYPE>
+			</REFERENCES>
+			<ADDITIONAL-PROPERTIES>
+				<PORT-CONJUGATED>False</PORT-CONJUGATED>
+			</ADDITIONAL-PROPERTIES></ELEMENT>
+		<ELEMENT>
+			<ID>9234205_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID bbfc404c-9aa5-47da-86ac-16724f720600</RHP-ID>
+			<NAME>PT_BGR_2441</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>9234330_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>8715682_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID b55cca24-338f-4ebb-89fd-ae780cff2da4</RHP-ID>
+			<NAME>BL_BA_2400</NAME>
+			<TYPE>Class</TYPE>
+			<DISPLAY-TYPE>Block</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Blocks</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 16:51:24</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES>I:9234688_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234302_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234437_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234541_iOjfYfj9Eeyg2Yb4jthRGQ | I:7328990_iOjfYfj9Eeyg2Yb4jthRGQ | I:7329362_iOjfYfj9Eeyg2Yb4jthRGQ | I:8715774_iOjfYfj9Eeyg2Yb4jthRGQ | I:8715683_iOjfYfj9Eeyg2Yb4jthRGQ | I:9570861_iOjfYfj9Eeyg2Yb4jthRGQ | I:9234278_iOjfYfj9Eeyg2Yb4jthRGQ</AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>Block</NAME>
+						</VALUE-ELEMENT>
+						<VALUE-ID>8715969_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234688_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID dd7a79a7-30ab-4170-a808-62cf753a1b5a</RHP-ID>
+			<NAME>itsBL_HBGR_2420</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 19:57:33</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>9234502_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234302_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 38e66270-d855-4d50-b410-be17980dd0d6</RHP-ID>
+			<NAME>itsBL_HBGR_2410</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>9234716_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234437_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 05aeedc3-8624-4c2f-a772-2d4e06239412</RHP-ID>
+			<NAME>itsBL_HBGR_2490</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 16:24:15</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>9234407_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234541_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID db71e1aa-34ca-4155-ab96-78b34fd4ffbd</RHP-ID>
+			<NAME>itsBL_HBGR_2460</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/20 13:1:51</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>9234183_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7328990_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 9647b397-6b33-4bea-bd4d-ca5ac97a6ace</RHP-ID>
+			<NAME>itsBL_HBGR_2450</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 9:10:47</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>7329161_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>7329362_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 571a5a41-c86f-44e7-94eb-40553c706c1d</RHP-ID>
+			<NAME>itsBL_HBGR_2430</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/13 7:35:59</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>7329366_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>8715774_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 94cf3881-9941-43af-9916-c513b119f052</RHP-ID>
+			<NAME>PT_HBGR_2440</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/12 7:10:45</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>8715978_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>8715683_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID d11cb314-0e6b-4e08-befe-a01d7574c677</RHP-ID>
+			<NAME>PT_HBGR_2470</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/3/25 11:32:10</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>8715733_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9570861_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID a56477f5-1c92-41c0-95ea-649360781ea3</RHP-ID>
+			<NAME>itsBL_HBGR_2480</NAME>
+			<TYPE>Object</TYPE>
+			<DISPLAY-TYPE>Part</DISPLAY-TYPE>
+			<DISPLAY-GROUP>Parts</DISPLAY-GROUP>
+			<BROWSER-ICON>Part~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>Part~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>2022/10/27 16:51:24</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<OF-TYPE>
+					<VALUE-ID>9234735_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</OF-TYPE>
+			</REFERENCES></ELEMENT>
+		<ELEMENT>
+			<ID>9234278_iOjfYfj9Eeyg2Yb4jthRGQ</ID>
+			<RHP-ID>GUID 14c239fa-a8f3-4c6f-9522-8f5bb26ac04d</RHP-ID>
+			<NAME>PT_HBGR_2440_PT_BGR_2441</NAME>
+			<TYPE>Link</TYPE>
+			<DISPLAY-TYPE>connector</DISPLAY-TYPE>
+			<DISPLAY-GROUP>connectors</DISPLAY-GROUP>
+			<BROWSER-ICON>GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55~ALL~BrowserIcon</BROWSER-ICON>
+			<GROUP-ICON>GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55~ALL~GroupIcon</GROUP-ICON>
+			<IS-TOP-LEVEL>false</IS-TOP-LEVEL>
+			<MODIFIED-TIME-UTC>1990/1/2 0:0:0</MODIFIED-TIME-UTC>
+			<VIEW-PARENTS></VIEW-PARENTS>
+			<VIEW-CHILDREN></VIEW-CHILDREN>
+			<AGGREGATES></AGGREGATES>
+			<REFERENCES>
+				<APPLIED-STEREOTYPES>
+					<FIRST-IS-NEW-TERM>TRUE</FIRST-IS-NEW-TERM>
+					<VALUE-REFERENCES>
+						<VALUE-ELEMENT>
+							<NAME>connector</NAME>
+						</VALUE-ELEMENT>
+					</VALUE-REFERENCES>
+				</APPLIED-STEREOTYPES>
+			
+				<RELATION-SOURCE>
+					<VALUE-ID>8715774_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</RELATION-SOURCE>
+				<RELATION-TARGET>
+					<VALUE-ID>9234205_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</RELATION-TARGET>
+				<RELATION-SOURCE-PORT>
+					<VALUE-ID>8715977_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</RELATION-SOURCE-PORT>
+				<RELATION-TARGET-PORT>
+					<VALUE-ID>9234241_iOjfYfj9Eeyg2Yb4jthRGQ</VALUE-ID>
+				</RELATION-TARGET-PORT>
+			</REFERENCES></ELEMENT>
+	</RHAPSODY-INDEX>
+
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+			<IOslcLink type="e">
+				<_source type="a">7329366_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID c5050b75-87ce-47be-a68e-e2b341a773b1</_sourceGUID>
+				<_target type="a">https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#trace</_type>
+			</IOslcLink>
+			
+			<IOslcLink type="e">
+				<_source type="a">7329161_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID 1d125ed1-2c27-4f28-9617-1d7db06b8625</_sourceGUID>
+				<_target type="a">https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#trace</_type>
+			</IOslcLink>
+			
+			<IOslcLink type="e">
+				<_source type="a">8715978_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID add6c4bb-9a74-4bd1-ba9d-cf796a40400a</_sourceGUID>
+				<_target type="a">https://jazz.dnet.lan/rm/resources/BI_PvyBwqB7EeykHdUVm4h3Pw</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#satisfy</_type>
+			</IOslcLink>
+			
+			<IOslcLink type="e">
+				<_source type="a">8715978_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID add6c4bb-9a74-4bd1-ba9d-cf796a40400a</_sourceGUID>
+				<_target type="a">https://jazz.dnet.lan/rm/resources/BI_VySDkKEnEeykHdUVm4h3Pw</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#satisfy</_type>
+			</IOslcLink>
+			
+			<IOslcLink type="e">
+				<_source type="a">8715977_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID a7217748-0e95-4fc5-9b52-a49b4539991f</_sourceGUID>
+				<_target type="a">https://jazz.dnet.lan/rm/resources/BI_OfiUgKqEEeykHdUVm4h3Pw</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#satisfy</_type>
+			</IOslcLink>
+			
+			<IOslcLink type="e">
+				<_source type="a">9234688_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID dd7a79a7-30ab-4170-a808-62cf753a1b5a</_sourceGUID>
+				<_target type="a">https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#trace</_type>
+			</IOslcLink>
+			
+			<IOslcLink type="e">
+				<_source type="a">9234302_iOjfYfj9Eeyg2Yb4jthRGQ</_source>
+				<_sourceGUID type="a">GUID 38e66270-d855-4d50-b410-be17980dd0d6</_sourceGUID>
+				<_target type="a">https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w</_target>
+				<_type type="a">http://jazz.net/ns/dm/linktypes#trace</_type>
+			</IOslcLink>
+			
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<RHAPSODY-INDEX-START>58524</RHAPSODY-INDEX-START>
+<RHAPSODY-INDEX-END>92945</RHAPSODY-INDEX-END>
+<OSLC-LINKS-START>92946</OSLC-LINKS-START>
+<OSLC-LINKS-END>95497</OSLC-LINKS-END>
+<INCLUDES-RHAPSODY-INDEX>true</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>

@@ -1,0 +1,59 @@
+		<IObjectLink type="e">
+			<_id type="a">CONNGUID_HERE</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">CONNRMID_HERE_PROJECTAREAID_HERE</_rmmServerID>
+			<_name type="a">CONNNAME_HERE</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">connector</_hname>
+							<_hid type="a">IDGUID_HERE</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">CURRENTDATE_HERE</_modifiedTimeWeak>
+			<_modifiedTime type="a">CURRENTDATE_HERE</_modifiedTime>
+			<_toLink type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPart</_hm2Class>
+					<if_different_topart></if_different_topart>
+					<_hid type="a">TOPARTGUID_HERE</_hid>
+					<_hrmmServerID type="a">TOPARTRMID_HERE</_hrmmServerID>
+				</IHandle>
+			</_toLink>
+			<_fromLink type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPart</_hm2Class>
+					<if_different_frompart></if_different_frompart>
+					<_hid type="a">FROMPARTGUID_HERE</_hid>
+					<_hrmmServerID type="a">FROMPARTRMID_HERE</_hrmmServerID>
+				</IHandle>
+			</_fromLink>
+			<_instantiates type="r">
+				<IMetaLinkHandle type="e">
+				</IMetaLinkHandle>
+			</_instantiates>
+			<_end1Multiplicity type="a">1</_end1Multiplicity>
+			<_end2Multiplicity type="a">1</_end2Multiplicity>
+			<_toPort type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPort</_hm2Class>
+					<if_different_toport></if_different_toport>
+					<_hid type="a">TOPORTGUID_HERE</_hid>
+					<_hrmmServerID type="a">TOPORTRMID_HERE</_hrmmServerID>
+				</IHandle>
+			</_toPort>
+			<_fromPort type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IPort</_hm2Class>
+					<if_different_fromport></if_different_fromport>
+					<_hid type="a">FROMPORTGUID_HERE</_hid>
+					<_hrmmServerID type="a">FROMPORTRMID_HERE</_hrmmServerID>
+				</IHandle>
+			</_fromPort>
+		</IObjectLink>

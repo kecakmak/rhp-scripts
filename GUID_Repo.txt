@@ -1,0 +1,10 @@
+template,rhp_project,guid_field,guid 
+block_index_template.xml,SETitanic,BROWSER-ICON,GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~BrowserIcon
+block_index_template.xml,SETitanic,GROUP-ICON,GUID f685432f-691e-4ff1-be70-4d09d19457e1~ALL~GroupIcon
+block_template.xml,SETitanic,_hid,GUID f685432f-691e-4ff1-be70-4d09d19457e1
+connection_index_template.xml,SETitanic,BROWSER-ICON,GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55~ALL~BrowserIcon
+connection_index_template.xml,SETitanic,GROUP-ICON,GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55~ALL~GroupIcon
+connection_template.xml,SETitanic,_hid,GUID f685432f-691e-4ff1-be70-4d09d19457e1
+port_template.xml,SETitanic,_hid,GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a
+port_index_template.xml,SETitanic,BROWSER-ICON,GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~BrowserIcon
+port_index_template.xml,SETitanic,GROUP-ICON,GUID b04e5e63-f5d7-4e3d-8000-2e07f5be4e8a~ALL~GroupIcon

@@ -1,0 +1,33 @@
+		<ISubsystem type="e">
+			<_id type="a">PACKAGEGUID_HERE</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">PACKAGERMID_HERE_PROJECTAREAID_HERE</_rmmServerID>
+			<_name type="a">PACAKGENAME_HERE</_name>
+			<_modifiedTimeWeak type="a">CURRENTDATE_HERE</_modifiedTimeWeak>
+			<_modifiedTime type="a">CURRENTDATE_HERE</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">CURRENTDATE_HERE</weakCGTime>
+			<strongCGTime type="a">CURRENTDATE_HERE</strongCGTime>
+			<_defaultComposite type="s">COMPOSITEGUID_HERE</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>COMPOSITEGUID_HERE</value>
+				<value>BLOCKGUID_HERE</value>			
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">COMPOSITEGUID_HERE</_id>
+			<_myState type="a">40960</_myState>
+			<_rmmServerID type="a">COMPOSITERMID_HERE_PROJECTAREAID_HERE</_rmmServerID>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">CURRENTDATE_HERE</_modifiedTimeWeak>
+			<_modifiedTime type="a">CURRENTDATE_HERE</_modifiedTime>
+			<weakCGTime type="a">CURRENTDATE_HERE</weakCGTime>
+			<strongCGTime type="a">CURRENTDATE_HERE</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
