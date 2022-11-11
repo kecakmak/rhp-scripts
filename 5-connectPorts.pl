@@ -227,6 +227,8 @@ else {
 my $count = 0;
 my $index = 0;
 my $fromPortGUIDs = findGuid($fromPort, $fromBlockFileContents, "IPort");
+
+
 if (index($fromPortGUIDs, ",")!=-1) {
 	my @fromPortGUID_arr = split(/,/,$fromPortGUIDs);
 	$count=$count+1;
@@ -240,7 +242,7 @@ if (index($fromPortGUIDs, ",")!=-1) {
 		}
 	}
 }
-else {$fromPortGUIDs = $fromPortGUID;}
+else {$fromPortGUID = $fromPortGUIDs;}
 
 
 my $fromPortRMIDs = findRmid($fromPort, $fromBlockFileContents, "IPort"); 
@@ -295,7 +297,7 @@ if (index($toPortGUIDs, ",")!=-1) {
 		}
 	}
 }
-else {$toPortGUIDs = $toPortGUID;}
+else {$toPortGUID = $toPortGUIDs;}
 
 
 my $toPortRMIDs = findRmid($toPort, $toBlockFileContents, "IPort"); 
