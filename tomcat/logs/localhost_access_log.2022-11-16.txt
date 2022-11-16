@@ -1,0 +1,8 @@
+127.0.0.1 - - [16/Nov/2022:09:10:59 +0000] "GET /sample/ HTTP/1.1" 200 4439
+127.0.0.1 - - [16/Nov/2022:09:10:59 +0000] "GET /favicon.ico HTTP/1.1" 200 8192
+127.0.0.1 - - [16/Nov/2022:09:11:06 +0000] "GET /sample/hello?projectName=Projekt_SETitanic HTTP/1.1" 200 69
+127.0.0.1 - - [16/Nov/2022:09:11:52 +0000] "GET /sample/hello?projectName=Projekt_SETitanic HTTP/1.1" 200 752
+127.0.0.1 - - [16/Nov/2022:09:13:53 +0000] "GET /sample/hello?projectName=ADAS_5 HTTP/1.1" 200 1084
+127.0.0.1 - - [16/Nov/2022:09:14:13 +0000] "GET /sample/CreateNewBlock?parentBlock=BL_BA_2100&blockName=BL_HBGR_2130&projectName=ADAS_5 HTTP/1.1" 200 31
+127.0.0.1 - - [16/Nov/2022:09:14:50 +0000] "GET /sample/runSCM?scmCMD=Checkin HTTP/1.1" 200 660
+127.0.0.1 - - [16/Nov/2022:09:15:13 +0000] "GET /sample/runSCM?scmCMD=Deliver HTTP/1.1" 200 690
