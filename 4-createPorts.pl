@@ -5,7 +5,7 @@
 use warnings;
 use strict;
 use TimeDate;
-use libs;
+use MBSEDialogsBackendLibs;
 
 
 # inputs
@@ -17,6 +17,8 @@ my $rhpProject = $ARGV[3];
 my $wsName = "WORKSPACE_" . $rhpProject; 
 my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
 my $projAreaName = "PROJECTAREA_" . $rhpProject; 
+
+my $wsPath = $ENV{WORKSPACE};
 
 my $workspace = $ENV{$wsName};
 my $rhapsody_file_dir = $ENV{$fileDirName};
@@ -49,6 +51,8 @@ if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	exit -1; 
 }
 
+if ($projectArea eq "NULL") {$projectArea = "";}
+else {$projectArea = "_" . $projectArea;}
 
 
 my $origFileContents = ""; 
@@ -77,8 +81,6 @@ if ($parentFolder eq "ERROR") {
 
 my $fileName = $parentFolder; 
 
-#use for Windows
-# my $parentBlock = `findstr $portBlock $searchPath`;
 
  if ($parentFolder eq "") {
 	
@@ -88,7 +90,7 @@ my $fileName = $parentFolder;
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName);
+open (READ_PRT, '<', $fileName) or die "Cannot open file: $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -124,6 +126,7 @@ if ($blockGuid eq "ERROR") {
 	exit -1;
 	}
 	
+	
 # We'll create the port from the port template now: 
 my $newPortCreated = createNewPort($origFileContents, $newPortGuid, $newPortRMId, $newPort, $projectArea, $portSt, $fullPath, $rhpProject);
 
@@ -153,10 +156,46 @@ $origFileContents = $newPortIndexAlsoAppendedToParentBlock;
 #set the stereotypes 
 
 # To find Stereotype first read the file 
-my $profileFile = $fullPath . "Ports.sbsx"; 
+
+my $projectFilePath = $workspace  . "\/" . $rhpProject . ".rpyx";
+my $profileFile = "";
+my $relProfileFile = "";
+my $profilePath = findNVLProfilePath($projectFilePath);
+
+
+if ($profilePath eq "ERROR"){
+	print "Stereotype profile File not found!! Exiting.... ";
+	exit -1;
+}
+
+elsif ($profilePath eq "workspace") {
+	$profilePath = $fullPath;
+	 $relProfileFile = ".\\Ports.sbsx";
+}
+
+else{
+	$relProfileFile = $profilePath . "\\" . "Ports.sbsx";
+	$profilePath = $wsPath . "\/" . $profilePath . "\/";	
+}
+
+$profileFile = $profilePath . "Ports.sbsx"; 
+
+
+
+$profileFile =~s/\\/\//ig;
+$profileFile =~s/\/..\/..\//\//ig;
+
+
+#my $profileFile = $profilePath ."\/" . "Ports.sbsx"; 
+#my $relProfileFile = $profilePath . "\\" . "Ports.sbsx";
+
+#$profileFile = $wsPath . "\/" . $profileFile;
+#$profileFile =~s/\\/\//ig;
+#$profileFile =~s/\/..\/..\//\//ig;
+
 my $profileContents = ""; 
 
-open (READ_PROF, '<', $profileFile); 
+open (READ_PROF, '<', $profileFile) or die "Cannot open file: $profileFile"; 
 
 while (<READ_PROF>){
 	chomp($_);
@@ -181,7 +220,7 @@ my $trimmedFileContents = trimFileContents($origFileContents);
 $origFileContents = $trimmedFileContents;
 
 #write to File... 
-open (WR, '>', $fileName);
+open (WR, '>', $fileName) or die "Cannot open file: $fileName";
 
 my @contentArray = split(/\n/, $origFileContents);
 foreach (@contentArray){
@@ -192,5 +231,8 @@ foreach (@contentArray){
 close (WR);
 
 fixRhapsodyIndicies($fileName);
+
+print "Command completed successfully\n";
+
 
 

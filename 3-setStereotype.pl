@@ -3,15 +3,26 @@
 use warnings;
 use strict;
 use TimeDate;
-use libs;
+use MBSEDialogsBackendLibs;
 
 # inputs
 my $blockName = $ARGV[0];
 my $rhpProject = $ARGV[1];
+my $third = "";
+$third = $ARGV[2]; 
+my $stCode = "";
+
+if ($third ne "") {
+	$stCode = $rhpProject;
+	$rhpProject = $third;
+}
+
 
 my $wsName = "WORKSPACE_" . $rhpProject; 
 my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
 my $projAreaName = "PROJECTAREA_" . $rhpProject; 
+
+my $wsPath = $ENV{WORKSPACE};
 
 my $workspace = $ENV{$wsName};
 my $rhapsody_file_dir = $ENV{$fileDirName};
@@ -38,6 +49,8 @@ if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	exit -1; 
 }
 
+if ($projectArea eq "NULL") {$projectArea = "";}
+else {$projectArea = "_" . $projectArea;}
 
 
 my $origFileContents = ""; 
@@ -58,7 +71,7 @@ my $fileName = $parentFolder;
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName);
+open (READ_PRT, '<', $fileName)  or die "File $fileName Not Found!!";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -77,9 +90,36 @@ my $blockGuid = findGuid($blockName, $origFileContents, "IClass");
 
 
 # To find Stereotype first read the file 
-my $profileFile = $fullPath . "MBGrV.sbsx"; 
+my $projectFilePath = $workspace  . "\/" . $rhpProject . ".rpyx";
 
-open (READ_PROF, '<', $profileFile); 
+my $profileFile = "";
+my $relProfileFile = "";
+my $profilePath = findNVLProfilePath($projectFilePath); 
+
+if ($profilePath eq "ERROR"){
+	print "Stereotype profile File not found!! Exiting.... ";
+	exit -1;
+}
+
+elsif ($profilePath eq "workspace") {
+	$profilePath = $fullPath;
+	 $relProfileFile = ".\\MBGrV.sbsx";
+}
+
+else{
+	$relProfileFile = $profilePath . "\\" . "MBGrV.sbsx";
+	$profilePath = $wsPath . "\/" . $profilePath . "\/";	
+}
+
+$profileFile = $profilePath . "MBGrV.sbsx"; 
+
+
+
+$profileFile =~s/\\/\//ig;
+$profileFile =~s/\/..\/..\//\//ig;
+
+
+open (READ_PROF, '<', $profileFile) or die "Profile File $profileFile Not Found!!"; 
 
 while (<READ_PROF>){
 	chomp($_);
@@ -107,6 +147,8 @@ else {$level = "NA";}
 
 # 3. Match the block id with stereotype name 
 my @contentArr=split(/\n/, $profileContents); 
+
+if ($stCode ne "") {$bId = $stCode;}
 	
 foreach(@contentArr) {
 	chomp($_); 
@@ -138,13 +180,6 @@ foreach(@contentArr) {
 	$profileContents =~s/\%/Ö/ig;
 	$profileContents =~s/\%C4/Ä/ig;
 
-
-	# $parentName[$i]=~s/ufc/ü/ig;
-	# $parentName[$i]=~s/udc/Ü/ig;
-	# $parentName[$i]=~s/ud6/Ö/ig;
-	# $parentName[$i]=~s/uc4/Ä/ig;	
-	# $parentName[$i]=~s/udf/ß/ig;
-
 my $stGuid = findGuid($stName, $profileContents, "IStereotype"); 
 
 my @parentName = ""; 
@@ -163,7 +198,7 @@ for (my $i = 0; $i < $level ; $i++) {
 
 $recursiveParents = "NVL_Profile::Blocks::" . $recursiveParents; 
 
-my $stereotypeAdd = createNewStereotype($recursiveParents, $stName, $stGuid);  
+my $stereotypeAdd = createNewStereotype($recursiveParents, $stName, $stGuid, $relProfileFile);  
 
 
 my $stAddedFileContents = insertStereotype($origFileContents, $blockName, $stereotypeAdd, $stGuid, "IClass"); 
@@ -178,8 +213,9 @@ $origFileContents = $appendedStToBlockIndex;
 my $trimmedFileContents = trimFileContents($origFileContents); 
 $origFileContents = $trimmedFileContents;
 
+
 #write to File... 
-open (WR, '>', $fileName);
+open (WR, '>', $fileName) or die "File $fileName Not Found!!";
 # binmode WR;
 
 my @contentArray = split(/\n/, $origFileContents);
@@ -192,6 +228,7 @@ close (WR);
 
 fixRhapsodyIndicies($fileName);
 
+print "Command completed successfully\n";
 
 
 

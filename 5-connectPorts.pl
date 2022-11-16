@@ -5,7 +5,7 @@
 use warnings;
 use strict;
 use TimeDate;
-use libs;
+use MBSEDialogsBackendLibs;
 
 
 
@@ -55,6 +55,8 @@ if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	exit -1; 
 }
 
+if ($projectArea eq "NULL") {$projectArea = "";}
+else {$projectArea = "_" . $projectArea;}
 
 
 my $origFileContents = "";
@@ -109,7 +111,7 @@ if (($toPartFileName eq "ERROR") or ($fromPartFileName eq "ERROR")) {
 }
 
 
-open (READ_PRT, '<', $fromPartFileName);
+open (READ_PRT, '<', $fromPartFileName) or die "Cannot open file: $fromPartFileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -126,7 +128,7 @@ close (READ_PRT);
 if ($toPartFileName eq $fromPartFileName) {$toPartFileContents = $fromPartFileContents;}
 
 else { 
-	open (READ_PRT, '<', $toPartFileName);
+	open (READ_PRT, '<', $toPartFileName) or die "Cannot Open File: $toPartFileName"; 
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -210,7 +212,7 @@ if (($parentFromBlockFileName eq "ERROR") or ($parentToBlockFileName eq "ERROR")
 if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
 
 else { 
-	open (READ_PRT, '<', $fromBlockFileName);
+	open (READ_PRT, '<', $fromBlockFileName) or die "Cannot open file: $fromBlockFileName";
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -262,7 +264,7 @@ if (($fromPortGUID eq "ERROR") or ($fromPortRMID eq "ERROR")) {
 if ($toBlockFileName eq $fromPartFileName) {$toBlockFileContents = $fromPartFileContents;}
 
 else { 
-	open (READ_PRT, '<', $toBlockFileName);
+	open (READ_PRT, '<', $toBlockFileName) or die "Cannot open file $toBlockFileName";
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -329,7 +331,7 @@ if ($toPortIsCorrect eq "false"){
 	exit -1;
 }
 
-open (CONN_R, '<', $connectTemplate); 
+open (CONN_R, '<', $connectTemplate) or die "Cannot open file: $connectTemplate";  
 my $templContents = "";
 while(<CONN_R>) {
 	chomp($_); 
@@ -339,7 +341,7 @@ while(<CONN_R>) {
 close(CONN_R);
 
 
-open (CONNIN_R, '<', $connectIndexTemplate); 
+open (CONNIN_R, '<', $connectIndexTemplate) or die "Cannot open file: $connectIndexTemplate"; 
 my $templIndexContents = "";
 while(<CONNIN_R>) {
 	chomp($_); 
@@ -416,7 +418,7 @@ my $idGUID="";
 	close(INP);
 	
 	
-	$templContents =~s/PROJECTAREAID_HERE/$projectArea/ig;
+	$templContents =~s/_PROJECTAREAID_HERE/$projectArea/ig;
 	$templContents =~s/CURRENTDATE_HERE/$date/ig;
 	$templContents =~s/TOPARTGUID_HERE/$toPartGUID/ig;
 	$templContents =~s/TOPARTRMID_HERE/$toPartRMID/ig;
@@ -432,7 +434,7 @@ my $idGUID="";
 	$templContents =~s/IDGUID_HERE/$idGUID/ig;
 
 
-	$templIndexContents =~s/PROJECTAREAID_HERE/$projectArea/ig;
+	$templIndexContents =~s/_PROJECTAREAID_HERE/$projectArea/ig;
 	$templIndexContents =~s/CURRENTDATE_HERE/$date/ig;
 	$templIndexContents =~s/TOPARTGUID_HERE/$toPartGUID/ig;
 	$templIndexContents =~s/TOPARTRMID_HERE/$toPartRMID/ig;
@@ -452,7 +454,7 @@ my $idGUID="";
 #	exit -1; 
 	
 	
-open (READ_PRT, '<', $mainFileName);
+open (READ_PRT, '<', $mainFileName) or die "Cannot open file: $mainFileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -481,7 +483,7 @@ my $trimmedFileContents = trimFileContents($origFileContents);
 $origFileContents = $trimmedFileContents;
 
 #write to File... 
-open (WR, '>', $mainFileName);
+open (WR, '>', $mainFileName) or die "Cannot open file: $mainFileName";
 # binmode WR;
 
 my @contentArray = split(/\n/, $origFileContents);
@@ -493,6 +495,9 @@ foreach (@contentArray){
 close (WR);
 
 fixRhapsodyIndicies($mainFileName);
+
+print "Command completed successfully\n";
+
 
 
 

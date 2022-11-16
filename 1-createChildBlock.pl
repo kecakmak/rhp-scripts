@@ -5,7 +5,7 @@
 use warnings;
 use strict;
 use TimeDate;
-use libs;
+use MBSEDialogsBackendLibs;
 
 
 # Initialize the global variables. 
@@ -47,6 +47,8 @@ if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	exit -1; 
 }
 
+if ($projectArea eq "NULL") {$projectArea = "";}
+else {$projectArea = "_" . $projectArea;}
 
 my $origFileContents = ""; 
 my $parentGuid = "";
@@ -85,7 +87,7 @@ my $fileName = $parentFolder;
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName);
+open (READ_PRT, '<', $fileName) or die "Cannot open file $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -147,7 +149,7 @@ if ($blockPackageExists eq "true") {
 
 # lets get the Rhapsody file contents again. In case the file to update is different from the beginning.. 
 $origFileContents = "";
-open (READ_PRT, '<', $fileName);
+open (READ_PRT, '<', $fileName) or die "Cannot open file: $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -247,7 +249,7 @@ my $trimmedFileContents = trimFileContents($origFileContents);
 $origFileContents = $trimmedFileContents;
 
 #write to File... 
-open (WR, '>', $fileName);
+open (WR, '>', $fileName) or die "Cannot open file: $fileName";
 # binmode WR;
 
 my @contentArray = split(/\n/, $origFileContents);
@@ -259,6 +261,8 @@ foreach (@contentArray){
 close (WR);
 
 fixRhapsodyIndicies($fileName);
+
+print "Command completed successfully\n";
 
 
 

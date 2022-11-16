@@ -1,6 +1,6 @@
 						<IHandle type="e">
 							<_hm2Class type="a">IStereotype</_hm2Class>
-							<_hfilename type="a">.\..\Profiles\Gesamtsystem.sbsx</_hfilename>
+							<_hfilename type="a">PROFILEFILE_HERE</_hfilename>
 							<_hsubsystem type="a">STPATH_HERE</_hsubsystem>
 							<_hname type="a">STNAME_HERE</_hname>
 							<_hid type="a">STGUID_HERE</_hid>

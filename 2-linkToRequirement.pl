@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use warnings;
 use strict;
-use libs; 
+use MBSEDialogsBackendLibs; 
 
 my $block = $ARGV[0];
 my $type = $ARGV[1];
@@ -38,6 +38,8 @@ if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	exit -1; 
 }
 
+if ($projectArea eq "NULL") {$projectArea = "";}
+else {$projectArea = "_" . $projectArea;}
 
 my $origFileContents = "";
 
@@ -54,7 +56,7 @@ my $fileName = findCorrectFileName($parentFolders, $block);
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName);
+open (READ_PRT, '<', $fileName) or die "Cannot open file: $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -110,7 +112,7 @@ if ($linkExists eq "false") {
 
 
 #write to File... 
-open (WR, '>', $fileName);
+open (WR, '>', $fileName) or die "Cannot open file: $fileName";
 
 my @contentArray = split(/\n/, $origFileContents);
 foreach (@contentArray){
@@ -121,3 +123,6 @@ foreach (@contentArray){
 close (WR);
 
 fixRhapsodyIndicies($fileName);
+print "Command completed successfully\n";
+
+
