@@ -6,6 +6,8 @@ use strict;
 use TimeDate;
 use Exporter;
 
+# File Version 1.1 
+# Change: updated getIds function: to add if less than 25 IDs left just exit. 
 
 our @ISA= qw( Exporter );
 
@@ -816,29 +818,46 @@ sub getIds{
 	my $retRMId=""; 
 	my $newList="";
 	my $searchP = $_[0];
+	my $count = "";
 	
-	open(RRMID, '<', "IDs.txt") or die "Cannot open file: IDs.txt";
-	while(<RRMID>){
-		chomp($_);
-		if ($_ eq "") {next;}
-		if ($retRMId eq ""){
-			my ($guidall, $rmid) = split(/,/,$_);
-			my ($garb, $guid) = split(" ", $guidall);
-			my $guidExists = qx/find $searchP \-type f \-exec grep \-H \'$guid\' \{\} \\\;/;
-			my $rmidExists = qx/find $searchP \-type f \-exec grep \-H \'$rmid\' \{\} \\\;/;
-#			my $guidExists = `findstr $guid $searchP`;
-#			my $rmidExists = `findstr $rmid $searchP`;
+	open(FORC, '<', "IDs.txt") or die "Cannot open file: IDs.txt";
+	for ($count=0; <FORC>; $count++) { }
+	close(FORC);
+	
 
-			if (($guidExists eq "") and ($rmidExists eq "")){$retRMId = $_;}
-			
-			}
-		else {$newList = $newList . "\n" . $_;}		
+	if ($count < 25) {
+		print "\nThere are less than 25 IDs left in the ID Pool. Cannot proceed\n";
+		$retRMId = "ERROR";
+		exit -1;
 	}
-	close (RRMID);	
 	
-	open(WRMID, '>', "IDs.txt") or die "cannot open file: IDs.txt";
-	print WRMID $newList;
-	close (WRMID);
+	else{
+		
+		open(RRMID, '<', "IDs.txt") or die "Cannot open file: IDs.txt";
+
+		while(<RRMID>){
+			chomp($_);
+			if ($_ eq "") {next;}
+			if ($retRMId eq ""){
+				my ($guidall, $rmid) = split(/,/,$_);
+				my ($garb, $guid) = split(" ", $guidall);
+				my $guidExists = qx/find $searchP \-type f \-exec grep \-H \'$guid\' \{\} \\\;/;
+				my $rmidExists = qx/find $searchP \-type f \-exec grep \-H \'$rmid\' \{\} \\\;/;
+	#			my $guidExists = `findstr $guid $searchP`;
+	#			my $rmidExists = `findstr $rmid $searchP`;
+
+				if (($guidExists eq "") and ($rmidExists eq "")){$retRMId = $_;}
+				
+				}
+			else {$newList = $newList . "\n" . $_;}		
+		}
+		close (RRMID);	
+		
+		open(WRMID, '>', "IDs.txt") or die "cannot open file: IDs.txt";
+		print WRMID $newList;
+		close (WRMID);
+	}
+	
 	return $retRMId;
 	
 }
