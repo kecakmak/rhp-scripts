@@ -6,14 +6,42 @@ use strict;
 use TimeDate;
 use Exporter;
 
-# File Version 1.1 
+# File Version 1.2
+# Change: added environments function getEnvironments 
+# Change: read IDs from workspace root folder 
+
+#(V1.1)
 # Change: updated getIds function: to add if less than 25 IDs left just exit. 
+
+
 
 our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath );
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments );
+
+
+sub getEnvironments {
+	my $request = $_[0];
+	
+	
+	my %envs = ( 
+	WORKSPACE => '/home/zkks/RhapsodyWorkspaces',
+	SCRIPTS_WS => '/home/zkks/PerlScripts/Rhapsody First Deployment/rhp-scripts-main', 
+	WORKSPACE_Projekt_SETitanic => '/home/zkks/RhapsodyWorkspaces/NVL/SETitanic', 
+	RHAPSODY_FILE_DIR_Projekt_SETitanic => 'Projekt_SETitanic_rpy/', 
+	PROJECTAREA_Projekt_SETitanic => 'iOjfYfj9Eeyg2Yb4jthRGQ', 
+	WORKSPACE_ADAS_5 => '/home/zkks/RhapsodyWorkspaces/ADAS',
+	RHAPSODY_FILE_DIR_ADAS_5 => 'ADAS_5_rpy/', 
+	PROJECTAREA_ADAS_5 => "iOjfYfj9Eeyg2Yb4jthRGQ");
+	
+
+	my $env = $envs{$request}; 
+	return $env; 
+	
+	
+}
 
 
 sub trimFileContents {
@@ -819,8 +847,11 @@ sub getIds{
 	my $newList="";
 	my $searchP = $_[0];
 	my $count = "";
+	my $path = getEnvironments("WORKSPACE");
 	
-	open(FORC, '<', "IDs.txt") or die "Cannot open file: IDs.txt";
+	my $idFile = $path . "/IDs.txt"; 
+	
+	open(FORC, '<', $idFile) or die "Cannot open file: IDs.txt";
 	for ($count=0; <FORC>; $count++) { }
 	close(FORC);
 	
@@ -833,7 +864,7 @@ sub getIds{
 	
 	else{
 		
-		open(RRMID, '<', "IDs.txt") or die "Cannot open file: IDs.txt";
+		open(RRMID, '<', $idFile) or die "Cannot open file: IDs.txt";
 
 		while(<RRMID>){
 			chomp($_);
@@ -853,7 +884,7 @@ sub getIds{
 		}
 		close (RRMID);	
 		
-		open(WRMID, '>', "IDs.txt") or die "cannot open file: IDs.txt";
+		open(WRMID, '>', $idFile) or die "cannot open file: IDs.txt";
 		print WRMID $newList;
 		close (WRMID);
 	}

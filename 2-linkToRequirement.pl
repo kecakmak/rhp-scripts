@@ -13,9 +13,9 @@ my $wsName = "WORKSPACE_" . $rhpProject;
 my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
 my $projAreaName = "PROJECTAREA_" . $rhpProject; 
 
-my $workspace = $ENV{$wsName};
-my $rhapsody_file_dir = $ENV{$fileDirName};
-my $projectArea = $ENV{$projAreaName};
+my $workspace = getEnvironments($wsName);
+my $rhapsody_file_dir = getEnvironments($fileDirName);
+my $projectArea = getEnvironments($projAreaName);
 
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
