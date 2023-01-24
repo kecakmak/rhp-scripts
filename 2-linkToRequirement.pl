@@ -5,8 +5,10 @@ use MBSEDialogsBackendLibs;
 
 my $block = $ARGV[0];
 my $type = $ARGV[1];
-my $rhpProject = $ARGV[2];
-my $targetLink = "https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w";
+my $targetLink = $ARGV[2];
+my $rhpProject = $ARGV[3];
+#my $targetLink = "https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w";
+
 
 #Linux
 my $wsName = "WORKSPACE_" . $rhpProject; 
