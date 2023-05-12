@@ -102,7 +102,7 @@ my $oslcLink = "<IOslcLink type=\"e\">
 				<_source type=\"a\">" . $rmServerID . "<\/_source>
 				<_sourceGUID type=\"a\">" . $GUID . "<\/_sourceGUID>
 				<_target type=\"a\">" . $targetLink . "<\/_target>
-				<_type type=\"a\">http://jazz.net/ns/dm/linktypes#trace<\/_type>
+				<_type type=\"a\">http://jazz.net/ns/dm/linktypes#satisfy<\/_type>
 				</IOslcLink>";
 				
 my $linkExists = findIfOSLCExists($origFileContents, $targetLink, $rmServerID);

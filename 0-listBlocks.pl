@@ -431,31 +431,6 @@ sub findIDsOfParentBlock {
 
 
 
-
-
-sub getFileContents{
-
-	my $blockFile = $_[0];
-
-	open (READ_PRT, '<', $blockFile) or die "Cannot open file $blockFile"; 
-
-	while (<READ_PRT>){
-		chomp($_);
-		if ($fileContents eq "") {
-			$fileContents = $_ . "\n";
-		}
-		else {
-			$fileContents = $fileContents . $_ . "\n"; 
-		}
-
-	}
-
-	close (READ_PRT);
-
-	return $fileContents;
-}
-
-
 sub nameOfTheBlockAndGUID {
 	
 	my $childIDsOfParentPackage=$_[0];
@@ -613,43 +588,7 @@ sub findIDsOfParentPackage {
 
 }
 
-sub findNameByGUID {
-	my $guid = $_[0];
-	my $contents = $_[1];
-	my $type = $_[2]; 
-		
-	my @partFile_arr = split(/\n/,$contents); 
-	
-	my $inType = "false"; 
-	my $inPart = "false"; 
-	my $inCH = "false"; 
-	my $retVal = ""; 
-	
-	foreach(@partFile_arr) {
-		chomp($_);
-		my $line = $_;
-	
-		if (index($line, "<" . $type . " type=")!=-1){$inType = "true";} 
-		if (index($line, "<\/" . $type . ">")!=-1){$inType = "false";$inPart = "false";}
-		
-		if ($inType eq "true") {
-			if (index($line,"<_id type")!=-1){
-				$line=~s/<_id type=\"a\">//ig;
-				$line=~s/<\/_id>//ig;
-				$line=~s/\t//ig;
-				if ($line eq $guid) {$inPart = "true";} 
-			}
-			if ($inPart eq "true" and (index($line,"<_name type")!=-1)) {
-				$line=~s/<_name type=\"a\">//ig;
-				$line=~s/<\/_name>//ig;
-				$line=~s/\t//ig;
-				$retVal = $line;
-			}
-		}
-	
-	}
-	return $retVal;
-}
+
 
 
 exit -1;

@@ -1,0 +1,44 @@
+
+
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+use TimeDate;
+use MBSEDialogsBackendLibs;
+
+
+
+# inputs
+my $fromPart = $ARGV[0];
+my $toPart = $ARGV[1];
+my $rhpProject = $ARGV[2];
+
+
+# Initialize the global variables. 
+#Linux
+
+my $wsName = "WORKSPACE_" . $rhpProject; 
+my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
+my $projAreaName = "PROJECTAREA_" . $rhpProject; 
+
+my $workspace = getEnvironments($wsName);
+my $rhapsody_file_dir = getEnvironments($fileDirName);
+my $projectArea = getEnvironments($projAreaName);
+
+my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
+my $searchPath = $fullPath ;
+
+
+if ($toPart eq "") {
+	justListPorts($fromPart); 
+}
+else {
+	listPartsandConnectors($fromPart, $toPart);
+}
+
+sub justListPorts{
+		my $part = $_[0];
+		print "$part\n";
+}
+
