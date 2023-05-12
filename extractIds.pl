@@ -7,7 +7,7 @@ use strict;
 
 my $workspace = "C:\\Users\\kerimcakmak\\workspace2\\NVL\\SETitanic\\";
 
-my $rhapsody_file_dir = "Projekt_SETitanic_rpy\\";
+my $rhapsody_file_dir = "ACC_rpy\\";
 my $importFile = "import.sbsx"; 
 
 my $idFile = "IDs.txt";
@@ -17,8 +17,8 @@ my $idFileName = $workspace . $rhapsody_file_dir . $idFile;
 
 open (FIRST, '>' , $idFileName);
 close(FIRST);
-open (OUT, '>>', $idFileName);
-open(IN, '<', $fileName); 
+open (OUT, '>', $idFileName);
+open(IN, '<', $fileName) or die; 
 
 
 #while(OUT){
@@ -40,7 +40,8 @@ open(IN, '<', $fileName);
 			$line=~s/<_rmmServerID type=\"a\">//ig;
 			$line=~s/<\/_rmmServerID>//ig;
 			$line=~s/\t//ig;
-			$rmid = $line;
+			my ($onlyID, $project) = split(/_/,$line);
+			$rmid = $onlyID;
 			print OUT $rmid . "\n";
 		}
 	
