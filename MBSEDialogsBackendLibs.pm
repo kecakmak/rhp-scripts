@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments );
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock );
 
 
 sub getEnvironments {
@@ -1562,6 +1562,60 @@ sub findNVLProfilePath {
 	
 	if ($path ne "") {return $path;}
 	else {return "ERROR";}
+}
+
+sub findIDsOfParentBlock {
+
+	$fileContents = $_[0];
+	$rootID = $_[1];
+
+	my $name="";
+
+	my @fileCont_arr=split(/\n/,$fileContents);
+	my $inParentBlock = "false";
+	my $inAggregateList = "false";
+
+	my $retVal="";
+	foreach(@fileCont_arr) {
+
+		chomp($_);
+		my $line = $_; 
+	
+
+		if (index($line, "<_id type=\"a\">" . $rootID . "<\/_id") !=-1 ) {$inParentBlock = "true";}
+		if (index($line, "<\/IClass") !=-1) {
+			$inParentBlock = "false";
+			$inAggregateList = "false";
+		} 
+
+		if ($inParentBlock eq "true") {
+			if (index($line,"<AggregatesList type=\"e\">")!=-1) {$inAggregateList = "true";}
+		}
+
+		if ($inAggregateList eq "true") {
+			if (index($line,"<value>")!=-1) {
+				$line =~ s/\t//ig;
+				$line =~ s/<value>//ig;
+				$line =~ s/<\/value>//ig;
+				$line =~ s/GUID //ig;
+				
+				if (index($retVal,$line)!=-1) {next;}
+
+				if ($retVal eq "") {
+					$retVal = $line;
+				}
+				else{
+					$retVal = $retVal . "::" . $line;
+				}
+			}
+		}
+
+	}
+	
+	return $retVal;
+
+
+
 }
 
 
