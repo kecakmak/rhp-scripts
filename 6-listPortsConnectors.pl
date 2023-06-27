@@ -37,10 +37,9 @@ my $searchPath = $fullPath ;
 	print "{\n";
 	print "\t\"$fromPart\":\n";
 	print "\t\t[\n";
-	print "\t\t{\n";
 	my @portNames_arr = split(/::/,$fromPorts);
 	for (my $i = 0; $i <= $#portNames_arr; $i++){
-
+	
 		my $line = $portNames_arr[$i]; 
 		my ($fromPortName, $fromPortID) = split(/\|\|/,$line);
 		print "\t\t\t{\n";
@@ -53,8 +52,6 @@ my $searchPath = $fullPath ;
 		else {print "\t\t\t}\n";}
 
 	}
-	print "\t\t}\n";
-
 
 
 if ($otherPart ne ".") {
@@ -65,7 +62,6 @@ if ($otherPart ne ".") {
 	print "\t\t],\n";
 	print "\t\"$otherPart\":\n";
 	print "\t\t[\n";
-	print "\t\t{\n";
 
 	my @toPortNames_arr = split(/::/,$toPorts);
 	for (my $j = 0; $j <= $#toPortNames_arr; $j++){
@@ -75,15 +71,17 @@ if ($otherPart ne ".") {
 		print "\t\t\t\"$toPortName\":\n";
 		print "\t\t\t\t{\n";
 		my $portDetails = printPortDetails($fullPath, $toPortName, $portID, $parentToBlockPart, $parentToBlock, $otherPart);
+
 		print "\t\t\t\t}\n";
 		
 		if ($j < $#toPortNames_arr) {print "\t\t\t},\n";}
 		else {print "\t\t\t}\n";}
 	}
-	print "\t\t}\n\t\t]\n";
+	print "\t\t]\n";
+
 
 }
-else {	print "\t\t}\n\t\t]\n";}
+else {	print "\t\t]\n";}
 
 print "}\n";
 
@@ -252,13 +250,28 @@ sub printPortDetails{
 #Find Interface Block -End- 
 	}
 	
-	print "\t\t\t\t\"Label\":\"$portLabel\"\n";
-	print "\t\t\t\t\"Interface Block\":\"$portIB\"\n";
-	print "\t\t\t\t\"multiplicity\":\"$portMultiplicity\"\n";
+	print "\t\t\t\t\"Label\":\"$portLabel\",\n";
+	print "\t\t\t\t\"Interface Block\":\"$portIB\",\n";
+	print "\t\t\t\t\"multiplicity\":\"$portMultiplicity\",\n";
 	print "\t\t\t\t\"connectors\":\n";
-	print "\t\t\t\t\t{\n";
+	print "\t\t\t\t\t[\n";
+
 	my $printConnectors = printPortConnectors($fullPath,$portName,$portID,$parentBlockPartID,$parentBlockName);
-	print "\t\t\t\t\t}\n";
+	
+	my @connector_arr = split("CONN_ARR_SEPERATOR", $printConnectors); 
+	my $conn_arr_count = @connector_arr; 
+	
+	for (my $a=0; $a<$conn_arr_count; $a++){
+		my $connector = $connector_arr[$a]; 
+		chomp($connector);
+		print "$connector\n";
+		
+		if ($a < $conn_arr_count-1) {print "\t\t\t\t\t\t},\n";}
+		else {print "\t\t\t\t\t\t}\n";}
+	
+	}
+	
+	print "\t\t\t\t\t]\n";
 }
 
 
@@ -277,6 +290,8 @@ sub printPortConnectors{
 	my $fileContents = getFileContents($blockFile);
 	
 	my $connectorInfo = getConnectorFiles($fullPath,$portID); 
+	return $connectorInfo;
+
 	
 }
 
@@ -298,23 +313,26 @@ sub getConnectorFiles{
 		chomp($_); 
 		my($fileNames,$junk) = split("\t",$_);
 		$fileNames=~s/://ig;
-		push(@fileListArr,$fileNames); 
+		if ($fileNames ne ""){push(@fileListArr,$fileNames);}
 	}
 	my @fileListArrUn= uniq(@fileListArr);
+	my $numOfFiles = @fileListArrUn;
 	
-	foreach(@fileListArrUn) {
-		chomp($_);
-		next if ($_ eq "");
-		my $fileContents = getFileContents($_); 
+	for (my $k=0; $k<$numOfFiles; $k++){
+	
+		my $item = $fileListArrUn[$k];
+		next if ($item eq "");
+		my $fileContents = getFileContents($item); 
 		my $connectorInfo = getConnectorAndParts($fileContents,$portID); 
 		my @connectorInfo_arr = split("ARRAY_SEPERATOR",$connectorInfo);
+		my $number = @connectorInfo_arr; 
 
-		foreach(@connectorInfo_arr){
-			chomp($_);
+		for (my $j = 0; $j < $number; $j++) {
+			my $item = $connectorInfo_arr[$j];
 			my $connector1 = "";
 			my $connector2 = ""; 
 			my $connector = "";
-			my ($connectorName, $connectorPart1, $connectorPart2) = split("CONNECTOR_SEPERATOR",$_);
+			my ($connectorName, $connectorPart1, $connectorPart2) = split("CONNECTOR_SEPERATOR",$item);
 			my ($connectorPartName1,$connectorDir1)=split(":::",$connectorPart1);		
 			my ($connectorPartName2,$connectorDir2)=split(":::",$connectorPart2);	
 			if ($otherPart eq "."){
@@ -325,15 +343,15 @@ sub getConnectorFiles{
 			elsif (($fromPart eq $connectorPartName1) && ($otherPart eq $connectorPartName2)){$connector1 = $connectorPartName1;$connector2 = $connectorPartName2; $connector = $connectorName;}
 			elsif (($fromPart eq $connectorPartName2) && ($otherPart eq $connectorPartName1)){$connector1 = $connectorPartName1;$connector2 = $connectorPartName2; $connector = $connectorName;}
 			
+			my $connectionElement = "\t\t\t\t\t\t{\n" . "\t\t\t\t\t\t\"$connectorDir1\":\"$connector1\",\n" . "\t\t\t\t\t\t\"$connectorDir2\":\"$connector2\",\n" . "\t\t\t\t\t\t\"name\":\"$connector\"\n";
 
-			print "\t\t\t\t\t\"$connectorDir1\":\"$connector1\"\n";
-			print "\t\t\t\t\t\"$connectorDir2\":\"$connector2\"\n";
-			print "\t\t\t\t\t\"name\":\"$connector\"\n";
-			
-
+			if ($connectionString eq ""){$connectionString = $connectionElement;}
+			else {$connectionString = $connectionString . "CONN_ARR_SEPERATOR" . $connectionElement;}
 		}
-	
+
 	}
+	
+	return $connectionString; 
 }
 
 sub getConnectorAndParts{ 
