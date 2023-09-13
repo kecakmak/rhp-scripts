@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock );
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents);
 
 
 sub getEnvironments {
@@ -29,12 +29,12 @@ sub getEnvironments {
 	my %envs = ( 
 	WORKSPACE => '/home/zkks/RhapsodyWorkspaces',
 	SCRIPTS_WS => '/home/zkks/PerlScripts/Rhapsody First Deployment/rhp-scripts-main', 
-	WORKSPACE_Projekt_SETitanic => '/home/zkks/RhapsodyWorkspaces/NVL/SETitanic', 
+	WORKSPACE_Projekt_SETitanic => '/home/zkks/RhapsodyWorkspaces/SETitanic', 
 	RHAPSODY_FILE_DIR_Projekt_SETitanic => 'Projekt_SETitanic_rpy/', 
-	PROJECTAREA_Projekt_SETitanic => 'iOjfYfj9Eeyg2Yb4jthRGQ', 
+	PROJECTAREA_Projekt_SETitanic => 'cImqIgkqEe21o7SZHKptFQ', 
 	WORKSPACE_ADAS_5 => '/home/zkks/RhapsodyWorkspaces/ADAS',
 	RHAPSODY_FILE_DIR_ADAS_5 => 'ADAS_5_rpy/', 
-	PROJECTAREA_ADAS_5 => "iOjfYfj9Eeyg2Yb4jthRGQ");
+	PROJECTAREA_ADAS_5 => "cImqIgkqEe21o7SZHKptFQ");
 	
 
 	my $env = $envs{$request}; 
@@ -884,7 +884,7 @@ sub getIds{
 		}
 		close (RRMID);	
 		
-		open(WRMID, '>', $idFile) or die "cannot open file: IDs.txt";
+		open(WRMID, '>', $idFile) or die "cannot open file: $idFile";
 		print WRMID $newList;
 		close (WRMID);
 	}
@@ -1566,8 +1566,8 @@ sub findNVLProfilePath {
 
 sub findIDsOfParentBlock {
 
-	$fileContents = $_[0];
-	$rootID = $_[1];
+	my $fileContents = $_[0];
+	my $rootID = $_[1];
 
 	my $name="";
 
@@ -1617,6 +1617,24 @@ sub findIDsOfParentBlock {
 
 
 }
+
+sub getFileContents{
+	my $file = $_[0];
+	
+	my $fileContents = ""; 
+
+	open(INPUT, '<', $file) or die "Cannot open file: $file"; 
+	while (<INPUT>) {
+		chomp($_); 
+		$fileContents = $fileContents . "\n" . $_; 
+	}
+	close(INPUT);
+	return $fileContents;
+	
+}
+
+
+
 
 
  1;

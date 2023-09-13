@@ -2,7 +2,7 @@
 
 #!/usr/bin/perl
 
-use warnings;
+#use warnings;
 use strict;
 use TimeDate;
 use MBSEDialogsBackendLibs;
@@ -11,10 +11,18 @@ use MBSEDialogsBackendLibs;
 # Initialize the global variables. 
 # inputs
 my $blockToCreate = "";
-$blockToCreate = $ARGV[1];
 my $parentBlock = "";
+my $rhpProject = "";
 $parentBlock = $ARGV[0];
-my $rhpProject = $ARGV[2];
+$rhpProject = $ARGV[2];
+$blockToCreate = $ARGV[1];
+
+if ($rhpProject eq "") {
+	print "\n \nCommand executed with missing parameters\n"; 
+	print "Usage: 1-createChildBlock <Existing parent block> <Name of the new block> <Rhapsody Project Name>\n\n"; 
+	exit -1; 
+}
+
 
 #Linux
 my $wsName = "WORKSPACE_" . $rhpProject; 
@@ -27,25 +35,6 @@ my $projectArea = getEnvironments($projAreaName);
 
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
-
-	 
-if (($blockToCreate eq "") or ($parentBlock eq "")) {
-	print "Please provide a Block name to create and an existing block as its parent... \n";
-	print "Usage: 1-createChildBlock <Existing parent block> <Name of the new block> <Rhapsody Project Name>\n"; 
-	exit -1; 
-}
-
-if ($rhpProject eq "") {
-	print "\n \nThe Rhapsody Project Name is required. Please add Rhapsody Project Name\n"; 
-	print "Usage: 1-createChildBlock <Existing parent block> <Name of the new block> <Rhapsody Project Name>\n\n"; 
-	exit -1; 
-}
-
-if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
-	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
-	print "Usage: 1-createChildBlock <Existing parent block> <Name of the new block> <Rhapsody Project Name>\n\n"; 
-	exit -1; 
-}
 
 if ($projectArea eq "NULL") {$projectArea = "";}
 else {$projectArea = "_" . $projectArea;}
@@ -78,7 +67,7 @@ my $fileName = $parentFolder;
 # my $parentFolder = `findstr $parentBlock $searchPath`;
 
 
- if ($parentFolder eq "") {
+ if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
 	
 	print "ERROR: Parent Block could not be found. Please enter an existing Block as parent block\n\n\n";
 	exit (-1); 

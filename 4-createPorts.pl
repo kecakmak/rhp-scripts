@@ -2,7 +2,7 @@
 
 #!/usr/bin/perl
 
-use warnings;
+#use warnings;
 use strict;
 use TimeDate;
 use MBSEDialogsBackendLibs;
@@ -27,6 +27,12 @@ my $projectArea = getEnvironments($projAreaName);
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
+if ($rhpProject eq "") {
+	print "\n \nCommand executed with missing parameters\n";
+	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
+	exit -1; 
+}
+
 if (($portBlock eq "") or ($newPort eq "") or ($portSt eq ""))  {
 	print "Please provide the name of the existing block, a name for the port to be created and a stereotype value for the new port... \n";
 	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
@@ -39,11 +45,6 @@ if (($portSt ne "IF_Mechanik") and ($portSt ne "IF_Software") and ($portSt ne "I
 	exit -1; 
 }
 
-if ($rhpProject eq "") {
-	print "\n \nThe Rhapsody Project Name is required. Please add Rhapsody Project Name\n"; 
-	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
-	exit -1; 
-}
 
 if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 

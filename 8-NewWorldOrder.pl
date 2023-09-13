@@ -39,13 +39,11 @@ while (<READ_PRT>){
 
 close (READ_PRT);
 
-
 my $childIDsOfParentPackage = findIDsOfParentPackage($fileContents);
 
 my $rootBlocknID = nameOfTheBlockAndGUID($childIDsOfParentPackage,$fileContents);
 
 my ($rootBlock,$rootID) = split("::",$rootBlocknID);
-
 $rootID = "GUID " . $rootID;
 
 my $parentBlock = $rootBlock; 
@@ -64,113 +62,15 @@ foreach (@parts_arr){
 	if ($_ eq ""){next;}
 	my $childBlockNameAndGUIDs=getBlockInfoFromParts($fullPath, $_);
 	push @parentBlocks_arr, $childBlockNameAndGUIDs;
+	print "$childBlockNameAndGUIDs\n";
 
 }
 
-print "\n{\n";
-
-for (my $i = 0; $i <= $#parentBlocks_arr; $i++) {
-	my $line = $parentBlocks_arr[$i]; 
-	chomp ($line);
-	if ($line eq "") {next;}
-	my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-
-	
-	my @L1Block_arr = ""; 
-
-	my $tempParts = findPartsForTheParentBlock($fullPath, $pBlockGUID, $pBlockName);
-	
-	my @tempParts_arr = split(/\n/,$tempParts);
-		
-	foreach (@tempParts_arr) {
-		chomp($_);
-		if ($_ eq "") {next;} 
-		my $line = $_; 
-		
-		my $tempBlockNameAndGUID = getBlockInfoFromParts($fullPath, $line);
-
-		push @L1Block_arr,$tempBlockNameAndGUID;
-			
-	}
 
 
-	print "'$pBlockName':{";
-	my $l1_arr = @L1Block_arr;
-	
-	for (my $j = 0; $j <= $#L1Block_arr; $j++)  {
-		my $line = $L1Block_arr[$j];
-		chomp($line);
-		if ($line eq "") {next;}
-#		my $line = $_;
-		my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-		print "\n\t'$pBlockName':{";
-		my @L2Block_arr = ""; 
-
-		my $tempParts = findPartsForTheParentBlock($fullPath, $pBlockGUID, $pBlockName);
-
-		my @tempParts_arr = split(/\n/,$tempParts);
-
-		foreach (@tempParts_arr) {
-			chomp($_);
-			if ($_ eq "") {next;} 
-			my $line = $_; 
-
-			my $tempBlockNameAndGUID = getBlockInfoFromParts($fullPath, $line);
-
-			push @L2Block_arr,$tempBlockNameAndGUID;
-
-		}
-		
-		for (my $k = 0 ; $k <= $#L2Block_arr; $k++){
-			my $line = $L2Block_arr[$k]; 
-			chomp($line);
-			if ($line eq "") {next;} 
-#			my $line = $_;
-			my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-			print "\n\t\t'$pBlockName':{";
-
-			my @L3Block_arr = ""; 
-
-			my $tempParts = findPartsForTheParentBlock($fullPath, $pBlockGUID, $pBlockName);
-
-			my @tempParts_arr = split(/\n/,$tempParts);
-
-			foreach (@tempParts_arr) {
-				chomp($_);
-				if ($_ eq "") {next;} 
-				my $line = $_; 
-
-				my $tempBlockNameAndGUID = getBlockInfoFromParts($fullPath, $line);
-
-				push @L3Block_arr,$tempBlockNameAndGUID;
-
-			}
-		
-			foreach (my $l = 0; $l<= $#L3Block_arr; $l++){
-				my $line = $L3Block_arr[$l];
-				chomp($line);
-				if ($line eq "") {next;} 
-#				my $line = $_;
-				my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-				if ($l < $#L3Block_arr) {print "\n\t\t\t'$pBlockName':{},";}
-				else {print "\n\t\t\t'$pBlockName':{}";}
-			}
-		if ($k < $#L2Block_arr) {print "},";}
-		else {print "}";}
-		}
-	if ($j < $#L1Block_arr) {print "},";}	
-	else {print "}"};
-	}
-
-if ($i < $#parentBlocks_arr) {print "},\n";}
-else {print "}\n";}
-
-}
-
-print "\n}";	
 
 
-exit (-1);
+
 
 sub  getBlockInfoFromParts {
 	my $fullPath = $_[0];

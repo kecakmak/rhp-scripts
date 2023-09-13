@@ -1,12 +1,17 @@
 #!/usr/bin/perl
-use warnings;
+#use warnings;
 use strict;
 use MBSEDialogsBackendLibs; 
 
-my $block = $ARGV[0];
-my $type = $ARGV[1];
-my $targetLink = $ARGV[2];
-my $rhpProject = $ARGV[3];
+my $block = "";
+my $type = "";
+my $targetLink = "";
+my $rhpProject = "";
+
+$block = $ARGV[0];
+$type = $ARGV[1];
+$targetLink = $ARGV[2];
+$rhpProject = $ARGV[3];
 #my $targetLink = "https://jazz.net/sandbox01-rm/resources/BI_H6ar9SnLEe2zB-tVgYH0_w";
 
 
@@ -22,17 +27,18 @@ my $projectArea = getEnvironments($projAreaName);
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
+if ($rhpProject eq "") {
+	print "\n \nCommand executed with missing parameters\n"; 
+	print "Usage: 2-linkToRequirement <Existing model_element> <type_of_the_model_element> <Rhapsody Project Name>\n"; 
+	exit -1; 
+}
+
 if (($block eq "") or ($type eq ""))  {
 	print "Please provide the name of the model elemenet and its type to link with the given requirement... \n";
 	print "Usage: 2-linkToRequirement <Existing model_element> <type_of_the_model_element> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
-if ($rhpProject eq "") {
-	print "\n \nThe Rhapsody Project Name is required. Please add Rhapsody Project Name\n"; 
-	print "Usage: 2-linkToRequirement <Existing model_element> <type_of_the_model_element> <Rhapsody Project Name>\n"; 
-	exit -1; 
-}
 
 if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
 	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
@@ -49,7 +55,7 @@ my $origFileContents = "";
 my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'$block\' \{\} \\\;/;
 my $fileName = findCorrectFileName($parentFolders, $block);
 
- if ($fileName eq "") {
+ if (($fileName eq "") or ($fileName eq "ERROR")) {
 	
 	print "ERROR: Parent Block could not be found. Please enter an existing Block as parent block\n\n\n";
 	exit -1; 

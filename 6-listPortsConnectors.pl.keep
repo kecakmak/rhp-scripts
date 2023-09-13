@@ -250,27 +250,13 @@ sub printPortDetails{
 #Find Interface Block -End- 
 	}
 	
-	print "\t\t\t\t\"Label\":\"$portLabel\",\n";
-	print "\t\t\t\t\"Interface Block\":\"$portIB\",\n";
-	print "\t\t\t\t\"multiplicity\":\"$portMultiplicity\",\n";
+	print "\t\t\t\t\"Label\":\"$portLabel\"\n";
+	print "\t\t\t\t\"Interface Block\":\"$portIB\"\n";
+	print "\t\t\t\t\"multiplicity\":\"$portMultiplicity\"\n";
 	print "\t\t\t\t\"connectors\":\n";
 	print "\t\t\t\t\t[\n";
 
 	my $printConnectors = printPortConnectors($fullPath,$portName,$portID,$parentBlockPartID,$parentBlockName);
-	
-	my @connector_arr = split("CONN_ARR_SEPERATOR", $printConnectors); 
-	my $conn_arr_count = @connector_arr; 
-	
-	for (my $a=0; $a<$conn_arr_count; $a++){
-		my $connector = $connector_arr[$a]; 
-		chomp($connector);
-		print "$connector\n";
-		
-		if ($a < $conn_arr_count-1) {print "\t\t\t\t\t\t},\n";}
-		else {print "\t\t\t\t\t\t}\n";}
-	
-	}
-	
 	print "\t\t\t\t\t]\n";
 }
 
@@ -284,17 +270,12 @@ sub printPortConnectors{
 	
 	my $blockFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<value>$parentBlockPartID<\\\/value>\/\,\/<_name type=\"a\">$parentBlockName<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
 	$blockFiles=~s/\t/:/ig;
-#Added in 03.08.2023 due to query reports space instead of tabs 
-	$blockFiles=~s/\s/:/ig;
-
 		
 	my ($blockFile,$junk) = split(":::",$blockFiles);
-	($blockFile,$junk) = split("::",$blockFiles); #sometimes there are 3 spaces, sometimes two... 
-	$blockFile=~s/\s+$//; #right trim to get rid of any spaces at the end 
-#	my $fileContents = getFileContents($blockFile);
+	$blockFile=~ s/\s+$//; #right trim to get rid of any spaces at the end 
+	my $fileContents = getFileContents($blockFile);
 	
 	my $connectorInfo = getConnectorFiles($fullPath,$portID); 
-	return $connectorInfo;
 
 	
 }
@@ -317,21 +298,19 @@ sub getConnectorFiles{
 		chomp($_); 
 		my($fileNames,$junk) = split("\t",$_);
 		$fileNames=~s/://ig;
-		if ($fileNames ne ""){push(@fileListArr,$fileNames);}
+		push(@fileListArr,$fileNames); 
 	}
 	my @fileListArrUn= uniq(@fileListArr);
-	my $numOfFiles = @fileListArrUn;
 	
-	for (my $k=0; $k<$numOfFiles; $k++){
-	
+	for (my $k=0; $k<=$#fileListArrUn; $k++){
+
 		my $item = $fileListArrUn[$k];
 		next if ($item eq "");
 		my $fileContents = getFileContents($item); 
 		my $connectorInfo = getConnectorAndParts($fileContents,$portID); 
 		my @connectorInfo_arr = split("ARRAY_SEPERATOR",$connectorInfo);
-		my $number = @connectorInfo_arr; 
 
-		for (my $j = 0; $j < $number; $j++) {
+		for (my $j = 0; $j <= $#connectorInfo_arr; $j++) {
 			my $item = $connectorInfo_arr[$j];
 			my $connector1 = "";
 			my $connector2 = ""; 
@@ -347,15 +326,18 @@ sub getConnectorFiles{
 			elsif (($fromPart eq $connectorPartName1) && ($otherPart eq $connectorPartName2)){$connector1 = $connectorPartName1;$connector2 = $connectorPartName2; $connector = $connectorName;}
 			elsif (($fromPart eq $connectorPartName2) && ($otherPart eq $connectorPartName1)){$connector1 = $connectorPartName1;$connector2 = $connectorPartName2; $connector = $connectorName;}
 			
-			my $connectionElement = "\t\t\t\t\t\t{\n" . "\t\t\t\t\t\t\"$connectorDir1\":\"$connector1\",\n" . "\t\t\t\t\t\t\"$connectorDir2\":\"$connector2\",\n" . "\t\t\t\t\t\t\"name\":\"$connector\"\n";
 
-			if ($connectionString eq ""){$connectionString = $connectionElement;}
-			else {$connectionString = $connectionString . "CONN_ARR_SEPERATOR" . $connectionElement;}
+			print "\t\t\t\t\t\t{\n";
+			print "\t\t\t\t\t\t\"$connectorDir1\":\"$connector1\"\n";
+			print "\t\t\t\t\t\t\"$connectorDir2\":\"$connector2\"\n";
+			print "\t\t\t\t\t\t\"name\":\"$connector\"\n";
+			if ($j < $#connectorInfo_arr) {print "\t\t\t\t\t\t},\n";}
+			else {
+				if ($k<$#fileListArrUn){print "\t\t\t\t\t\t},\n";}
+				else {print "\t\t\t\t\t\t},\n";}
+			}	
 		}
-
 	}
-	
-	return $connectionString; 
 }
 
 sub getConnectorAndParts{ 

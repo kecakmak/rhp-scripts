@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use warnings;
+#use warnings;
 use strict;
 use TimeDate;
 use MBSEDialogsBackendLibs;
@@ -31,14 +31,14 @@ my $projectArea = getEnvironments($projAreaName);
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
-if ($blockName eq "")  {
-	print "Please provide the name of the block... \n";
+if ($rhpProject eq "") {
+	print "\n \nCommand executed with missing parameters\n";
 	print "Usage: 3-setStereotype <Existing block_name> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
-if ($rhpProject eq "") {
-	print "\n \nThe Rhapsody Project Name is required. Please add Rhapsody Project Name\n"; 
+if ($blockName eq "")  {
+	print "Please provide the name of the block... \n";
 	print "Usage: 3-setStereotype <Existing block_name> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -62,7 +62,7 @@ my $parentFolder = findCorrectFileName($parentFolders, $blockName);
 my $fileName = $parentFolder; 
 
 
- if ($parentFolder eq "") {
+ if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
 	
 	print "ERROR: The Block could not be found. Please enter an existing Block to set the stereotype\n\n\n";
 	exit -1; 
@@ -187,13 +187,18 @@ my @parentGuid = "";
 my $recursiveParents = ""; 
 if ($level ne "NA") {
 	my $inGuid = $stGuid;
-for (my $i = 0; $i < $level ; $i++) {
-	$parentName[$i] = findParentName($inGuid, $profileContents, "ISubsystem");
-	$parentGuid[$i] = findGuid($parentName[$i], $profileContents, "ISubsystem");
-	$inGuid = $parentGuid[$i];
-	if ($recursiveParents eq "") {$recursiveParents = $parentName[$i];}
-	else {$recursiveParents = $parentName[$i] . "::" . $recursiveParents;} 	
-	}	
+	for (my $i = 0; $i < $level ; $i++) {
+		$parentName[$i] = findParentName($inGuid, $profileContents, "ISubsystem");
+		$parentGuid[$i] = findGuid($parentName[$i], $profileContents, "ISubsystem");
+		$inGuid = $parentGuid[$i];
+		if ($recursiveParents eq "") {$recursiveParents = $parentName[$i];}
+		else {$recursiveParents = $parentName[$i] . "::" . $recursiveParents;} 	
+		}	
+}
+
+else {
+	print "No matching stereotype found. Please set the stereotype manually\n";
+	exit (-1);
 }
 
 $recursiveParents = "NVL_Profile::Blocks::" . $recursiveParents; 
