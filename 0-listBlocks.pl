@@ -39,6 +39,7 @@ while (<READ_PRT>){
 
 close (READ_PRT);
 
+my $stName = "";
 
 my $childIDsOfParentPackage = findIDsOfParentPackage($fileContents);
 
@@ -67,7 +68,7 @@ foreach (@parts_arr){
 
 }
 
-print "\n{\n";
+print "\n[\n";
 
 for (my $i = 0; $i <= $#parentBlocks_arr; $i++) {
 	my $line = $parentBlocks_arr[$i]; 
@@ -94,42 +95,31 @@ for (my $i = 0; $i <= $#parentBlocks_arr; $i++) {
 	}
 
 
-	print "'$pBlockName':{";
+	print "\t{\n\t\t'name':'$pBlockName',";
+	$stName = findStereotype($fullPath, $pBlockName, $pBlockGUID);
+	$stName=~s/\s//ig;
+	print "\n\t\t'stereotype':'$stName',";
+	print "\n\t\t'children':[";
+
 	my $l1_arr = @L1Block_arr;
 	
-	for (my $j = 0; $j <= $#L1Block_arr; $j++)  {
-		my $line = $L1Block_arr[$j];
-		chomp($line);
-		if ($line eq "") {next;}
-#		my $line = $_;
-		my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-		print "\n\t'$pBlockName':{";
-		my @L2Block_arr = ""; 
-
-		my $tempParts = findPartsForTheParentBlock($fullPath, $pBlockGUID, $pBlockName);
-
-		my @tempParts_arr = split(/\n/,$tempParts);
-
-		foreach (@tempParts_arr) {
-			chomp($_);
-			if ($_ eq "") {next;} 
-			my $line = $_; 
-
-			my $tempBlockNameAndGUID = getBlockInfoFromParts($fullPath, $line);
-
-			push @L2Block_arr,$tempBlockNameAndGUID;
-
-		}
-		
-		for (my $k = 0 ; $k <= $#L2Block_arr; $k++){
-			my $line = $L2Block_arr[$k]; 
+	@L1Block_arr=uniq(@L1Block_arr);
+	
+	if ($#L1Block_arr == 0){print "]";}
+	else {
+	
+		for (my $j = 0; $j <= $#L1Block_arr; $j++)  {
+			my $line = $L1Block_arr[$j];
 			chomp($line);
-			if ($line eq "") {next;} 
-#			my $line = $_;
+			if ($line eq "") {next;}
 			my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-			print "\n\t\t'$pBlockName':{";
-
-			my @L3Block_arr = ""; 
+			print "\n\t\t\t{";
+			print "\n\t\t\t\t'name':'$pBlockName',";
+			$stName = findStereotype($fullPath, $pBlockName, $pBlockGUID);
+			$stName=~s/\s//ig;
+			print "\n\t\t\t\t'stereotype':'$stName',";
+			print "\n\t\t\t\t'children':[";
+			my @L2Block_arr = ""; 
 
 			my $tempParts = findPartsForTheParentBlock($fullPath, $pBlockGUID, $pBlockName);
 
@@ -142,35 +132,100 @@ for (my $i = 0; $i <= $#parentBlocks_arr; $i++) {
 
 				my $tempBlockNameAndGUID = getBlockInfoFromParts($fullPath, $line);
 
-				push @L3Block_arr,$tempBlockNameAndGUID;
+				push @L2Block_arr,$tempBlockNameAndGUID;
 
 			}
-		
-			foreach (my $l = 0; $l<= $#L3Block_arr; $l++){
-				my $line = $L3Block_arr[$l];
-				chomp($line);
-				if ($line eq "") {next;} 
-#				my $line = $_;
-				my ($pBlockName, $pBlockGUID)=split(/::/,$line);
-				if ($l < $#L3Block_arr) {print "\n\t\t\t'$pBlockName':{},";}
-				else {print "\n\t\t\t'$pBlockName':{}";}
+			
+			@L2Block_arr=uniq(@L2Block_arr);
+
+			if ($#L2Block_arr == 0){print "]";}
+			else {
+
+				for (my $k = 0 ; $k <= $#L2Block_arr; $k++){
+					my $line = $L2Block_arr[$k]; 
+					chomp($line);
+					if ($line eq "") {next;} 
+					print "\n\t\t\t\t\t{";
+					my ($pBlockName, $pBlockGUID)=split(/::/,$line);
+					print "\n\t\t\t\t\t\t'name':'$pBlockName',";
+					$stName = findStereotype($fullPath, $pBlockName, $pBlockGUID);
+					$stName=~s/\s//ig;
+					print "\n\t\t\t\t\t\t'stereotype':'$stName',";
+					print "\n\t\t\t\t\t\t'children':[";
+
+					my @L3Block_arr = ""; 
+
+					my $tempParts = findPartsForTheParentBlock($fullPath, $pBlockGUID, $pBlockName);
+
+					my @tempParts_arr = split(/\n/,$tempParts);
+
+					foreach (@tempParts_arr) {
+						chomp($_);
+						if ($_ eq "") {next;} 
+						my $line = $_; 
+
+						my $tempBlockNameAndGUID = getBlockInfoFromParts($fullPath, $line);
+
+						push @L3Block_arr,$tempBlockNameAndGUID;
+
+					}
+					
+					@L3Block_arr=uniq(@L3Block_arr);
+					
+					if ($#L3Block_arr == 0){print "]";}
+					
+					else {
+
+
+						foreach (my $l = 0; $l<= $#L3Block_arr; $l++){
+							my $line = $L3Block_arr[$l];
+							chomp($line);
+							if ($line eq "") {next;} 
+							print "\n\t\t\t\t\t\t\t{";
+							my ($pBlockName, $pBlockGUID)=split(/::/,$line);
+							if ($l < $#L3Block_arr) {
+								print "\n\t\t\t\t\t\t\t\t'name':'$pBlockName',";				
+							}
+							else {
+								print "\n\t\t\t\t\t\t\t\t'name':'$pBlockName',";
+							}
+							$stName = findStereotype($fullPath, $pBlockName, $pBlockGUID);
+							$stName=~s/\s//ig;
+							print "\n\t\t\t\t\t\t\t\t'stereotype':'$stName',";	
+							print "\n\t\t\t\t\t\t\t\t'children':[]";
+							if ($l < $#L3Block_arr) {print "\n\t\t\t\t\t\t\t},";}
+							else {print "\n\t\t\t\t\t\t\t}";}
+						}
+					print "\n\t\t\t\t\t\t]";
+
+				}
+				if ($k < $#L2Block_arr) {print "\n\t\t\t\t\t},";}
+				else {print "\n\t\t\t\t\t}";}
 			}
-		if ($k < $#L2Block_arr) {print "},";}
-		else {print "}";}
+			print "\n\t\t\t\t]";
 		}
-	if ($j < $#L1Block_arr) {print "},";}	
-	else {print "}"};
+
+		if ($j < $#L1Block_arr) {print "\n\t\t\t},";}	
+		else {print "\n\t\t\t}"};
+		}
+		print "\n\t\t]";
 	}
 
-if ($i < $#parentBlocks_arr) {print "},\n";}
-else {print "}\n";}
+
+if ($i < $#parentBlocks_arr) {print "\n\t},\n";}
+else {print "\n\t}";}
 
 }
 
-print "\n}";	
+print "\n]";	
 
 
 exit (-1);
+
+sub uniq {
+    my %seen;
+    grep !$seen{$_}++, @_;
+}
 
 sub  getBlockInfoFromParts {
 	my $fullPath = $_[0];
@@ -194,7 +249,7 @@ sub findPartsForTheParentBlock {
 
 	my $fullPath = $_[0];
 	my $rootID = $_[1];
-	my $rootGUID = $_[2]; 
+	my $rootBlock = $_[2]; 
 
 	my $partFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$rootID<\\\/_id>\/\,\/<_name type=\"a\">$rootBlock<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
 	$partFiles=~s/\t/:/ig;
@@ -204,6 +259,8 @@ sub findPartsForTheParentBlock {
 	
 	my $childIDs = findIDsOfParentBlock($fileContents, $rootID);
 	my $childPartsNGUIDs = nameOfThePartAndGUID($childIDs,$fileContents);
+	
+	
 	
 	return $childPartsNGUIDs; 
 }
@@ -263,7 +320,7 @@ sub findBlockIDandNameFromPart {
 					if ($parentClassName eq "") {
 						$parentClassName = findNameByGUID($parentClassID,$fileContents,"IClass");
 					}
-				}
+				}	
 			}
 
 		}
@@ -356,8 +413,7 @@ sub nameOfThePartAndGUID {
 					}
 					else {$retVal = "";} 
 				}
-				
-
+			
 				
 			}
 
@@ -452,10 +508,7 @@ sub nameOfTheBlockAndGUID {
 #						exit (-1);
 					}
 					else {$retVal = "";} 
-				}
-				
-
-				
+				}				
 			}
 
 
@@ -528,6 +581,78 @@ sub findIDsOfParentPackage {
 	return $retVal;
 
 
+
+}
+
+sub findStereotype { 
+
+
+	my $fullPath = $_[0];
+	my $rootID = $_[2];
+	my $rootBlock = $_[1]; 
+
+	my $partFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$rootID<\\\/_id>\/\,\/<_name type=\"a\">$rootBlock<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
+	$partFiles=~s/\t/:/ig;
+	my ($partFile,$junk) = split(":::",$partFiles);
+	$partFile=~ s/\s+$//; #right trim to get rid of any spaces at the end 
+	$fileContents = getFileContents($partFile);
+	
+	my @fileContents_arr = split(/\n/,$fileContents); 
+	
+	my $inHandle = "false"; 
+	my $inStereotype = "false"; 
+	my $inMBGrV = "false"; 
+	my $stName = "";
+	my $inClass = "false";
+	my $inCorrectClass = "false"; 
+	
+	
+	foreach(@fileContents_arr) {
+		chomp($_);
+		my $line = $_; 
+		
+		if (index($line,"<IClass type=\"e\">")!=-1) {
+			$inClass = "true"; 
+		}
+		if (index($line, "<\/IClass>") !=-1) {
+			$inClass = "false";
+			$inCorrectClass = "false";
+		}
+		
+		if ($inClass eq "true") { 
+			if (index($line,"<_id type=\"a\">$rootID")!=-1) {$inCorrectClass = "true";} 
+		}
+		
+		if ($inCorrectClass eq "true") {
+			if (index($line, "<IHandle") !=-1) {$inHandle = "true";}
+				if (index($line, "<\/IHandle")!=-1) {
+					$inHandle = "false"; 
+					$inStereotype = "false"; 
+					$inMBGrV = "false"; 
+				}
+			
+				if ($inHandle eq "true") {
+			
+					if (index($line,"<_hm2Class type=\"a\">IStereotype")!=-1){$inStereotype = "true";} 
+					if ($inStereotype eq "true") {
+						if ((index($line, "MBGrV")!=-1) && (index($line,"<_hsubsystem ")!=-1)){$inMBGrV = "true";} 
+					}
+					if ($inMBGrV eq "true"){
+						if(index($line,"<_hname")!=-1){
+							$stName = $line;
+							$stName =~s/<_hname type=\"a\">//ig;
+							$stName =~s/<\/_hname>//ig;
+						}
+					}
+				
+				
+				}			
+		
+		}
+	
+	}
+	return $stName; 
+			
 
 }
 
