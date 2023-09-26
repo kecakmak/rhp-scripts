@@ -17,12 +17,14 @@ my $rhpProject = $ARGV[3];
 my $wsName = "WORKSPACE_" . $rhpProject; 
 my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
 my $projAreaName = "PROJECTAREA_" . $rhpProject; 
+my $rhpProjectFileName = "RHAPSODY_FILE_NAME_" . $rhpProject; 
 
 my $wsPath = getEnvironments("WORKSPACE");
 
 my $workspace = getEnvironments($wsName);
 my $rhapsody_file_dir = getEnvironments($fileDirName);
 my $projectArea = getEnvironments($projAreaName);
+my $rhpProjectFile = getEnvironments($rhpProjectFileName);
 
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
@@ -158,7 +160,7 @@ $origFileContents = $newPortIndexAlsoAppendedToParentBlock;
 
 # To find Stereotype first read the file 
 
-my $projectFilePath = $workspace  . "\/" . $rhpProject . ".rpyx";
+my $projectFilePath = $workspace  . "\/" . $rhpProjectFile;
 my $profileFile = "";
 my $relProfileFile = "";
 my $profilePath = findNVLProfilePath($projectFilePath);
