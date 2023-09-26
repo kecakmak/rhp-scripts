@@ -25,17 +25,19 @@ our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewB
 sub getEnvironments {
 	my $request = $_[0];
 	
+	open (ENV, "environments.ini") or die "Cannot open the environments ini file "; 
+	my %envs;
 	
-	my %envs = ( 
-	WORKSPACE => '/home/zkks/RhapsodyWorkspaces',
-	SCRIPTS_WS => '/home/zkks/PerlScripts/Rhapsody First Deployment/rhp-scripts-main', 
-	WORKSPACE_Projekt_SETitanic => '/home/zkks/RhapsodyWorkspaces/SETitanic', 
-	RHAPSODY_FILE_DIR_Projekt_SETitanic => 'Projekt_SETitanic_rpy/', 
-	PROJECTAREA_Projekt_SETitanic => 'cImqIgkqEe21o7SZHKptFQ', 
-	WORKSPACE_ADAS_5 => '/home/zkks/RhapsodyWorkspaces/ADAS',
-	RHAPSODY_FILE_DIR_ADAS_5 => 'ADAS_5_rpy/', 
-	PROJECTAREA_ADAS_5 => "cImqIgkqEe21o7SZHKptFQ");
-	
+	while (<ENV>){
+		chomp($_);
+		next if ($_ eq "");
+		my ($key, $value) = split("=", $_);
+		if ($value ne "") {
+			$envs{$key} = $value; 
+		}
+		else{next;}
+		
+	}
 
 	my $env = $envs{$request}; 
 	return $env; 
