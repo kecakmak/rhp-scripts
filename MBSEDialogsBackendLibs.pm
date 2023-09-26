@@ -27,6 +27,7 @@ sub getEnvironments {
 	
 	open (ENV, "environments.ini") or die "Cannot open the environments ini file "; 
 	my %envs;
+	my $env = "";
 	
 	while (<ENV>){
 		chomp($_);
@@ -38,8 +39,14 @@ sub getEnvironments {
 		else{next;}
 		
 	}
-
-	my $env = $envs{$request}; 
+	
+	if (exists($envs{$request})){$env = $envs{$request};}
+	
+	else {
+		print "Value for $request is not set. Please check the environments.ini file and set the required value\n\n";
+		exit -1;
+	}
+	
 	return $env; 
 	
 	
