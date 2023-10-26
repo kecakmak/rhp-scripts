@@ -251,7 +251,17 @@ close (WR);
 
 fixRhapsodyIndicies($fileName);
 
-print "Command completed successfully\n";
+print "Command completed successfully\nSetting Stereotype for Block: $blockToCreate\n";
+
+my $setStereoTypeChildBlock = qx/perl 3-setStereotype.pl $blockToCreate $rhpProject/;
+
+my $command = "perl 0-listBlocksBackgrd.pl $rhpProject"; 
+
+my $output = system($command . ' > logFile.txt &');
+
+print $setStereoTypeChildBlock;
+
+
 
 
 
