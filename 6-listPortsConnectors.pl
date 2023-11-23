@@ -299,10 +299,6 @@ sub printPortConnectors{
 	
 }
 
-sub uniq {
-    my %seen;
-    grep !$seen{$_}++, @_;
-}
 
 sub getConnectorFiles{ 
 	my $fullPath = $_[0];
@@ -337,15 +333,19 @@ sub getConnectorFiles{
 			my $connector2 = ""; 
 			my $connector = "";
 			my ($connectorName, $connectorPart1, $connectorPart2) = split("CONNECTOR_SEPERATOR",$item);
-			my ($connectorPartName1,$connectorDir1)=split(":::",$connectorPart1);		
-			my ($connectorPartName2,$connectorDir2)=split(":::",$connectorPart2);	
+			my ($connectorName1,$connectorDir1)=split(":::",$connectorPart1);	
+			my ($connectorPartName1,$connectorPortName1) = split("<<VIA>>", $connectorName1);
+			my ($connectorName2,$connectorDir2)=split(":::",$connectorPart2);
+			my ($connectorPartName2, $connectorPortName2) = split("<<VIA>>", $connectorName2);
+			$connectorPortName1 = findNameByGUID_UnknownFile($connectorPortName1, $searchPath, "IPort");
+			$connectorPortName2 = findNameByGUID_UnknownFile($connectorPortName2, $searchPath, "IPort");
 			if ($otherPart eq "."){
-				$connector1 = $connectorPartName1;
-				$connector2 = $connectorPartName2; 
+				$connector1 = $connectorPortName1;
+				$connector2 = $connectorPortName2; 
 				$connector = $connectorName; 	
 			}
-			elsif (($fromPart eq $connectorPartName1) && ($otherPart eq $connectorPartName2)){$connector1 = $connectorPartName1;$connector2 = $connectorPartName2; $connector = $connectorName;}
-			elsif (($fromPart eq $connectorPartName2) && ($otherPart eq $connectorPartName1)){$connector1 = $connectorPartName1;$connector2 = $connectorPartName2; $connector = $connectorName;}
+			elsif (($fromPart eq $connectorPartName1) && ($otherPart eq $connectorPartName2)){$connector1 = $connectorPortName1;$connector2 = $connectorPortName2; $connector = $connectorName;}
+			elsif (($fromPart eq $connectorPartName2) && ($otherPart eq $connectorPartName1)){$connector1 = $connectorPortName1;$connector2 = $connectorPortName2; $connector = $connectorName;}
 			
 			my $connectionElement = "\t\t\t\t\t\t{\n" . "\t\t\t\t\t\t\"$connectorDir1\":\"$connector1\",\n" . "\t\t\t\t\t\t\"$connectorDir2\":\"$connector2\",\n" . "\t\t\t\t\t\t\"name\":\"$connector\"\n";
 
@@ -369,10 +369,14 @@ sub getConnectorAndParts{
 	my $inFromPort = "false";
 	my $prospectToPart = "";
 	my $prospectFromPart = "";
+	my $prospectToPort = "";
+	my $prospectFromPort = ""; 
 	my $prospectConnectorName = ""; 
 	my $connectionString = ""; 
 	my $fromPart = "";
 	my $toPart = ""; 
+	my $toPort = ""; 
+	my $fromPort = ""; 
 	my $returnValue = ""; 
 	
 	foreach (@fileContent_arr) {
@@ -386,8 +390,59 @@ sub getConnectorAndParts{
 			$inFromPort = "false";
 			$prospectToPart = ""; 
 			$prospectFromPart = ""; 
+			$toPort = ""; 
+			$fromPort = ""; 
+			$prospectToPort = ""; 
+			$prospectFromPort = ""; 
 			$prospectConnectorName = ""; 
 		}
+		
+#		<IObjectLink type="e">
+#			<_id type="a">GUID f6b3ec1b-6b38-48bf-8864-705eeaeeca8d</_id>
+#			<_myState type="a">10240</_myState>
+#			<_rmmServerID type="a">1294161_cImqIgkqEe21o7SZHKptFQ</_rmmServerID>
+#			<_name type="a">PT_HBGR_2220_PT_HBGR_2110</_name>
+#			<_toLink type="r">
+#				<IHandle type="e">
+#					<_hm2Class type="a">IPart</_hm2Class>
+#					<_hfilename type="a">.\ST_2100.sbsx</_hfilename>
+#					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_XYZ_Struktur::ST_Systems::ST_2000::ST_2100</_hsubsystem>
+#					<_hclass type="a">BL_BA_2100</_hclass>
+#					<_hname type="a">PT_HBGR_2110</_hname>
+#					<_hid type="a">GUID 2e47c634-0654-4d77-be47-abcf595d73b1</_hid>
+#					<_hrmmServerID type="a">1294536_cImqIgkqEe21o7SZHKptFQ</_hrmmServerID>
+#				</IHandle>
+#			</_toLink>
+#			<_fromLink type="r">
+#				<IHandle type="e">
+#					<_hm2Class type="a">IPart</_hm2Class>
+#					<_hid type="a">GUID 96b75b87-49dd-4c36-9995-c54d615c76ac</_hid>
+#					<_hrmmServerID type="a">1294172_cImqIgkqEe21o7SZHKptFQ</_hrmmServerID>
+#				</IHandle>
+#			</_fromLink>
+#			<_toPort type="r">
+#				<IHandle type="e">
+#					<_hm2Class type="a">IPort</_hm2Class>
+#					<_hfilename type="a">.\ST_2110.sbsx</_hfilename>
+#					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_XYZ_Struktur::ST_Systems::ST_2000::ST_2100::ST_2110</_hsubsystem>
+#					<_hclass type="a">BL_HBGR_2110</_hclass>
+#					<_hname type="a">PP_2220</_hname>
+#					<_hid type="a">GUID a90cc394-7faa-41ec-9336-fa8b4a258a80</_hid>
+#					<_hrmmServerID type="a">1294366_cImqIgkqEe21o7SZHKptFQ</_hrmmServerID>
+#				</IHandle>
+#			</_toPort>
+#			<_fromPort type="r">
+#				<IHandle type="e">
+#					<_hm2Class type="a">IPort</_hm2Class>
+#					<_hfilename type="a">.\ST_2220.sbsx</_hfilename>
+#					<_hsubsystem type="a">Projekt_SETitanic::System_SETitanic::System_XYZ_Struktur::ST_Systems::ST_2000::ST_2200::ST_2220</_hsubsystem>
+#					<_hclass type="a">BL_HBGR_2220</_hclass>
+#					<_hname type="a">PP_2110</_hname>
+#					<_hid type="a">GUID c29b6af9-63bc-4842-a7b1-112d33c256aa</_hid>
+#					<_hrmmServerID type="a">1294153_cImqIgkqEe21o7SZHKptFQ</_hrmmServerID>
+#				</IHandle>
+#			</_fromPort>
+#		</IObjectLink>
 		
 		if ($inConnector eq "true"){
 		
@@ -422,11 +477,7 @@ sub getConnectorAndParts{
 						$prospectToPartID =~s/<\/_hid>//ig;
 						$prospectToPartID =~s/\t//ig;
 						$prospectToPart = findNameByGUID($prospectToPartID, $fileContents, "IPart");
-					}
-					
-
-		
-				
+					}		
 			}
 			
 			if ($inFromLink eq "true") {
@@ -450,41 +501,74 @@ sub getConnectorAndParts{
 			if (index($_,"<_toPort type=\"r\">")!=-1) {$inToPort = "true";}
 			if (index($_,"<\/_toPort>")!=-1){
 				$inToPort = "false";
+				$toPort = ""; 
 			}
 
 			if (index($_,"<_fromPort type=\"r\">")!=-1) {$inFromPort = "true";}
 			if (index($_,"<\/_fromPort>")!=-1){
 				$inFromPort = "false";
+				$fromPort = "";
+				$prospectFromPort = "";
 			}
 			
 			if ($inToPort eq "true") {
-				if (index($_,$portID)!=-1) {
+				if (index($_,"<_hid type=\"a\">")!=-1){
+					if (index($_,$portID)!=-1) {
 
-					$toPart = $prospectToPart . ":::To";
-					$fromPart = $prospectFromPart . ":::From";
+						$toPart = $prospectToPart;
+						$fromPart = $prospectFromPart;
 
-					if ($connectionString eq ""){$connectionString = $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPart . "CONNECTOR_SEPERATOR" . $fromPart;}
-					else {$connectionString = $connectionString . "ARRAY_SEPERATOR" . $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPart . "CONNECTOR_SEPERATOR" . $fromPart;}
+						$toPort = $portID . ":::To";
+						$fromPort = "<FROM_PORT_PLACEHOLDER>" . ":::From";
+						
+						$toPort = $toPart . "<<VIA>>" . $toPort; 
+						$fromPort = $fromPart . "<<VIA>>" . $fromPort; 
+
+						if ($connectionString eq ""){$connectionString = $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPort . "CONNECTOR_SEPERATOR" . $fromPort;}
+						else {$connectionString = $connectionString . "ARRAY_SEPERATOR" . $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPort . "CONNECTOR_SEPERATOR" . $fromPort;}
+					}
+					else {
+
+						$_ =~s/<_hid type=\"a\">//ig;
+						$_ =~s/<\/_hid>//ig;
+						$_ =~s/\s//ig;
+						$_ =~s/GUID/GUID /ig;
+						$prospectToPort = $_;
+					}
 				}
 			}
 			
 			if ($inFromPort eq "true") {
-				if (index($_,$portID)!=-1) {
-					$fromPart = $prospectFromPart . ":::To";
-					$toPart = $prospectToPart . ":::From";
-					if ($connectionString eq ""){$connectionString = $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPart . "CONNECTOR_SEPERATOR" . $fromPart;}
-					else {$connectionString = $connectionString . "ARRAY_SEPERATOR" . $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPart . "CONNECTOR_SEPERATOR" . $fromPart;}
+				if (index($_,"<_hid type=\"a\">")!=-1){
+					if (index($_,$portID)!=-1) {
+
+						
+						$fromPart = $prospectFromPart;
+						$toPart = $prospectToPart;
+
+						$fromPort = $portID . ":::From";
+						$toPort = $prospectToPort . ":::To"; 
+						
+						$toPort = $toPart . "<<VIA>>" . $toPort; 
+						$fromPort = $fromPart . "<<VIA>>" . $fromPort; 
+
+						if ($connectionString eq ""){$connectionString = $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPort . "CONNECTOR_SEPERATOR" . $fromPort;}
+						else {$connectionString = $connectionString . "ARRAY_SEPERATOR" . $prospectConnectorName . "CONNECTOR_SEPERATOR" . $toPort . "CONNECTOR_SEPERATOR" . $fromPort;}
+					}
+					else {
+						$_ =~s/<_hid type=\"a\">//ig;
+						$_ =~s/<\/_hid>//ig;
+						$_ =~s/\s//ig;
+						$_ =~s/GUID/GUID /ig;
+						$prospectFromPort = $_;
+						$connectionString =~s/<FROM_PORT_PLACEHOLDER>/$prospectFromPort/ig;
+					
+					}
 				}
 			}
 		
 		}
 	
 	}
-	
 	return "$connectionString";
 }
-
-
-
-
-
