@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents);
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq);
 
 
 sub getEnvironments {
@@ -929,7 +929,7 @@ sub findGuid{
 	
 	my @contentsArray = split(/\n/, $contents); 
 
-
+ 
 	foreach (@contentsArray) {
 		chomp($_); 
 		my $line = $_; 
@@ -1328,6 +1328,77 @@ sub findNameByGUID {
 		}
 	
 	}
+	return $retVal;
+}
+
+sub uniq {
+    my %seen;
+    grep !$seen{$_}++, @_;
+}
+
+sub findNameByGUID_UnknownFile {
+	my $guid = $_[0];
+	my $contents = $_[1];
+	my $type = $_[2]; 
+	my $retVal = ""; 
+	
+	my $files = qx/find $contents \-type f \-exec grep \-H \'<_id type=\"a\">$guid<\/_id>\' \{\} \\\;/;
+
+	my @files_Arr = split("\n",$files); 
+	my @fileListArr = ""; 
+	
+	foreach(@files_Arr) {
+		chomp($_); 
+		my($fileNames,$junk) = split("\t",$_);
+		$fileNames=~s/://ig;
+		if ($fileNames ne ""){push(@fileListArr,$fileNames);}
+	}
+	my @fileListArrUn= uniq(@fileListArr);
+	my $numOfFiles = @fileListArrUn;
+	
+	for (my $k=0; $k<$numOfFiles; $k++){
+	
+		my $item = $fileListArrUn[$k];
+		next if ($item eq "");
+		my $fileContents = getFileContents($item); 
+
+		my @partFile_arr = split(/\n/,$fileContents); 
+		
+		my $inType = "false"; 
+		my $inPart = "false"; 
+		my $inCH = "false"; 
+
+		
+		foreach(@partFile_arr) {
+			chomp($_);
+			my $line = $_;
+		
+			if (index($line, "<" . $type . " type=")!=-1){$inType = "true";} 
+			if (index($line, "<\/" . $type . ">")!=-1){$inType = "false";$inPart = "false";}
+			
+			if ($inType eq "true") {
+				if (index($line,"<_id type")!=-1){
+					$line=~s/<_id type=\"a\">//ig;
+					$line=~s/<\/_id>//ig;
+					$line=~s/\t//ig;
+					if ($line eq $guid) {$inPart = "true";} 
+				}
+				if ($inPart eq "true" and (index($line,"<_name type")!=-1)) {
+					$line=~s/<_name type=\"a\">//ig;
+					$line=~s/<\/_name>//ig;
+					$line=~s/\t//ig;
+					$retVal = $line;
+
+				}
+			}
+		
+		}
+			
+			
+	}
+
+		
+
 	return $retVal;
 }
 
