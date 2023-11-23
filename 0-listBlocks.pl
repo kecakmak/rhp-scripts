@@ -7,7 +7,7 @@ use MBSEDialogsBackendLibs;
 
 
 
-open (READ_PRT, '<', "blockList.json") or die "Cannot open file"; 
+open (READ_PRT, '<', "/home/tomcat/blockListFolder/blockList.json") or die "Cannot open file"; 
 
 while (<READ_PRT>){
 	chomp($_);

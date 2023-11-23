@@ -70,7 +70,7 @@ foreach (@parts_arr){
 
 }
 
-open (BLLIST, '>', "blockList.json"); 
+open (BLLIST, '>', "/home/tomcat/blockListFolder/blockList.json"); 
 
 print BLLIST "\n[\n";
 
