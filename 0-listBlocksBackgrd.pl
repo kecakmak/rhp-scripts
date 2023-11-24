@@ -226,10 +226,10 @@ close(BLLIST);
 
 exit (-1);
 
-sub uniq {
-    my %seen;
-    grep !$seen{$_}++, @_;
-}
+# sub uniq {
+#     my %seen;
+#     grep !$seen{$_}++, @_;
+# }
 
 sub  getBlockInfoFromParts {
 	my $fullPath = $_[0];
