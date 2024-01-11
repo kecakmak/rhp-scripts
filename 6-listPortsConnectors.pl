@@ -94,11 +94,11 @@ sub justListPorts{
 	my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName); 
 
 	if ($fromPartFileName eq "ERROR") {
-		print "\nERROR: Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
+		print "\nERROR(202): Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
 		exit -1;
 	}
 		
-	open (READ_PRT, '<', $fromPartFileName) or die "Cannot open file: $fromPartFileName";
+	open (READ_PRT, '<', $fromPartFileName) or die "ERROR(402): Cannot open file: $fromPartFileName";
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -116,7 +116,7 @@ sub justListPorts{
 	my $fromPartRMID = findRmid($fromPartName, $fromPartFileContents, "IPart");
 
 	if (($fromPartGUID eq "ERROR") or ($fromPartRMID eq "ERROR")) {
-		print "\nERROR: Cannot find provided part $fromPartName... Check if the part names provided are true1\n";
+		print "\nERROR(202): Cannot find provided part $fromPartName... Check if the part names provided are true1\n";
 		exit -1;
 	}
 	
@@ -126,7 +126,7 @@ sub justListPorts{
 	my $parentFromBlock = findParentName($fromPartGUID, $fromPartFileContents, "IClass");
 	
 	if ($parentFromBlock eq "ERROR") {
-		print "\nERROR: Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
+		print "\nERROR(202): Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
 		exit -1;
 	}
 	
@@ -135,13 +135,13 @@ sub justListPorts{
 	
 	
 	if ($fromBlockFileName eq "ERROR") {
-		print "\nERROR: Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
+		print "\nERROR(202): Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
 		exit -1;
 	}	
 	my $fromBlockFileContents = "";
 	if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
 	else { 
-		open (READ_PRT, '<', $fromBlockFileName) or die "Cannot open file: $fromBlockFileName";
+		open (READ_PRT, '<', $fromBlockFileName) or die "ERROR(402): Cannot open file: $fromBlockFileName";
 
 		while (<READ_PRT>){
 			chomp($_);

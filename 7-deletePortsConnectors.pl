@@ -18,7 +18,7 @@ my $otherPart = ".";
 
 if ($rhpProject eq "NULL") {
 
-	print "\n \nPlease enter a valid Rhapsody Project Name\n";
+	print "\nERROR(202): Please enter a valid Rhapsody Project Name\n";
 	print "Usage: 7-deletePortsConnectors <Item to Delete> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -26,7 +26,7 @@ if ($rhpProject eq "NULL") {
 
 if (($partToDelete eq "NULL") || ($partToDelete eq ""))  {
 
-	print "\n \nMissing Part Name to delete\n";
+	print "\n \nERROR(202): Missing Part Name to delete\n";
 	print "Usage: \n"; 
 	print "1. To delete a Part (Block) with all its ports and connectors, \n"; 
 	print "perl 7-deletePortsConnectors <Part Name to Delete> <Rhapsody Project Name>\n\n"; 
@@ -101,13 +101,13 @@ if (($partToDelete ne "") && ($partToDelete ne "NULL")){
 					deleteConnector($fullPath, $connectorToDelete, $connectorToDeleteID, "b", "x");
 				}
 				else {
-					print "Wrong Connector Name Provided\n";
+					print "ERROR(202): Wrong Connector Name Provided\n";
 				}
 
 			}
 		}
 		else {
-			print "Wrong Port Name Provided\n";
+			print "ERROR(202): Wrong Port Name Provided\n";
 		}
 	
 	}
@@ -126,7 +126,7 @@ if (($partToDelete ne "") && ($partToDelete ne "NULL")){
 
 
 else {
-	print "\n \nMissing Part Name to delete\n";
+	print "\n \nERROR(102): Missing Part Name to delete\n";
 	print "Usage: \n"; 
 	print "1. To delete a Part (Block) with all its ports and connectors, \n"; 
 	print "perl 7-deletePortsConnectors <Part Name to Delete> <Rhapsody Project Name>\n\n"; 
@@ -138,107 +138,6 @@ else {
 }
 
 
-sub justListPorts{
-	my $fromPartFileContents = "";
-	my $fromPartName = $_[0];
-	my $searchPath = $_[1];
-		
-	my $fromPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromPartName\' \{\} \\\;/;
-		
-	my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName); 
-
-	if ($fromPartFileName eq "ERROR") {
-		print "\nERROR: Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
-		exit -1;
-	}
-		
-	open (READ_PRT, '<', $fromPartFileName) or die "Cannot open file: $fromPartFileName";
-
-	while (<READ_PRT>){
-		chomp($_);
-		if ($fromPartFileContents eq "") {
-			$fromPartFileContents = $_ . "\n";
-		}
-		else {
-			$fromPartFileContents = $fromPartFileContents . $_ . "\n"; 
-		}
-
-	}
-	close (READ_PRT);
-
-	my $fromPartGUID = findGuid($fromPartName, $fromPartFileContents, "IPart");
-	my $fromPartRMID = findRmid($fromPartName, $fromPartFileContents, "IPart");
-
-	if (($fromPartGUID eq "ERROR") or ($fromPartRMID eq "ERROR")) {
-		print "\nERROR: Cannot find provided part $fromPartName... Check if the part names provided are true\n";
-		exit -1;
-	}
-	
-	
-	my $fromBlockName = getBlockName($fromPartName, $fromPartFileContents, "IPart"); 
-
-	my $parentFromBlock = findParentName($fromPartGUID, $fromPartFileContents, "IClass");
-	
-	if ($parentFromBlock eq "ERROR") {
-		print "\nERROR: Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
-		exit -1;
-	}
-	
-	my $fromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromBlockName\' \{\} \\\;/;
-	my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
-	
-	
-	if ($fromBlockFileName eq "ERROR") {
-		print "\nERROR: Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
-		exit -1;
-	}	
-	my $fromBlockFileContents = "";
-	if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
-	else { 
-		open (READ_PRT, '<', $fromBlockFileName) or die "Cannot open file: $fromBlockFileName";
-
-		while (<READ_PRT>){
-			chomp($_);
-			if ($fromBlockFileContents eq "") {
-				$fromBlockFileContents = $_ . "\n";
-			}
-			else {
-				$fromBlockFileContents = $fromBlockFileContents . $_ . "\n"; 
-			}
-
-		}
-		close (READ_PRT);
-	}
-	
-	
-	my $fromBlockGUID = findGuid($fromBlockName, $fromBlockFileContents, "IClass");	
-	my $childIDs = findIDsOfParentBlock($fromBlockFileContents, $fromBlockGUID);
-	
-	my @childIDs_arr = split(/::/,$childIDs);
-	my $portList = "";
-
-	foreach(@childIDs_arr){
-		chomp($_);
-		if ($_ eq "") {next;} 
-		my $id = $_; 
-		$id = "GUID " . $id;
-		my $name = findNameByGUID($id,$fromBlockFileContents,"IPort"); 	
-		my $rmID = findRmid($name, $fromBlockFileContents, "IPort");
-		if ($name ne "") {
-			if ($portList eq "") {$portList = $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
-			else {$portList = $portList . "::" . $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
-		}
-	}
-	
-	$portList = $fromBlockGUID . "PARTBLOCK_SEPERATOR" . $fromPartGUID . "-OFPART-" . $parentFromBlock . "==" . $portList;
-	print "$portList\n";
-	return $portList;
-	
-
-}
-
-
-
 sub deletePart {
 	my $fullPath = $_[0];
 	my $partName = $_[1]; 
@@ -247,9 +146,6 @@ sub deletePart {
 	
 	print "PART DELETE: \n $fullPath\n $partName \n $partID \n $parentBlockPartID \n";
 
-
-
-	
 	print "\n\n\n$fullPath\n$partName\n$partID\n$parentBlockPartID\n";
 	
 	my $blockFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$partID<\\\/_id>\/\,\/<\\\/IPart>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
@@ -262,7 +158,7 @@ sub deletePart {
 	print "Filename: $blockFile\n";
 
 	if ($blockFile eq "") {
-		print "Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
+		print "ERROR(202): Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
 		exit (-1);
 	}
 	
@@ -431,7 +327,7 @@ sub deletePort {
 	print "Filename: $blockFile\n";
 
 	if ($blockFile eq "") {
-		print "Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
+		print "ERROR(202): Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
 		exit (-1);
 	}
 	
@@ -585,7 +481,7 @@ sub deleteConnector {
 	print "Filename: $blockFile\n";
 	
 	if ($blockFile eq "") {
-		print "Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
+		print "ERROR(202): Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
 		exit (-1);
 	}
 	

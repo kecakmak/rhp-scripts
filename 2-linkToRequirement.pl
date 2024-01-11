@@ -28,20 +28,20 @@ my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
 if ($rhpProject eq "") {
-	print "\n \nCommand executed with missing parameters\n"; 
+	print "\nERROR(102): Command executed with missing parameters\n"; 
 	print "Usage: 2-linkToRequirement <Existing model_element> <type_of_the_model_element> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 if (($block eq "") or ($type eq ""))  {
-	print "Please provide the name of the model elemenet and its type to link with the given requirement... \n";
+	print "\nERROR(102): Please provide the name of the model elemenet and its type to link with the given requirement... \n";
 	print "Usage: 2-linkToRequirement <Existing model_element> <type_of_the_model_element> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 
 if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
-	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
+	print "\nERROR(202): Please check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
 	print "Usage: 2-linkToRequirement <Existing model_element> <type_of_the_model_element> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -57,14 +57,14 @@ my $fileName = findCorrectFileName($parentFolders, $block);
 
  if (($fileName eq "") or ($fileName eq "ERROR")) {
 	
-	print "ERROR: Parent Block could not be found. Please enter an existing Block as parent block\n\n\n";
+	print "ERROR(202): Block, $block could not be found. Please enter an existing Block name\n\n\n";
 	exit -1; 
  }
 
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName) or die "Cannot open file: $fileName";
+open (READ_PRT, '<', $fileName) or die "ERROR(402): Cannot open file: $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -84,7 +84,7 @@ my $rmServerID = findRmid($block, $origFileContents, "I" . $type);
 my $GUID = findGuid($block, $origFileContents, "I" . $type);
 
 if ($rmServerID eq "ERROR") { 
-	print "Model element or type not Found. Please make sure you entered right element and type:\n"; 
+	print "ERROR(202): Model element or type not Found. Please make sure you entered right element and type:\n"; 
 	print "please enter Class for Block\n"; 
 	print "Subsystem for Package\n"; 
 	print "Port for Proxy Ports\n"; 
@@ -94,7 +94,7 @@ if ($rmServerID eq "ERROR") {
 }
 
 if ($GUID eq "ERROR") {
-	print "Model element or type not Found. Please make sure you entered right element and type:\n"; 
+	print "ERROR(202): Model element or type not Found. Please make sure you entered right element and type:\n"; 
 	print "please enter Class for Block\n"; 
 	print "Subsystem for Package\n"; 
 	print "Port for Proxy Ports\n"; 
@@ -120,7 +120,7 @@ if ($linkExists eq "false") {
 
 
 #write to File... 
-open (WR, '>', $fileName) or die "Cannot open file: $fileName";
+open (WR, '>', $fileName) or die "ERROR(402): Cannot open file: $fileName";
 
 my @contentArray = split(/\n/, $origFileContents);
 foreach (@contentArray){

@@ -53,7 +53,7 @@ my $relProfileFile = "";
 my $profilePath = findNVLProfilePath($projectFilePath); 
 
 if ($profilePath eq "ERROR"){
-	print "Stereotype profile File not found!! Exiting.... ";
+	print "ERROR(202): Stereotype profile File not found!! Exiting.... ";
 	exit -1;
 }
 
@@ -73,7 +73,7 @@ print "$stType\n";
 print "$profileFile\n";
 my $profileContents = ""; 
 
-open (READ_PROF, '<', $profileFile) or die "Cannot open file $profileFile"; 
+open (READ_PROF, '<', $profileFile) or die "ERROR(402): Cannot open file $profileFile"; 
 
 while (<READ_PROF>){
 	chomp($_);
@@ -92,7 +92,7 @@ close (READ_PROF);
 my $stExists = checkStereotype($profileContents, $stType); 
 
 if ($stExists eq "false") {
-	print "Given Stereotype: $stType doesn't exist. Please select correct Stereotype\n"; 
+	print "ERROR(202): Given Stereotype: $stType doesn't exist. Please select correct Stereotype\n"; 
 	exit -1;
 	
 }

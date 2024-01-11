@@ -30,26 +30,26 @@ my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
 if ($rhpProject eq "") {
-	print "\n \nCommand executed with missing parameters\n";
+	print "\nERROR(102): Command executed with missing parameters\n";
 	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 if (($portBlock eq "") or ($newPort eq "") or ($portSt eq ""))  {
-	print "Please provide the name of the existing block, a name for the port to be created and a stereotype value for the new port... \n";
+	print "ERROR(102): Please provide the name of the existing block, a name for the port to be created and a stereotype value for the new port... \n";
 	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 if (($portSt ne "IF_Mechanik") and ($portSt ne "IF_Software") and ($portSt ne "IF_Hardware") and ($portSt ne "IF_Weitere") and ($portSt ne "IF_Daten") and ($portSt ne "IF_Fluid")) {
-	print "only allowed values for Port Stereotype is: \nIF_Mechanik\nIF_Software\nIF_Hardware\nIF_Weitere\nIF_Daten\nIF_Fluid\nPlease select one of those and try again\n"; 
+	print "ERROR(102): Only allowed values for Port Stereotype is: \nIF_Mechanik\nIF_Software\nIF_Hardware\nIF_Weitere\nIF_Daten\nIF_Fluid\nPlease select one of those and try again\n"; 
 	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 
 if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
-	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
+	print "\nERROR(202): Please check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
 	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -77,7 +77,7 @@ my $parentFolders = qx/find $searchPath \-type f \-exec grep \-H \'$portBlock\' 
 my $parentFolder = findCorrectFileName($parentFolders, $portBlock);
 
 if ($parentFolder eq "ERROR") {
-	print "\nERROR: Cannot find the block $portBlock to create the proxy port ... Check if the block exists\n";
+	print "\nERROR(202): Cannot find the block $portBlock to create the proxy port ... Check if the block exists\n";
 	print "Usage: 4-createPorts.pl <Existing block_name> <name_for_the_new_port> <stereotype_name_for_the_new_port> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -87,13 +87,13 @@ my $fileName = $parentFolder;
 
  if ($parentFolder eq "") {
 	
-	print "ERROR: The Block could not be found. Please enter an existing Block to create the port\n\n\n";
+	print "ERROR(202): The Block $portBlock could not be found. Please enter an existing Block to create the port\n\n\n";
 	exit -1; 
  }
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName) or die "Cannot open file: $fileName";
+open (READ_PRT, '<', $fileName) or die "ERROR(402): Cannot open file: $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -115,7 +115,7 @@ close (READ_PRT);
 
 my $portExists = checkPortExists($origFileContents, $portBlock, $newPort);
 if ($portExists eq "true"){
-	print "Port Exists for Block: $portBlock!!!\n\n\n";
+	print "ERROR(302): The port, $portBlock exists for Block: $portBlock!!!\n\n\n";
 	exit -1;
 }
 
@@ -125,7 +125,7 @@ my $blockGuid = findGuid($portBlock, $origFileContents, "IClass");
 
 
 if ($blockGuid eq "ERROR") {
-	print "Parent Block Cannot be found. Exiting..."; 
+	print "ERROR(202): Parent Block $portBlock Cannot be found. Exiting..."; 
 	exit -1;
 	}
 	
@@ -167,7 +167,7 @@ my $profilePath = findNVLProfilePath($projectFilePath);
 
 
 if ($profilePath eq "ERROR"){
-	print "Stereotype profile File not found!! Exiting.... ";
+	print "ERROR(202): Stereotype profile File not found!! Exiting.... ";
 	exit -1;
 }
 
@@ -198,7 +198,7 @@ $profileFile =~s/\/..\/..\//\//ig;
 
 my $profileContents = ""; 
 
-open (READ_PROF, '<', $profileFile) or die "Cannot open file: $profileFile"; 
+open (READ_PROF, '<', $profileFile) or die "ERROR(402): Cannot open file: $profileFile"; 
 
 while (<READ_PROF>){
 	chomp($_);
@@ -223,7 +223,7 @@ my $trimmedFileContents = trimFileContents($origFileContents);
 $origFileContents = $trimmedFileContents;
 
 #write to File... 
-open (WR, '>', $fileName) or die "Cannot open file: $fileName";
+open (WR, '>', $fileName) or die "ERROR(402): Cannot open file: $fileName";
 
 my @contentArray = split(/\n/, $origFileContents);
 foreach (@contentArray){

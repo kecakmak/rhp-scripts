@@ -37,20 +37,20 @@ my $connectIndexTemplate = "connection_index_template.xml";
 
 
 if (($fromPart eq "") or ($fromPort eq "") or ($toPart eq "") or ($toPort eq ""))  {
-	print "Please provide the from and to part names to connect, and their relevant ports correctly... \n";
+	print "ERROR(102): Please provide the from and to part names to connect, and their relevant ports correctly... \n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 
 if ($rhpProject eq "") {
-	print "\n \nThe Rhapsody Project Name is required. Please add Rhapsody Project Name\n"; 
+	print "\nERROR(102): The Rhapsody Project Name is required. Please add Rhapsody Project Name\n"; 
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
-	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
+	print "\nERROR(202): Please check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -105,13 +105,13 @@ my $toPartFileName = findCorrectFileName($toPartFileNames, $toPartName);
 my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName);
 
 if (($toPartFileName eq "ERROR") or ($fromPartFileName eq "ERROR")) {
-	print "\nERROR: Cannot find provided parts... Check if the part names provided are true\n";
+	print "\nERROR(202): Cannot find provided parts... Check if the part names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
 
 
-open (READ_PRT, '<', $fromPartFileName) or die "Cannot open file: $fromPartFileName";
+open (READ_PRT, '<', $fromPartFileName) or die "ERROR(402): Cannot open file: $fromPartFileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -128,7 +128,7 @@ close (READ_PRT);
 if ($toPartFileName eq $fromPartFileName) {$toPartFileContents = $fromPartFileContents;}
 
 else { 
-	open (READ_PRT, '<', $toPartFileName) or die "Cannot Open File: $toPartFileName"; 
+	open (READ_PRT, '<', $toPartFileName) or die "ERROR(402): Cannot Open File: $toPartFileName"; 
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -149,7 +149,7 @@ $fromPartGUID = findGuid($fromPartName, $fromPartFileContents, "IPart");
 $fromPartRMID = findRmid($fromPartName, $fromPartFileContents, "IPart");
 
 if (($fromPartGUID eq "ERROR") or ($fromPartRMID eq "ERROR")) {
-	print "\nERROR: Cannot find provided part $fromPartName... Check if the part names provided are true1\n";
+	print "\nERROR(202): Cannot find provided part $fromPartName... Check if the part names provided are true1\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing_to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -159,7 +159,7 @@ $fromBlockName = getBlockName($fromPartName, $fromPartFileContents, "IPart");
 $parentFromBlock = findParentName($fromPartGUID, $fromPartFileContents, "IClass");
 
 if ($parentFromBlock eq "ERROR") {
-	print "\nERROR: Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
+	print "\nERROR(202): Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -170,7 +170,7 @@ $toPartGUID = findGuid($toPartName, $toPartFileContents, "IPart");
 $toPartRMID = findRmid($toPartName, $toPartFileContents, "IPart"); 
 
 if (($toPartGUID eq "ERROR") or ($toPartRMID eq "ERROR")) {
-	print "\nERROR: Cannot find provided part $toPartName... Check if the part names provided are true\n";
+	print "\nERROR(202): Cannot find provided part $toPartName... Check if the part names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -180,7 +180,7 @@ $toBlockName = getBlockName($toPartName, $toPartFileContents, "IPart");
 $parentToBlock = findParentName ($toPartGUID, $toPartFileContents, "IClass");
 
 if ($parentToBlock eq "ERROR") {
-	print "\nERROR: Cannot find a parent Block for the provided part $toPartName... Check if the part names provided are true\n";
+	print "\nERROR(202): Cannot find a parent Block for the provided part $toPartName... Check if the part names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -192,7 +192,7 @@ my $toBlockFileName = findCorrectFileName($toBlockFileNames, $toBlockName);
 my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
 
 if (($toBlockFileName eq "ERROR") or ($fromBlockFileName eq "ERROR")) {
-	print "\nERROR: Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
+	print "\nERROR(202): Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -204,7 +204,7 @@ my $parentToBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$par
 my $parentToBlockFileName = findCorrectFileName($parentToBlockFileNames, $parentToBlock);
 
 if (($parentFromBlockFileName eq "ERROR") or ($parentToBlockFileName eq "ERROR")) {
-	print "\nERROR: Cannot find main blocks for the provided parts ... Check if the part names provided are true\n";
+	print "\nERROR(202): Cannot find main blocks for the provided parts ... Check if the part names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -212,7 +212,7 @@ if (($parentFromBlockFileName eq "ERROR") or ($parentToBlockFileName eq "ERROR")
 if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
 
 else { 
-	open (READ_PRT, '<', $fromBlockFileName) or die "Cannot open file: $fromBlockFileName";
+	open (READ_PRT, '<', $fromBlockFileName) or die "ERROR(402): Cannot open file: $fromBlockFileName";
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -256,7 +256,7 @@ if (index($fromPortRMIDs, ",")!=-1) {
 else {$fromPortRMID = $fromPortRMIDs;}
 
 if (($fromPortGUID eq "ERROR") or ($fromPortRMID eq "ERROR")) {
-	print "\nERROR: Cannot find provided port $fromPort... Check if the part names provided are true\n";
+	print "\nERROR(202): Cannot find provided port $fromPort... Check if the part names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -264,7 +264,7 @@ if (($fromPortGUID eq "ERROR") or ($fromPortRMID eq "ERROR")) {
 if ($toBlockFileName eq $fromPartFileName) {$toBlockFileContents = $fromPartFileContents;}
 
 else { 
-	open (READ_PRT, '<', $toBlockFileName) or die "Cannot open file $toBlockFileName";
+	open (READ_PRT, '<', $toBlockFileName) or die "ERROR(402): Cannot open file $toBlockFileName";
 
 	while (<READ_PRT>){
 		chomp($_);
@@ -312,7 +312,7 @@ else {$toPortRMID = $toPortRMIDs;}
 
 
 if (($toPortGUID eq "ERROR") or ($toPortRMID eq "ERROR")) {
-	print "\nERROR: Cannot find provided port $toPort... Check if the part names provided are true\n";
+	print "\nERROR(202): Cannot find provided port $toPort... Check if the part names provided are true\n";
 	print "Usage: 5-connectPorts.pl <Existing from_part_name> <Existing_port_of_the_from_part> <Existing to_part_name> <Existing_port_of_the_from_part> <Rhapsody Project Name>\n"; 
 	exit -1;
 }
@@ -322,16 +322,16 @@ my $toPortIsCorrect = checkPartPort($toBlockFileContents, $toBlockName, $toPortG
 
 if ($fromPortIsCorrect eq "false"){
 
-	print "\nWrong Port value entered for the part: $fromPart\nPlease check values and try again\n";
+	print "\nERROR(202): Wrong Port value entered for the part: $fromPart\nPlease check values and try again\n";
 	exit -1;
 }
 if ($toPortIsCorrect eq "false"){
 
-	print "\nWrong Port value entered for the part: $toPart\nPlease check values and try again\n";
+	print "\nERROR(202): Wrong Port value entered for the part: $toPart\nPlease check values and try again\n";
 	exit -1;
 }
 
-open (CONN_R, '<', $connectTemplate) or die "Cannot open file: $connectTemplate";  
+open (CONN_R, '<', $connectTemplate) or die "ERROR(402): Cannot open file: $connectTemplate";  
 my $templContents = "";
 while(<CONN_R>) {
 	chomp($_); 
@@ -341,7 +341,7 @@ while(<CONN_R>) {
 close(CONN_R);
 
 
-open (CONNIN_R, '<', $connectIndexTemplate) or die "Cannot open file: $connectIndexTemplate"; 
+open (CONNIN_R, '<', $connectIndexTemplate) or die "ERROR(402): Cannot open file: $connectIndexTemplate"; 
 my $templIndexContents = "";
 while(<CONNIN_R>) {
 	chomp($_); 
@@ -454,7 +454,7 @@ my $idGUID="";
 #	exit -1; 
 	
 	
-open (READ_PRT, '<', $mainFileName) or die "Cannot open file: $mainFileName";
+open (READ_PRT, '<', $mainFileName) or die "ERROR(402): Cannot open file: $mainFileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -483,7 +483,7 @@ my $trimmedFileContents = trimFileContents($origFileContents);
 $origFileContents = $trimmedFileContents;
 
 #write to File... 
-open (WR, '>', $mainFileName) or die "Cannot open file: $mainFileName";
+open (WR, '>', $mainFileName) or die "ERROR (402): Cannot open file: $mainFileName";
 # binmode WR;
 
 my @contentArray = split(/\n/, $origFileContents);

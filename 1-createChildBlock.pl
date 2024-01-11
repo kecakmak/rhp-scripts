@@ -7,7 +7,6 @@ use strict;
 use TimeDate;
 use MBSEDialogsBackendLibs;
 
-
 # Initialize the global variables. 
 # inputs
 my $blockToCreate = "";
@@ -63,20 +62,15 @@ my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'$parentBlock\' 
 my $parentFolder = findCorrectFileName($parentFolders, $parentBlock);
 my $fileName = $parentFolder; 
 
-# use for Windows
-# my $parentFolder = `findstr $parentBlock $searchPath`;
-
-
  if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
-	
-	print "ERROR: Parent Block could not be found. Please enter an existing Block as parent block\n\n\n";
+	print "ERROR(202): Parent Block: $parentBlock could not be found. Please enter an existing Block as parent block\n\n\n";
 	exit (-1); 
  }
 
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName) or die "Cannot open file $fileName";
+open (READ_PRT, '<', $fileName) or die "ERROR(402): Cannot open file $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -97,7 +91,7 @@ close (READ_PRT);
 my $isBlockNotNew = checkBlockExists($origFileContents, $blockToCreate); 
 
 if ($isBlockNotNew eq "true") {
-print "Child Block Exists!!! Please try to create Link\n\n\n";
+print "ERROR(302): Child Block: $blockToCreate already exists! Please try with a different name\n\n\n";
 exit (-1);
 }
 
@@ -105,7 +99,7 @@ exit (-1);
 $parentGuid = findGuid($parentBlock, $origFileContents, "IClass"); 
 
 if ($parentGuid eq "ERROR") {
-	print "Parent Block Cannot be found. Exiting...\n\n"; 
+	print "ERROR(202): Parent Block, $parentBlock cannot be found. Exiting...\n\n"; 
 	exit (-1);
 	}
 	
@@ -138,7 +132,7 @@ if ($blockPackageExists eq "true") {
 
 # lets get the Rhapsody file contents again. In case the file to update is different from the beginning.. 
 $origFileContents = "";
-open (READ_PRT, '<', $fileName) or die "Cannot open file: $fileName";
+open (READ_PRT, '<', $fileName) or die "ERROR(302): Cannot open file: $fileName";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -152,7 +146,6 @@ while (<READ_PRT>){
 }
 close (READ_PRT);
 
- 
 
 
 ##From now on we create the Block and its package 
@@ -255,9 +248,9 @@ print "Command completed successfully\nSetting Stereotype for Block: $blockToCre
 
 my $setStereoTypeChildBlock = qx/perl 3-setStereotype.pl $blockToCreate $rhpProject/;
 
-my $command = "perl 0-listBlocksBackgrd.pl $rhpProject"; 
+my $command = "perl 0-listBlocksBackgrd.pl " . $rhpProject; 
 
-my $output = system($command . ' > logFile.txt &');
+my $output = system($command . " > logFile.txt &");
 
 print $setStereoTypeChildBlock;
 

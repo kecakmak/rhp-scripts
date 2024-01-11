@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq);
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq justListPorts renameElement);
 
 
 sub getEnvironments {
@@ -1416,37 +1416,6 @@ sub getPath{
 	my $file = 
 	return $files; 
 	exit -1;
-
-	
-	# if ($hasOwnFile eq "") {
-		# # continue with the $fileName. The model element is part of the $fileName package
-	# }
-	
-	# else {
-		# # The model element has its own file. It is a unit. So we found under which package this model element exists.. 
-		
-		# my $modelElementFile = findCorrectFileName($hasOwnFile, $modelElement);
-		# $fileName = $modelElementFile;
-		
-	# }
-	
-	# return $fileName; 
-	# exit -1; 
-	
-	
-	# open (FH, '<', $fileName); 
-	# while(<FH>){
-		# chomp($_);
-		# $contents = $contents . "\n" . $_; 
-	# }
-	# close(FH);
-	
-	# #is Model element a file?
-	# my $file = isFile($modelElement, $contents); 
-		
-	# return "$file";
-	
-	
 	
 }
 
@@ -1712,6 +1681,167 @@ sub getFileContents{
 	return $fileContents;
 	
 }
+
+
+sub justListPorts{
+	my $fromPartFileContents = "";
+	my $fromPartName = $_[0];
+	my $searchPath = $_[1];
+		
+	my $fromPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromPartName\' \{\} \\\;/;
+		
+	my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName); 
+
+	if ($fromPartFileName eq "ERROR") {
+		print "\nERROR(202): Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
+		exit -1;
+	}
+		
+	open (READ_PRT, '<', $fromPartFileName) or die "ERROR(402): Cannot open file: $fromPartFileName";
+
+	while (<READ_PRT>){
+		chomp($_);
+		if ($fromPartFileContents eq "") {
+			$fromPartFileContents = $_ . "\n";
+		}
+		else {
+			$fromPartFileContents = $fromPartFileContents . $_ . "\n"; 
+		}
+
+	}
+	close (READ_PRT);
+
+	my $fromPartGUID = findGuid($fromPartName, $fromPartFileContents, "IPart");
+	my $fromPartRMID = findRmid($fromPartName, $fromPartFileContents, "IPart");
+
+	if (($fromPartGUID eq "ERROR") or ($fromPartRMID eq "ERROR")) {
+		print "\nERROR(202): Cannot find provided part $fromPartName... Check if the part names provided are true\n";
+		exit -1;
+	}
+	
+	
+	my $fromBlockName = getBlockName($fromPartName, $fromPartFileContents, "IPart"); 
+
+	my $parentFromBlock = findParentName($fromPartGUID, $fromPartFileContents, "IClass");
+	
+	if ($parentFromBlock eq "ERROR") {
+		print "\nERROR(202): Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
+		exit -1;
+	}
+	
+	my $fromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromBlockName\' \{\} \\\;/;
+	my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
+	
+	
+	if ($fromBlockFileName eq "ERROR") {
+		print "\nERROR(202): Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
+		exit -1;
+	}	
+	my $fromBlockFileContents = "";
+	if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
+	else { 
+		open (READ_PRT, '<', $fromBlockFileName) or die "ERROR(402): Cannot open file: $fromBlockFileName";
+
+		while (<READ_PRT>){
+			chomp($_);
+			if ($fromBlockFileContents eq "") {
+				$fromBlockFileContents = $_ . "\n";
+			}
+			else {
+				$fromBlockFileContents = $fromBlockFileContents . $_ . "\n"; 
+			}
+
+		}
+		close (READ_PRT);
+	}
+	
+	
+	my $fromBlockGUID = findGuid($fromBlockName, $fromBlockFileContents, "IClass");	
+	my $childIDs = findIDsOfParentBlock($fromBlockFileContents, $fromBlockGUID);
+	
+	my @childIDs_arr = split(/::/,$childIDs);
+	my $portList = "";
+
+	foreach(@childIDs_arr){
+		chomp($_);
+		if ($_ eq "") {next;} 
+		my $id = $_; 
+		$id = "GUID " . $id;
+		my $name = findNameByGUID($id,$fromBlockFileContents,"IPort"); 	
+		my $rmID = findRmid($name, $fromBlockFileContents, "IPort");
+		if ($name ne "") {
+			if ($portList eq "") {$portList = $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
+			else {$portList = $portList . "::" . $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
+		}
+	}
+	
+	$portList = $fromBlockGUID . "PARTBLOCK_SEPERATOR" . $fromPartGUID . "-OFPART-" . $parentFromBlock . "==" . $portList;
+	return $portList;
+	
+
+}
+
+sub renameElement{
+	my $FileContents = $_[0];
+	my $NameToChange = $_[1]; 
+	my $GUIDToChange = $_[2]; 
+	my $newName = $_[3]; 
+	my $type = $_[4];
+	
+	
+	my @contents_arr = split("\n",$FileContents); 
+	
+	my $inType = "false"; 
+	my $inElement = "false";
+	my $inRMMElement = "false";  
+	my $newFileContents = "";
+	 
+	foreach(@contents_arr) {
+		
+		chomp($_); 
+		my $line = $_;
+		 
+		if (index($line, "<$type type=\"e\">")!=-1) {$inType = "true";} 
+		if (index($line, "<\/$type>")!=-1) {
+			$inType = "false";
+			$inElement = "false"; 
+		} 
+		
+		if ($inType eq "true"){
+			if (index($line, "<_id type=\"a\">$GUIDToChange<\/_id>")!=-1) {
+				$inElement = "true"; 
+			}
+		}
+		
+		if (index($line, "<ELEMENT>")!=-1){$inRMMElement = "true"; }
+		if (index($line, "<\/ELEMENT>")!=-1){
+			$inRMMElement = "false"; 
+			$inElement = "false";
+		}	
+		
+		if ($inRMMElement eq "true"){
+			if (index($line,"<RHP-ID>$GUIDToChange<\/RHP-ID>")!=-1){$inElement = "true";}
+		}
+		
+		if ($inElement eq "true"){
+			$line =~s/$NameToChange/$newName/ig;
+		}
+		
+		if ($newFileContents eq "") {
+			$newFileContents = "$line\n"; 
+		}
+		else {
+			$newFileContents = $newFileContents . "\n" . $line; 
+		}
+		
+	}
+	
+	return $newFileContents; 
+	
+}
+
+
+
 
 
 

@@ -34,19 +34,19 @@ my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
 if ($rhpProject eq "") {
-	print "\n \nCommand executed with missing parameters\n";
+	print "\nERROR(102): Command executed with missing parameters\n";
 	print "Usage: 3-setStereotype <Existing block_name> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 if ($blockName eq "")  {
-	print "Please provide the name of the block... \n";
+	print "ERROR(202): Please provide the name of the block... \n";
 	print "Usage: 3-setStereotype <Existing block_name> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
 
 if (($projectArea eq "") or ($workspace eq "") or ($rhapsody_file_dir eq "")) {
-	print "\n\nPlease check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
+	print "\nERROR(202): Please check the name of the rhapsody project. No workspace or project area or rhapsody file location found for the provided project name\n"; 
 	print "Usage: 3-setStereotype <Existing block_name> <Rhapsody Project Name>\n"; 
 	exit -1; 
 }
@@ -66,14 +66,14 @@ my $fileName = $parentFolder;
 
  if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
 	
-	print "ERROR: The Block could not be found. Please enter an existing Block to set the stereotype\n\n\n";
+	print "ERROR(202): The Block $blockName could not be found. Please enter an existing Block to set the stereotype\n\n\n";
 	exit -1; 
  }
 
 
 #file operations: Open the file which keeps the parent block. 
 
-open (READ_PRT, '<', $fileName)  or die "File $fileName Not Found!!";
+open (READ_PRT, '<', $fileName)  or die "ERROR(402): File $fileName Not Found!!";
 
 while (<READ_PRT>){
 	chomp($_);
@@ -99,7 +99,7 @@ my $relProfileFile = "";
 my $profilePath = findNVLProfilePath($projectFilePath); 
 
 if ($profilePath eq "ERROR"){
-	print "Stereotype profile File not found!! Exiting.... ";
+	print "ERROR(402): Stereotype profile File not found!! Exiting.... ";
 	exit -1;
 }
 
@@ -121,7 +121,7 @@ $profileFile =~s/\\/\//ig;
 $profileFile =~s/\/..\/..\//\//ig;
 
 
-open (READ_PROF, '<', $profileFile) or die "Profile File $profileFile Not Found!!"; 
+open (READ_PROF, '<', $profileFile) or die "ERROR(402): Profile File $profileFile Not Found!!"; 
 
 while (<READ_PROF>){
 	chomp($_);
@@ -199,7 +199,7 @@ if ($level ne "NA") {
 }
 
 else {
-	print "No matching stereotype found. Please set the stereotype manually\n";
+	print "ERROR(202): No matching stereotype found. Please set the stereotype manually\n";
 	exit (-1);
 }
 
@@ -222,7 +222,7 @@ $origFileContents = $trimmedFileContents;
 
 
 #write to File... 
-open (WR, '>', $fileName) or die "File $fileName Not Found!!";
+open (WR, '>', $fileName) or die "ERROR(402): File $fileName Not Found!!";
 # binmode WR;
 
 my @contentArray = split(/\n/, $origFileContents);
