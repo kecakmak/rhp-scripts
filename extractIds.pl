@@ -21,7 +21,7 @@ my $workspace = $string;
 
 my $importFile = "\\import.sbsx"; 
 
-my $idFile = "\\IDs.txt";
+my $idFile = "..\\IDs.txt";
 
 my $fileName = $workspace  . $importFile; 
 my $idFileName = $workspace . $idFile;
