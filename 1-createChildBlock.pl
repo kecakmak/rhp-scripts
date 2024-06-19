@@ -43,6 +43,9 @@ my $parentGuid = "";
 my $parentPackage = ""; 
 my $blockPackageExists = "false";
 my $isSeperateFile = "false";
+
+
+
 my $newBlockIds = getIds($searchPath);
 my $newPackageIds = getIds($searchPath);
 my $newCompositeIds = getIds($searchPath);
@@ -57,10 +60,13 @@ $blockPackage = "ST_" . $blockPackage;
 
 # Search the parent block in the files within the workspace
 
+
 #use for Linux 
 my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'$parentBlock\' \{\} \\\;/;
 my $parentFolder = findCorrectFileName($parentFolders, $parentBlock);
 my $fileName = $parentFolder; 
+
+
 
  if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
 	print "ERROR(202): Parent Block: $parentBlock could not be found. Please enter an existing Block as parent block\n\n\n";
@@ -248,9 +254,19 @@ print "Command completed successfully\nSetting Stereotype for Block: $blockToCre
 
 my $setStereoTypeChildBlock = qx/perl 3-setStereotype.pl $blockToCreate $rhpProject/;
 
+my $homeDir = $ENV{HOME};
+my $dir = $homeDir . "/" . $rhpProject;
+my $file = $homeDir . "/" . $rhpProject . "/blockList.json";
+my $logFile = $homeDir . "/" . $rhpProject . "/logFile.txt";
+
+my $dirExists = `ls $ dir 2>&1`; 
+
+if (index($dirExists, "No such file")!=-1) {`mkdir $dir 2>&1`; }
+
+
 my $command = "perl 0-listBlocksBackgrd.pl " . $rhpProject; 
 
-my $output = system($command . " > logFile.txt &");
+my $output = system($command . " > $logFile &");
 
 print $setStereoTypeChildBlock;
 

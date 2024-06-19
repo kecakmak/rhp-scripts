@@ -7,7 +7,8 @@ use MBSEDialogsBackendLibs;
 
 my $rhpProject = $ARGV[0];
 
-print "$rhpProject\n"; 
+my $homeDir = $ENV{HOME};
+my $file = $homeDir . "/" . $rhpProject . "/blockList.json";
 
 #Linux
 my $wsName = "WORKSPACE_" . $rhpProject; 
@@ -22,7 +23,8 @@ my $projectArea = getEnvironments($projAreaName);
 my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
-my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'<_name type=\"a\">ST_Systems<\/_name>\' \{\} \\\;/;
+
+my $parentFolders = qx/find "$fullPath" \-type f \-exec grep \-H \'<_name type=\"a\">ST_Systems<\/_name>\' \{\} \\\;/;
 my $parentFolder = findCorrectFileName($parentFolders, "ST_Systems");
 my $fileContents = "";
 
@@ -45,7 +47,9 @@ my $stName = "";
 
 my $childIDsOfParentPackage = findIDsOfParentPackage($fileContents);
 
+
 my $rootBlocknID = nameOfTheBlockAndGUID($childIDsOfParentPackage,$fileContents);
+
 
 my ($rootBlock,$rootID) = split("::",$rootBlocknID);
 
@@ -54,6 +58,8 @@ $rootID = "GUID " . $rootID;
 my $parentBlock = $rootBlock; 
 
 #find parts for the parent Block: 
+
+
 
 my $childPartsNGUIDs = findPartsForTheParentBlock($fullPath, $rootID, $rootBlock);
 my @parentBlocks_arr = ""; 
@@ -70,7 +76,8 @@ foreach (@parts_arr){
 
 }
 
-open (BLLIST, '>', "/home/tomcat/blockListFolder/blockList.json"); 
+
+open (BLLIST, '>', "$file"); 
 
 print BLLIST "\n[\n";
 
@@ -235,9 +242,9 @@ sub  getBlockInfoFromParts {
 	my $fullPath = $_[0];
 	my $input = $_[1];
 	my ($levelPartName,$levelPartGUID) = split("::",$input);
-	
+
 	$levelPartGUID = "GUID " . $levelPartGUID;
-	my $blockFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$levelPartGUID<\\\/_id>\/\,\/<_name type=\"a\">$levelPartName<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
+	my $blockFiles = qx/ find "$fullPath" \-type f -print0 \| xargs -0 -n1 awk \'\/<_id type=\"a\">$levelPartGUID<\\\/_id>\/\,\/<_name type=\"a\">$levelPartName<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
 	$levelPartGUID =~s/GUID //ig;
 	$blockFiles=~s/\t/:/ig;
 		
@@ -255,7 +262,9 @@ sub findPartsForTheParentBlock {
 	my $rootID = $_[1];
 	my $rootBlock = $_[2]; 
 
-	my $partFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$rootID<\\\/_id>\/\,\/<_name type=\"a\">$rootBlock<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
+	my $partFiles = qx/ find "$fullPath" \-type f  -print0 \| xargs -n1 -0 awk \'\/<_id type=\"a\">$rootID<\\\/_id>\/\,\/<_name type=\"a\">$rootBlock<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
+
+
 	$partFiles=~s/\t/:/ig;
 	my ($partFile,$junk) = split(":::",$partFiles);
 	$partFile=~ s/\s+$//; #right trim to get rid of any spaces at the end 
@@ -595,7 +604,7 @@ sub findStereotype {
 	my $rootID = $_[2];
 	my $rootBlock = $_[1]; 
 
-	my $partFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$rootID<\\\/_id>\/\,\/<_name type=\"a\">$rootBlock<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
+	my $partFiles = qx/ find "$fullPath" \-type f -print0 \| xargs -0 -n1 awk \'\/<_id type=\"a\">$rootID<\\\/_id>\/\,\/<_name type=\"a\">$rootBlock<\\\/_name>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
 	$partFiles=~s/\t/:/ig;
 	my ($partFile,$junk) = split(":::",$partFiles);
 	$partFile=~ s/\s+$//; #right trim to get rid of any spaces at the end 
