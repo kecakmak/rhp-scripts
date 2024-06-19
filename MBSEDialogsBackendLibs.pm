@@ -858,9 +858,9 @@ sub getIds{
 	my $count = "";
 	my $path = getEnvironments("WORKSPACE");
 	
-	my $idFile = $path . "/IDs.txt"; 
-	
-	open(FORC, '<', $idFile) or die "Cannot open file: IDs.txt";
+	my $idFile = $searchP . "..\/IDs.txt"; 
+
+	open(FORC, '<', $idFile) or die "Cannot open file: $idFile";
 	for ($count=0; <FORC>; $count++) { }
 	close(FORC);
 	
@@ -873,7 +873,7 @@ sub getIds{
 	
 	else{
 		
-		open(RRMID, '<', $idFile) or die "Cannot open file: IDs.txt";
+		open(RRMID, '<', $idFile) or die "Cannot open file: $idFile";
 
 		while(<RRMID>){
 			chomp($_);
@@ -883,8 +883,6 @@ sub getIds{
 				my ($garb, $guid) = split(" ", $guidall);
 				my $guidExists = qx/find $searchP \-type f \-exec grep \-H \'$guid\' \{\} \\\;/;
 				my $rmidExists = qx/find $searchP \-type f \-exec grep \-H \'$rmid\' \{\} \\\;/;
-	#			my $guidExists = `findstr $guid $searchP`;
-	#			my $rmidExists = `findstr $rmid $searchP`;
 
 				if (($guidExists eq "") and ($rmidExists eq "")){$retRMId = $_;}
 				
@@ -892,7 +890,7 @@ sub getIds{
 			else {$newList = $newList . "\n" . $_;}		
 		}
 		close (RRMID);	
-		
+
 		open(WRMID, '>', $idFile) or die "cannot open file: $idFile";
 		print WRMID $newList;
 		close (WRMID);
