@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq justListPorts renameElement);
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq renameElement);
 
 
 sub getEnvironments {
@@ -1681,103 +1681,103 @@ sub getFileContents{
 }
 
 
-sub justListPorts{
-	my $fromPartFileContents = "";
-	my $fromPartName = $_[0];
-	my $searchPath = $_[1];
+#sub justListPorts{
+	#my $fromPartFileContents = "";
+	#my $fromPartName = $_[0];
+	#my $searchPath = $_[1];
 		
-	my $fromPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromPartName\' \{\} \\\;/;
+	#my $fromPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromPartName\' \{\} \\\;/;
 		
-	my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName); 
+	#my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName); 
 
-	if ($fromPartFileName eq "ERROR") {
-		print "\nERROR(202): Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
-		exit -1;
-	}
+	#if ($fromPartFileName eq "ERROR") {
+		#print "\nERROR(202): Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
+		#exit -1;
+	#}
 		
-	open (READ_PRT, '<', $fromPartFileName) or die "ERROR(402): Cannot open file: $fromPartFileName";
+	#open (READ_PRT, '<', $fromPartFileName) or die "ERROR(402): Cannot open file: $fromPartFileName";
 
-	while (<READ_PRT>){
-		chomp($_);
-		if ($fromPartFileContents eq "") {
-			$fromPartFileContents = $_ . "\n";
-		}
-		else {
-			$fromPartFileContents = $fromPartFileContents . $_ . "\n"; 
-		}
+	#while (<READ_PRT>){
+		#chomp($_);
+		#if ($fromPartFileContents eq "") {
+			#$fromPartFileContents = $_ . "\n";
+		#}
+		#else {
+			#$fromPartFileContents = $fromPartFileContents . $_ . "\n"; 
+		#}
 
-	}
-	close (READ_PRT);
+	#}
+	#close (READ_PRT);
 
-	my $fromPartGUID = findGuid($fromPartName, $fromPartFileContents, "IPart");
-	my $fromPartRMID = findRmid($fromPartName, $fromPartFileContents, "IPart");
+	#my $fromPartGUID = findGuid($fromPartName, $fromPartFileContents, "IPart");
+	#my $fromPartRMID = findRmid($fromPartName, $fromPartFileContents, "IPart");
 
-	if (($fromPartGUID eq "ERROR") or ($fromPartRMID eq "ERROR")) {
-		print "\nERROR(202): Cannot find provided part $fromPartName... Check if the part names provided are true\n";
-		exit -1;
-	}
+	#if (($fromPartGUID eq "ERROR") or ($fromPartRMID eq "ERROR")) {
+		#print "\nERROR(202): Cannot find provided part $fromPartName... Check if the part names provided are true\n";
+		#exit -1;
+	#}
 	
 	
-	my $fromBlockName = getBlockName($fromPartName, $fromPartFileContents, "IPart"); 
+	#my $fromBlockName = getBlockName($fromPartName, $fromPartFileContents, "IPart"); 
 
-	my $parentFromBlock = findParentName($fromPartGUID, $fromPartFileContents, "IClass");
+	#my $parentFromBlock = findParentName($fromPartGUID, $fromPartFileContents, "IClass");
 	
-	if ($parentFromBlock eq "ERROR") {
-		print "\nERROR(202): Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
-		exit -1;
-	}
+	#if ($parentFromBlock eq "ERROR") {
+		#print "\nERROR(202): Cannot find a parent Block for the provided part $fromPartName... Check if the part names provided are true2\n";
+		#exit -1;
+	#}
 	
-	my $fromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromBlockName\' \{\} \\\;/;
-	my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
+	#my $fromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromBlockName\' \{\} \\\;/;
+	#my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
 	
 	
-	if ($fromBlockFileName eq "ERROR") {
-		print "\nERROR(202): Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
-		exit -1;
-	}	
-	my $fromBlockFileContents = "";
-	if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
-	else { 
-		open (READ_PRT, '<', $fromBlockFileName) or die "ERROR(402): Cannot open file: $fromBlockFileName";
+	#if ($fromBlockFileName eq "ERROR") {
+		#print "\nERROR(202): Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
+		#exit -1;
+	#}	
+	#my $fromBlockFileContents = "";
+	#if ($fromBlockFileName eq $fromPartFileName) {$fromBlockFileContents = $fromPartFileContents;}
+	#else { 
+		#open (READ_PRT, '<', $fromBlockFileName) or die "ERROR(402): Cannot open file: $fromBlockFileName";
 
-		while (<READ_PRT>){
-			chomp($_);
-			if ($fromBlockFileContents eq "") {
-				$fromBlockFileContents = $_ . "\n";
-			}
-			else {
-				$fromBlockFileContents = $fromBlockFileContents . $_ . "\n"; 
-			}
+		#while (<READ_PRT>){
+			#chomp($_);
+			#if ($fromBlockFileContents eq "") {
+				#$fromBlockFileContents = $_ . "\n";
+			#}
+			#else {
+				#$fromBlockFileContents = $fromBlockFileContents . $_ . "\n"; 
+			#}
 
-		}
-		close (READ_PRT);
-	}
+		#}
+		#close (READ_PRT);
+	#}
 	
 	
-	my $fromBlockGUID = findGuid($fromBlockName, $fromBlockFileContents, "IClass");	
-	my $childIDs = findIDsOfParentBlock($fromBlockFileContents, $fromBlockGUID);
+	#my $fromBlockGUID = findGuid($fromBlockName, $fromBlockFileContents, "IClass");	
+	#my $childIDs = findIDsOfParentBlock($fromBlockFileContents, $fromBlockGUID);
 	
-	my @childIDs_arr = split(/::/,$childIDs);
-	my $portList = "";
+	#my @childIDs_arr = split(/::/,$childIDs);
+	#my $portList = "";
 
-	foreach(@childIDs_arr){
-		chomp($_);
-		if ($_ eq "") {next;} 
-		my $id = $_; 
-		$id = "GUID " . $id;
-		my $name = findNameByGUID($id,$fromBlockFileContents,"IPort"); 	
-		my $rmID = findRmid($name, $fromBlockFileContents, "IPort");
-		if ($name ne "") {
-			if ($portList eq "") {$portList = $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
-			else {$portList = $portList . "::" . $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
-		}
-	}
+	#foreach(@childIDs_arr){
+		#chomp($_);
+		#if ($_ eq "") {next;} 
+		#my $id = $_; 
+		#$id = "GUID " . $id;
+		#my $name = findNameByGUID($id,$fromBlockFileContents,"IPort"); 	
+		#my $rmID = findRmid($name, $fromBlockFileContents, "IPort");
+		#if ($name ne "") {
+			#if ($portList eq "") {$portList = $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
+			#else {$portList = $portList . "::" . $name . "||" . $id . "RM_SEPERATOR" . $rmID;} 
+		#}
+	#}
 	
-	$portList = $fromBlockGUID . "PARTBLOCK_SEPERATOR" . $fromPartGUID . "-OFPART-" . $parentFromBlock . "==" . $portList;
-	return $portList;
+	#$portList = $fromBlockGUID . "PARTBLOCK_SEPERATOR" . $fromPartGUID . "-OFPART-" . $parentFromBlock . "==" . $portList;
+	#return $portList;
 	
 
-}
+#}
 
 sub renameElement{
 	my $FileContents = $_[0];
