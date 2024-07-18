@@ -49,7 +49,7 @@ else {$projectArea = "_" . $projectArea;}
 
 
 
-my $portsAll = justListPorts($portPart,$searchPath);
+my $portsAll = justListPortsCommon($portPart,$searchPath);
 
 	my ($parentFromBlockandPart, $fromPorts) = split(/==/,$portsAll);
 	my ($parentFromBlockPart_all,$parentFromBlock) = split("-OFPART-",$parentFromBlockandPart);
