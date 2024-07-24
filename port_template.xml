@@ -3,6 +3,7 @@
 			<_myState type="a">8192</_myState>
 			<_rmmServerID type="a">PORTRMID_HERE_PROJECTAREAID_HERE</_rmmServerID>
 			<_name type="a">PORTNAME_HERE</_name>
+			<_displayName type="a">PORTLABEL_HERE</_displayName>
 			<Stereotypes type="c">
 				<IRPYRawContainer type="e">
 					

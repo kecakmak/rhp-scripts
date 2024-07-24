@@ -125,10 +125,11 @@ sub createNewPort {
 	my $portGuid = $_[1];
 	my $portRMId  = $_[2];
 	my $portName = $_[3];
-	my $projectArea = $_[4];
-	my $portSt = $_[5];
-	my $workspace = $_[6];
-	my $rhpProject = $_[7];
+	my $portLabel = $_[4];
+	my $projectArea = $_[5];
+	my $portSt = $_[6];
+	my $workspace = $_[7];
+	my $rhpProject = $_[8];
 	my $currentDate = getDate(); 
 	my $templateContents = "";
 	
@@ -162,6 +163,7 @@ sub createNewPort {
 	$templateContents =~s/PORTRMID_HERE/$portRMId/ig;
 	$templateContents =~s/_PROJECTAREAID_HERE/$projectArea/ig;
 	$templateContents =~s/PORTNAME_HERE/$portName/ig;
+	$templateContents =~s/PORTLABEL_HERE/$portLabel/ig;
 	$templateContents =~s/CURRENTDATE_HERE/$currentDate/ig;
 	$templateContents =~s/PORTST_HERE/$portSt/ig;
 	$templateContents =~s/IBNAME_HERE/$portIBName/ig;
@@ -497,7 +499,8 @@ sub createNewPortIndex {
 	my $guid = $_[1];
 	my $projectArea = $_[2];
 	my $portName = $_[3];
-	my $rhpProject=$_[4];
+	my $portLabel = $_[4];
+	my $rhpProject=$_[5];
 	my $currentDate = getDate();
 	my $templateContents = "";
 	
@@ -530,6 +533,7 @@ sub createNewPortIndex {
 	$templateContents =~s/PORTGUID_HERE/$guid/ig;
 	$templateContents =~s/_PROJECTAREAID_HERE/$projectArea/ig;
 	$templateContents =~s/PORTNAME_HERE/$portName/ig;
+	$templateContents =~s/PORTLABEL_HERE/$portLabel/ig;
 	$templateContents =~s/CURRENTDATE_HERE/$currentDate/ig;
 	$templateContents =~s/BROWSERGUID_HERE/$browserGUID/ig;
 	$templateContents =~s/GROUPGUID_HERE/$groupGUID/ig;

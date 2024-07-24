@@ -11,8 +11,12 @@ use MBSEDialogsBackendLibs;
 # inputs
 my $portBlock = $ARGV[0];
 my $newPort = $ARGV[1];
+my $newPortLabel = $ARGV[4];
 my $portSt = $ARGV[2];
 my $rhpProject = $ARGV[3];
+
+if ($newPortLabel eq "") {$newPortLabel = $newPort;}
+
 
 my $wsName = "WORKSPACE_" . $rhpProject; 
 my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
@@ -131,7 +135,7 @@ if ($blockGuid eq "ERROR") {
 	
 	
 # We'll create the port from the port template now: 
-my $newPortCreated = createNewPort($origFileContents, $newPortGuid, $newPortRMId, $newPort, $projectArea, $portSt, $fullPath, $rhpProject);
+my $newPortCreated = createNewPort($origFileContents, $newPortGuid, $newPortRMId, $newPort, $newPortLabel, $projectArea, $portSt, $fullPath, $rhpProject);
 
 
 #Now insert the template into the correct file 
@@ -143,7 +147,7 @@ $origFileContents = $fileContentsWithPort;
 my $fileContentsWithDCBlockAgg =  aggregateBlock($portBlock, $newPortGuid, $origFileContents, "IClass");
 $origFileContents = $fileContentsWithDCBlockAgg;
 
-my $createPortIndex = createNewPortIndex($newPortRMId, $newPortGuid, $projectArea, $newPort, $rhpProject);
+my $createPortIndex = createNewPortIndex($newPortRMId, $newPortGuid, $projectArea, $newPort, $newPortLabel, $rhpProject);
 
 
 
