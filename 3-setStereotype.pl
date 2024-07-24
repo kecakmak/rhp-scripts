@@ -184,6 +184,11 @@ foreach(@contentArr) {
 
 my $stGuid = findGuid($stName, $profileContents, "IStereotype"); 
 
+if ($stGuid eq "ERROR") {
+	print "ERROR(202): No matching stereotype found. Please set the stereotype manually, for the block: $blockName";
+	exit (-1);
+}
+
 my @parentName = ""; 
 my @parentGuid = ""; 
 my $recursiveParents = ""; 
@@ -199,7 +204,7 @@ if ($level ne "NA") {
 }
 
 else {
-	print "ERROR(202): No matching stereotype found. Please set the stereotype manually\n";
+	print "ERROR(202): No matching stereotype found. Please set the stereotype manually, for the block: $blockName";
 	exit (-1);
 }
 
