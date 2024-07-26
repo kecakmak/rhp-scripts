@@ -63,7 +63,6 @@ my $parentFolders = qx/find $searchPath \-type f \-exec grep \-H \'$blockName\' 
 my $parentFolder = findCorrectFileName($parentFolders, $blockName);
 my $fileName = $parentFolder; 
 
-
  if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
 	
 	print "ERROR(202): The Block $blockName could not be found. Please enter an existing Block to set the stereotype\n\n\n";
@@ -161,6 +160,7 @@ foreach(@contentArr) {
 		$line =~s/\t//ig;
 		$line =~s/\n//ig;
 		$stName = $line; 
+
 	}
 }
 
@@ -192,6 +192,7 @@ if ($stGuid eq "ERROR") {
 my @parentName = ""; 
 my @parentGuid = ""; 
 my $recursiveParents = ""; 
+
 if ($level ne "NA") {
 	my $inGuid = $stGuid;
 	for (my $i = 0; $i < $level ; $i++) {
@@ -239,6 +240,19 @@ foreach (@contentArray){
 close (WR);
 
 fixRhapsodyIndicies($fileName);
+my $homeDir = $ENV{HOME};
+my $dir = $homeDir . "/" . $rhpProject;
+my $file = $homeDir . "/" . $rhpProject . "/blockList.json";
+my $logFile = $homeDir . "/" . $rhpProject . "/logFile.txt";
+
+my $dirExists = `ls $ dir 2>&1`; 
+
+if (index($dirExists, "No such file")!=-1) {`mkdir $dir 2>&1`; }
+
+
+my $command = "perl 0-listBlocksBackgrd.pl " . $rhpProject; 
+
+my $output = system($command . " > $logFile &");
 
 print "Command completed successfully\n";
 
