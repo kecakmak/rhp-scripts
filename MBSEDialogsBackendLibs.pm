@@ -862,7 +862,7 @@ sub getIds{
 	my $count = "";
 	my $path = getEnvironments("WORKSPACE");
 	
-	my $idFile = $searchP . "..\/IDs.txt"; 
+	my $idFile = $searchP . "..\/..\/IDs.txt"; 
 
 	open(FORC, '<', $idFile) or die "Cannot open file: $idFile";
 	for ($count=0; <FORC>; $count++) { }
