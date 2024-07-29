@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq justListPortsCommon renameElement);
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq justListPortsCommon renameElement findCorrectFileName_fixed);
 
 
 sub getEnvironments {
@@ -1216,6 +1216,14 @@ close (OUT);
 }
 
 sub findCorrectFileName {
+#sample file Content
+		#<IClass type="e">
+			#<_id type="a">GUID ce6bfe69-31ef-4f9d-bf8e-92f3624af1cf</_id>
+			#<_myState type="a">8192</_myState>
+			#<_rmmServerID type="a">1373574_cImqIgkqEe21o7SZHKptFQ</_rmmServerID>
+			#<_name type="a">BL_BGR_2472</_name>
+			#<Stereotypes type="c">
+			
 	my $fileNames = $_[0]; 
 	my $nameToCheck = $_[1];
 	my @fileNameArr = split(/\n/,$fileNames); 
@@ -1234,6 +1242,109 @@ sub findCorrectFileName {
 		$content=~s/<\/_name>//ig;
 		if ($content eq $nameToCheck) {$correctFile = $file;}		
 	}
+	if ($correctFile ne "") {return $correctFile; }
+	else {return "ERROR";}
+}
+
+sub getBlockName{
+	my $partName = $_[0]; 
+	my $partFileContents = $_[1];
+	my $type = $_[2]; 
+	
+	my @partFile_arr = split(/\n/,$partFileContents); 
+	
+	my $inType = "false"; 
+	my $inPart = "false"; 
+	my $inCH = "false"; 
+	my $retVal = ""; 
+	my $guid = ""; 
+	
+	foreach(@partFile_arr) {
+		chomp($_);
+		my $line = $_;
+		
+		if (index($line, "<" . $type . " type=")!=-1){$inType = "true";} 
+		if (index($line, "<\/" . $type . ">")!=-1){$inType = "false";$inPart = "false";}
+		
+		if (($inType eq "true") and index($line, "<_name type=")!=-1) {
+			$line=~s/<_name type=\"a\">//ig;
+			$line=~s/<\/_name>//ig;
+			$line=~s/\t//ig;
+			if ($line eq $partName){$inPart = "true";} 
+		} 		
+		if ($inPart eq "true") {
+			
+			if (index($line, "<IClassifierHandle type=")!=-1){$inCH = "true";} 
+			if (index($line,"<\/IClassifierHandle>")!=-1){$inCH = "false";} 
+			
+			if (($inCH eq "true") and index($line,"<_hname type=")!=-1){
+				$line=~s/<_hname type=\"a\">//ig;
+				$line=~s/<\/_hname>//ig;
+				$line=~s/\t//ig;
+				$retVal = $line; 
+			}
+			if (($inCH eq "true") and index($line,"<_hid type=")!=-1){
+				$line=~s/<_hid type=\"a\">//ig;
+				$line=~s/<\/_hid>//ig;
+				$line=~s/\t//ig;
+				$guid = $line; 
+			}
+			
+			
+		}
+			
+	}
+	
+	if ($retVal eq ""){
+		$retVal = findNameByGUID($guid, $partFileContents, "IClass"); 
+	}
+	
+	return $retVal; 		
+		
+}
+
+
+sub findCorrectFileName_fixed {
+#sample file Content
+		#<IClass type="e">
+			#<_id type="a">GUID ce6bfe69-31ef-4f9d-bf8e-92f3624af1cf</_id>
+			#<_myState type="a">8192</_myState>
+			#<_rmmServerID type="a">1373574_cImqIgkqEe21o7SZHKptFQ</_rmmServerID>
+			#<_name type="a">BL_BGR_2472</_name>
+			#<Stereotypes type="c">
+			
+	my $fileNames = $_[0]; 
+	my $nameToCheck = $_[1];
+	my $type = $_[2];
+	my @fileNameArr = split(/\n/,$fileNames); 
+	my $correctFile = ""; 
+	my $prospectType = "";
+	my @fileArr = ""; 
+	
+	foreach (@fileNameArr) { 
+		chomp($_); 
+		$_=~s/\t//ig;
+		my $line = $_; 
+		
+		my $i=rindex($line,":");
+		my $file=substr($line,0,$i);
+		my $content=substr($line,$i+1);	
+
+		$content=~s/<_name type=\"a\">//ig;
+		$content=~s/<\/_name>//ig;
+		if ($content eq $nameToCheck) {$correctFile = $file;}
+		
+		push (@fileArr,$correctFile);
+
+	}
+		
+		my @leastFiles= uniq(@fileArr); 
+		
+		
+		foreach (@leastFiles){
+			
+		}
+
 	if ($correctFile ne "") {return $correctFile; }
 	else {return "ERROR";}
 }

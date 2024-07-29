@@ -5,30 +5,21 @@
 use warnings;
 use strict;
 
-print "Please enter the Rhapsody project directory in your workspace:\nEg: C:\\..\\NEW-NVL-Windows\\NVL Sample\\Project\\SETitanic\\Projekt_SETitanic_rpy\n\n";
-print "For help, please enter help\n"; 
-my $string = <STDIN>;
-chomp ($string);
 
-if ($string eq "help") {
-	
-	print "This script can only be used in Windows. \nThe import.sbsx file should be checked in from Rhapsody in order to extract the ids. \nSince this change is not yet delivered, the imports.sbsx file can only be accessed on the client which has access to the checked in import.sbsx file.\n";
-	exit (0);
-}
+my $workspace = "C:\\Users\\kerimcakmak\\workspace2\\NVL\\SETitanic\\";
 
-my $workspace = $string;
+my $rhapsody_file_dir = "ACC_rpy\\";
+my $importFile = "import.sbsx"; 
 
+my $idFile = "IDs.txt";
 
-my $importFile = "\\import.sbsx"; 
+my $fileName = $workspace . $rhapsody_file_dir . $importFile; 
+my $idFileName = $workspace . $rhapsody_file_dir . $idFile;
 
-my $idFile = "..\\IDs.txt";
-
-my $fileName = $workspace  . $importFile; 
-my $idFileName = $workspace . $idFile;
-
-open (OUT, '>', $idFileName) or die "\nPlease check the file name to be true: $idFileName\nFor help, please enter -help\n\n";
-
-open(IN, '<', $fileName) or die "\nPlease check the file name to be true: $fileName\nFor help, please enter -help\n\n"; 
+open (FIRST, '>' , $idFileName);
+close(FIRST);
+open (OUT, '>', $idFileName);
+open(IN, '<', $fileName) or die; 
 
 
 #while(OUT){
@@ -58,7 +49,5 @@ open(IN, '<', $fileName) or die "\nPlease check the file name to be true: $fileN
 	}
 close (IN);
 close (OUT);
-
-print "\n\nSUCCESS: Id file created. Please check it at the location:\n $idFileName. \nIf everything is ok, please don't forget to checkin and deliver the file.";
 
 #}
