@@ -53,7 +53,8 @@ my $origFileContents = "";
 
 
 my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'$block\' \{\} \\\;/;
-my $fileName = findCorrectFileName($parentFolders, $block);
+
+my $fileName = findCorrectFileName_withType($parentFolders, $block, "Class");
 
  if (($fileName eq "") or ($fileName eq "ERROR")) {
 	
@@ -82,6 +83,7 @@ close (READ_PRT);
 my $rmServerID = findRmid($block, $origFileContents, "I" . $type);
 # find the GUID of the block to be linked 
 my $GUID = findGuid($block, $origFileContents, "I" . $type);
+
 
 if ($rmServerID eq "ERROR") { 
 	print "ERROR(202): Model element or type not Found. Please make sure you entered right element and type:\n"; 

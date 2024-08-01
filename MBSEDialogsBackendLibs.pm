@@ -19,7 +19,7 @@ our @ISA= qw( Exporter );
 
 
 # these are exported by default.
-our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq justListPortsCommon renameElement findCorrectFileName_fixed);
+our @EXPORT = qw( trimFileContents createNewBlockIndex insertNewIndex appendNewBlockToPackageIndex createNewPackageIndex insertChild createNewBlock createBlockPackage aggregateBlock getIds  findGuid findRmid findParentName checkBlockPackage isFile getDate insertOSLC findIfOSLCExists fixRhapsodyIndicies createNewDC createNewDCIndex createNewPort createNewPortIndex createNewStereotype insertStereotype appendStToBlockIndex findCorrectFileName getBlockName getPath checkPartPort checkPortExists checkBlockExists findNVLProfilePath getEnvironments findNameByGUID findIDsOfParentBlock getFileContents findNameByGUID_UnknownFile uniq justListPortsCommon renameElement findCorrectFileName_withType);
 
 
 sub getEnvironments {
@@ -1304,7 +1304,7 @@ sub getBlockName{
 }
 
 
-sub findCorrectFileName_fixed {
+sub findCorrectFileName_withType {
 #sample file Content
 		#<IClass type="e">
 			#<_id type="a">GUID ce6bfe69-31ef-4f9d-bf8e-92f3624af1cf</_id>
@@ -1339,17 +1339,40 @@ sub findCorrectFileName_fixed {
 	}
 		
 		my @leastFiles= uniq(@fileArr); 
-		
+		my $prospectFile = ""; 
+		my $resultFile = ""; 
 		
 		foreach (@leastFiles){
+
+			next if $_ eq "";
+			next if $resultFile ne "";
+			$prospectFile = $_; 
+
+			open (CONTENT, '<', $_) or die "Cannot open file: $_"; 
+			my $inType = "false"; 
+			while (<CONTENT>){
+				chomp ($_);
+				next if $resultFile ne ""; 
+				if (index ($_, "<I$type type=\"e\">")!=-1){
+					$inType = "true"; 
+				}
+				if (index ($_, "<\/I$type>")!=-1){
+					$inType = "false";
+				}				
+				if ($inType eq "true"){ 
+					if(index($_, "<_name type=\"a\">$nameToCheck")!=-1){$resultFile = $prospectFile;}
+				}
+			}
 			
+			close(CONTENT); 
+
 		}
 
-	if ($correctFile ne "") {return $correctFile; }
+	if ($resultFile ne "") {return $resultFile; }
 	else {return "ERROR";}
 }
 
-sub getBlockName{
+sub getBlockName_trash{
 	my $partName = $_[0]; 
 	my $partFileContents = $_[1];
 	my $type = $_[2]; 
