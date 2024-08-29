@@ -1,0 +1,20 @@
+		<IPart type="e">
+			<_id type="a">DCGUID_HERE</_id>
+			<_myState type="a">10240</_myState>
+			<_rmmServerID type="a">DCRMID_HERE_PROJECTAREAID_HERE</_rmmServerID>
+			<_name type="a">DCNAME_HERE</_name>
+			<_modifiedTimeWeak type="a">CURRENTDATE_HERE</_modifiedTimeWeak>
+			<_modifiedTime type="a">CURRENTDATE_HERE</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hid type="a">CHILDGUID_HERE</_hid>
+					<_hrmmServerID type="a">CHILDRMID_HERE_PROJECTAREAID_HERE</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPart>

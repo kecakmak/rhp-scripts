@@ -1,0 +1,42 @@
+
+	<IPort type="e">
+			<_id type="a">PORTGUID_HERE</_id>
+			<_myState type="a">8192</_myState>
+			<_rmmServerID type="a">PORTRMID_HERE_PROJECTAREAID_HERE</_rmmServerID>
+			<_name type="a">PORTNAME_HERE</_name>
+			<_displayName type="a">PORTLABEL_HERE</_displayName>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::PortsAndFlows</_hsubsystem>
+							<_hname type="a">proxyPort</_hname>
+							<_hid type="a">IDGUID_HERE</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">CURRENTDATE_HERE</_modifiedTimeWeak>
+			<_description type="p"><IDescription type="e">
+				<_text type="a">,</_text>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">CURRENTDATE_HERE</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\PORTST_HERE.sbsx</_hfilename>
+					<_hsubsystem type="a">Projekt_RHPPROJECT_HERE::System_RHPPROJECT_HERE::System_RHPPROJECT_HERE_Interfaces::PORTST_HERE</_hsubsystem>
+					<_hname type="a">IBNAME_HERE</_hname>
+					<_hid type="a">IBGUID_HERE</_hid>
+					<_hrmmServerID type="a">IBRMID_HERE</_hrmmServerID>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+		</IPort>
