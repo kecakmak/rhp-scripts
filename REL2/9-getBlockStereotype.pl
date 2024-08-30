@@ -27,7 +27,7 @@ my $searchPath = $fullPath ;
 
 
 my $parentFolders = qx/find $searchPath \-type f \-exec grep \-H \'<_name type=\"a\">$blockName\' \{\} \\\;/;
-my $parentFolder = findCorrectFileName($parentFolders, $blockName);
+my $parentFolder = findCorrectFileName_withType($parentFolders, $blockName, "Class");
 
  if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {
 	

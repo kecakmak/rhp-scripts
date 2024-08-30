@@ -60,7 +60,7 @@ my $profileContents = "";
 my $stName = ""; 
 
 my $parentFolders = qx/find $searchPath \-type f \-exec grep \-H \'$blockName\' \{\} \\\;/;
-my $parentFolder = findCorrectFileName($parentFolders, $blockName);
+my $parentFolder = findCorrectFileName_withType($parentFolders, $blockName, "Class");
 my $fileName = $parentFolder; 
 
  if (($parentFolder eq "") or ($parentFolder eq "ERROR")) {

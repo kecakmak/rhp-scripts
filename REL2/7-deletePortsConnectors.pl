@@ -53,7 +53,7 @@ my $searchPath = $fullPath ;
 
 if (($partToDelete ne "") && ($partToDelete ne "NULL")){
 
-	my $portsAll = justListPorts($partToDelete,$searchPath);
+	my $portsAll = justListPortsCommon($partToDelete,$searchPath);
 
 	my ($parentFromBlockandPart, $fromPorts) = split(/==/,$portsAll);
 	my ($parentFromBlockPart_all,$parentFromBlock) = split("-OFPART-",$parentFromBlockandPart);
@@ -145,8 +145,6 @@ sub deletePart {
 	my $parentBlockPartID = $_[3];
 	
 	print "PART DELETE: \n $fullPath\n $partName \n $partID \n $parentBlockPartID \n";
-
-	print "\n\n\n$fullPath\n$partName\n$partID\n$parentBlockPartID\n";
 	
 	my $blockFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$partID<\\\/_id>\/\,\/<\\\/IPart>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
 	$blockFiles=~s/\t/:/ig;
@@ -155,7 +153,6 @@ sub deletePart {
 	($blockFile,$junk) = split("::",$blockFiles); #sometimes there are 3 spaces, sometimes two... 
 	$blockFile=~s/\s+$//; #right trim to get rid of any spaces at the end 
 	
-	print "Filename: $blockFile\n";
 
 	if ($blockFile eq "") {
 		print "ERROR(202): Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
@@ -314,9 +311,7 @@ sub deletePort {
 		deleteConnector($fullPath,$connectorName,$connectorID);
 	}
 # Then delete the port. 
-	
-	print "\n\n\n$fullPath\n$portName\n$portID\n$parentBlockPartID\n";
-	
+		
 	my $blockFiles = qx/ find $fullPath \-type f  \| xargs -n1 awk \'\/<_id type=\"a\">$portID<\\\/_id>\/\,\/<\\\/IPort>\/ \{printf FILENAME \"  \"\; print\}\'  / ;
 	$blockFiles=~s/\t/:/ig;
 	
@@ -324,8 +319,6 @@ sub deletePort {
 	($blockFile,$junk) = split("::",$blockFiles); #sometimes there are 3 spaces, sometimes two... 
 	$blockFile=~s/\s+$//; #right trim to get rid of any spaces at the end 
 	
-	print "Filename: $blockFile\n";
-
 	if ($blockFile eq "") {
 		print "ERROR(202): Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
 		exit (-1);
@@ -477,9 +470,7 @@ sub deleteConnector {
 	my ($blockFile,$junk) = split(":::",$blockFiles);
 	($blockFile,$junk) = split("::",$blockFiles); #sometimes there are 3 spaces, sometimes two... 
 	$blockFile=~s/\s+$//; #right trim to get rid of any spaces at the end 
-	
-	print "Filename: $blockFile\n";
-	
+		
 	if ($blockFile eq "") {
 		print "ERROR(202): Error with the connection information. Please make sure to use correct connection name for the given part and port\n";
 		exit (-1);

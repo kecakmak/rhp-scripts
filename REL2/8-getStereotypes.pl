@@ -26,7 +26,7 @@ my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
 my $searchPath = $fullPath ;
 
 my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'<_name type=\"a\">ST_Systems<\/_name>\' \{\} \\\;/;
-my $parentFolder = findCorrectFileName($parentFolders, "ST_Systems");
+my $parentFolder = findCorrectFileName_withType($parentFolders, "ST_Systems", "Subsystem");
 my $fileContents = "";
 
 open (READ_PRT, '<', $parentFolder) or die "Cannot open file $parentFolder"; 

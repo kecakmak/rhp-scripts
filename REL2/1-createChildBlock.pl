@@ -63,7 +63,7 @@ $blockPackage = "ST_" . $blockPackage;
 
 #use for Linux 
 my $parentFolders = qx/find $fullPath \-type f \-exec grep \-H \'$parentBlock\' \{\} \\\;/;
-my $parentFolder = findCorrectFileName($parentFolders, $parentBlock);
+my $parentFolder = findCorrectFileName_withType($parentFolders, $parentBlock, "Class");
 my $fileName = $parentFolder; 
 
 

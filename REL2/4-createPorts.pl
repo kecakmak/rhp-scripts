@@ -78,7 +78,7 @@ my ($newPortGuid, $newPortRMId) = split(/,/,$newPortIds);
 
 #use for Linux 
 my $parentFolders = qx/find $searchPath \-type f \-exec grep \-H \'$portBlock\' \{\} \\\;/;
-my $parentFolder = findCorrectFileName($parentFolders, $portBlock);
+my $parentFolder = findCorrectFileName_withType($parentFolders, $portBlock, "Class");
 
 if ($parentFolder eq "ERROR") {
 	print "\nERROR(202): Cannot find the block $portBlock to create the proxy port ... Check if the block exists\n";

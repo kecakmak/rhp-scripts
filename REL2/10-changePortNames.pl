@@ -49,7 +49,7 @@ else {$projectArea = "_" . $projectArea;}
 
 
 
-my $portsAll = justListPorts($portPart,$searchPath);
+my $portsAll = justListPortsCommon($portPart,$searchPath);
 
 	my ($parentFromBlockandPart, $fromPorts) = split(/==/,$portsAll);
 	my ($parentFromBlockPart_all,$parentFromBlock) = split("-OFPART-",$parentFromBlockandPart);
@@ -74,7 +74,7 @@ my $portsAll = justListPorts($portPart,$searchPath);
 	}
 
 my $portFileNames = qx/find $searchPath \-type f \-exec grep \-H \'<_name type=\"a\">$portNameToChange\' \{\} \\\;/;
-my $portFileName = findCorrectFileName($portFileNames, $portNameToChange); 
+my $portFileName = findCorrectFileName_withType($portFileNames, $portNameToChange, "Port"); 
 
 
 my $portFileContents = getFileContents($portFileName);

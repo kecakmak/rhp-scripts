@@ -91,7 +91,7 @@ sub justListPorts{
 		
 	my $fromPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromPartName\' \{\} \\\;/;
 		
-	my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName); 
+	my $fromPartFileName = findCorrectFileName_withType($fromPartFileNames, $fromPartName, "Part"); 
 
 	if ($fromPartFileName eq "ERROR") {
 		print "\nERROR(202): Cannot find provided parts: $fromPartName... Check if the part names provided are true\n";
@@ -131,7 +131,7 @@ sub justListPorts{
 	}
 	
 	my $fromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromBlockName\' \{\} \\\;/;
-	my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
+	my $fromBlockFileName = findCorrectFileName_withType($fromBlockFileNames, $fromBlockName, "Class");
 	
 	
 	if ($fromBlockFileName eq "ERROR") {

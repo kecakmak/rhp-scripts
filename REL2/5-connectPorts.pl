@@ -101,8 +101,9 @@ $connName = $fromPartName . "_" . $toPartName;
 my $toPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$toPartName\' \{\} \\\;/;
 my $fromPartFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromPartName\' \{\} \\\;/;
 
-my $toPartFileName = findCorrectFileName($toPartFileNames, $toPartName); 
-my $fromPartFileName = findCorrectFileName($fromPartFileNames, $fromPartName);
+my $toPartFileName = findCorrectFileName_withType($toPartFileNames, $toPartName, "Part"); 
+my $fromPartFileName = findCorrectFileName_withType($fromPartFileNames, $fromPartName, "Part");
+
 
 if (($toPartFileName eq "ERROR") or ($fromPartFileName eq "ERROR")) {
 	print "\nERROR(202): Cannot find provided parts... Check if the part names provided are true\n";
@@ -188,8 +189,10 @@ if ($parentToBlock eq "ERROR") {
 my $toBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$toBlockName\' \{\} \\\;/;
 my $fromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$fromBlockName\' \{\} \\\;/;
 
-my $toBlockFileName = findCorrectFileName($toBlockFileNames, $toBlockName);
-my $fromBlockFileName = findCorrectFileName($fromBlockFileNames, $fromBlockName);
+my $toBlockFileName = findCorrectFileName_withType($toBlockFileNames, $toBlockName, "Class");
+my $fromBlockFileName = findCorrectFileName_withType($fromBlockFileNames, $fromBlockName, "Class");
+
+
 
 if (($toBlockFileName eq "ERROR") or ($fromBlockFileName eq "ERROR")) {
 	print "\nERROR(202): Cannot find main blocks for the provided ports ... Check if the port names provided are true\n";
@@ -198,10 +201,11 @@ if (($toBlockFileName eq "ERROR") or ($fromBlockFileName eq "ERROR")) {
 }
 
 my $parentFromBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$parentFromBlock\' \{\} \\\;/;
-my $parentFromBlockFileName = findCorrectFileName($parentFromBlockFileNames, $parentFromBlock);
+my $parentFromBlockFileName = findCorrectFileName_withType($parentFromBlockFileNames, $parentFromBlock, "Class");
 
 my $parentToBlockFileNames = qx/find $searchPath \-type f \-exec grep \-H \'$parentToBlock\' \{\} \\\;/;
-my $parentToBlockFileName = findCorrectFileName($parentToBlockFileNames, $parentToBlock);
+my $parentToBlockFileName = findCorrectFileName_withType($parentToBlockFileNames, $parentToBlock, "Class");
+
 
 if (($parentFromBlockFileName eq "ERROR") or ($parentToBlockFileName eq "ERROR")) {
 	print "\nERROR(202): Cannot find main blocks for the provided parts ... Check if the part names provided are true\n";
