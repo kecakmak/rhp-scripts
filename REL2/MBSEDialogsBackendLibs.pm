@@ -1944,7 +1944,8 @@ sub renameElement{
 	my $NameToChange = $_[1]; 
 	my $GUIDToChange = $_[2]; 
 	my $newName = $_[3]; 
-	my $type = $_[4];
+	my $newLabel = $_[4];
+	my $type = $_[5];
 	
 	
 	my @contents_arr = split("\n",$FileContents); 
@@ -1983,6 +1984,10 @@ sub renameElement{
 		
 		if ($inElement eq "true"){
 			$line =~s/$NameToChange/$newName/ig;
+			if ($newLabel ne ""){
+				$line =~ s/<_displayName type.*/<_displayName type=\"a\">$newLabel<\/_displayName>/ig;
+				$line =~ s/<LABEL.*/<LABEL>$newLabel<\/LABEL>/ig;
+			}
 		}
 		
 		if ($newFileContents eq "") {

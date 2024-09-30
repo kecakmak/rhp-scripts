@@ -11,7 +11,9 @@ use MBSEDialogsBackendLibs;
 my $portPart = $ARGV[0];
 my $existingPortName = $ARGV[1];
 my $newPortName = $ARGV[2];
-my $rhpProject = $ARGV[3];
+my $newPortLabel = $ARGV[3];
+my $rhpProject = $ARGV[4];
+
 
 my $wsName = "WORKSPACE_" . $rhpProject; 
 my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 
@@ -78,7 +80,7 @@ my $portFileName = findCorrectFileName_withType($portFileNames, $portNameToChang
 
 
 my $portFileContents = getFileContents($portFileName);
-my $contentsWithChangedPortName = renameElement($portFileContents,$portNameToChange,$portGUIDToChange,$newPortName,"IPort");
+my $contentsWithChangedPortName = renameElement($portFileContents,$portNameToChange,$portGUIDToChange,$newPortName,$newPortLabel,"IPort");
 
 
 #write to File... 
