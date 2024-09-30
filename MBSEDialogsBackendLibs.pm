@@ -84,6 +84,9 @@ sub createNewBlockIndex{
 	my $currentDate = getDate(); 
 	my $templateContents = ""; 
 	
+	$currentDate =~s/::/ /ig;
+
+	
 	open(TEMPL, '<', "block_index_template.xml") or die "Cannot open file: block_index_template.xml"; 
 	while (<TEMPL>) {
 		chomp($_); 
@@ -91,30 +94,34 @@ sub createNewBlockIndex{
 		else {$templateContents = $templateContents . $_ . "\n";} 
 	}
 	
-	close(TEMPL);
-	my $browserGUID="";
-	my $groupGUID=""; 
+	my $browserGUID = getStereotypeIDs("Class", $rhpProject);
+	my $groupGUID = getStereotypeIDs("Class", $rhpProject);
+
 	
-	open(INP, '<', "GUID_Repo.txt") or die "Cannot open file: GUID_Repo.txt";  
-	while(<INP>) {
-		chomp($_); 
-		my $line = $_; 
-		my ($file,$project,$idField,$id) = split(/,/,$line); 
-		if (($file eq "block_index_template.xml") and ($project eq $rhpProject)) {
-			if ($idField eq "BROWSER-ICON") {$browserGUID=$id;} 
-			if ($idField eq "GROUP-ICON") {$groupGUID=$id;} 
-		}
+	close(TEMPL);
+	#my $browserGUID="";
+	#my $groupGUID=""; 
+	
+	#open(INP, '<', "GUID_Repo.txt") or die "Cannot open file: GUID_Repo.txt";  
+	#while(<INP>) {
+		#chomp($_); 
+		#my $line = $_; 
+		#my ($file,$project,$idField,$id) = split(/,/,$line); 
+		#if (($file eq "block_index_template.xml") and ($project eq $rhpProject)) {
+			#if ($idField eq "BROWSER-ICON") {$browserGUID=$id;} 
+			#if ($idField eq "GROUP-ICON") {$groupGUID=$id;} 
+		#}
 		
-	}
-	close(INP);
+	#}
+	#close(INP);
 	
 	$templateContents =~s/BLOCKRMID_HERE/$rmid/ig;
 	$templateContents =~s/BLOCKGUID_HERE/$guid/ig;
 	$templateContents =~s/_PROJECTAREAID_HERE/$projectArea/ig;
 	$templateContents =~s/BLOCKNAME_HERE/$blockName/ig;
 	$templateContents =~s/CURRENTDATE_HERE/$currentDate/ig;
-	$templateContents =~s/BROWSER-ICON_HERE/$browserGUID/ig;
-	$templateContents =~s/GROUP-ICON_HERE/$groupGUID/ig;
+	$templateContents =~s/BROWSERGUID_HERE/$browserGUID/ig;
+	$templateContents =~s/GROUPGUID_HERE/$groupGUID/ig;
 	
 	return $templateContents; 
 
@@ -144,16 +151,9 @@ sub createNewPort {
 	
 	my $idGUID="";
 	
-	open(INP, '<', "GUID_Repo.txt") or die "Cannot open file:GUID_Repo.txt"; 
-	while(<INP>) {
-		chomp($_); 
-		my $line = $_; 
-		my ($file,$project,$idField,$id) = split(/,/,$line); 
-		if (($file eq "port_template.xml") and ($project eq $rhpProject)) {
-			if ($idField eq "_hid") {$idGUID=$id;} 
-		}
-		
-	}
+	$idGUID = getStereotypeIDs("Port", $rhpProject);
+	
+	
 	
 	my $portIB = getPortIB($portSt, $workspace); 
 	
@@ -417,10 +417,10 @@ sub appendNewBlockToPackageIndex {
 				$aggregated =~s/\t//ig;
 				my $lineReplace = "";	
 				if ($aggregated eq "") {
-					$lineReplace = "<AGGREGATES>I:" . $blockRmid . "_" . $projectArea . "<\/AGGREGATES>"; 		
+					$lineReplace = "<AGGREGATES>I:" . $blockRmid . $projectArea . "<\/AGGREGATES>"; 		
 				}
 				else {
-					$lineReplace = "<AGGREGATES>I:" . $blockRmid . "_" . $projectArea . " | " . $aggregated . "<\/AGGREGATES>"; 
+					$lineReplace = "<AGGREGATES>I:" . $blockRmid . $projectArea . " | " . $aggregated . "<\/AGGREGATES>"; 
 				}
 				
 				$line = $lineReplace;
@@ -448,6 +448,9 @@ sub createNewPackageIndex {
 	my $currentDate = getDate();
 	my $blockRmid = $_[4];
 	my $templateContents = "";
+
+	$currentDate =~s/::/ /ig;
+
 	
 	open(TEMPL, '<', "package_index_template.xml") or die "Cannot open file:package_index_template.xml"; 
 	while (<TEMPL>) {
@@ -504,6 +507,8 @@ sub createNewPortIndex {
 	my $currentDate = getDate();
 	my $templateContents = "";
 	
+	$currentDate =~s/::/ /ig;
+	
 	open(TEMPL, '<', "port_index_template.xml") or die "Cannot open file: port_index_template.xml"; 
 	while (<TEMPL>) {
 		chomp($_); 
@@ -516,18 +521,10 @@ sub createNewPortIndex {
 	my $browserGUID="";
 	my $groupGUID=""; 
 	
-	open(INP, '<', "GUID_Repo.txt") or die "Cannot open file: GUID_Repo.txt"; 
-	while(<INP>) {
-		chomp($_); 
-		my $line = $_; 
-		my ($file,$project,$idField,$id) = split(/,/,$line); 
-		if (($file eq "port_index_template.xml") and ($project eq $rhpProject)) {
-			if ($idField eq "BROWSER-ICON") {$browserGUID=$id;} 
-			if ($idField eq "GROUP-ICON") {$groupGUID=$id;} 
-		}
-		
-	}
-	close(INP);
+	$browserGUID = getStereotypeIDs("Port", $rhpProject);
+	$groupGUID = getStereotypeIDs("Port", $rhpProject);
+
+
 	
 	$templateContents =~s/PORTRMID_HERE/$rmid/ig;
 	$templateContents =~s/PORTGUID_HERE/$guid/ig;
@@ -649,19 +646,19 @@ sub createNewBlock{
 	
 	close (PT); 
 	
-	my $idGUID="";
-	
-	open(INP, '<', "GUID_Repo.txt") or die "Cannot open File: GUID_Repo.txt";  
-	while(<INP>) {
-		chomp($_); 
-		my $line = $_; 
-		my ($file,$project,$idField,$id) = split(/,/,$line); 
-		if (($file eq "block_template.xml") and ($project eq $rhpProject)) {
-			if ($idField eq "_hid") {$idGUID=$id;} 
-		}
+	my $idGUID = getStereotypeIDs("Class", $rhpProject);
+
+	#open(INP, '<', "GUID_Repo.txt") or die "Cannot open File: GUID_Repo.txt";  
+	#while(<INP>) {
+		#chomp($_); 
+		#my $line = $_; 
+		#my ($file,$project,$idField,$id) = split(/,/,$line); 
+		#if (($file eq "block_template.xml") and ($project eq $rhpProject)) {
+			#if ($idField eq "_hid") {$idGUID=$id;} 
+		#}
 		
-	}
-	close(INP);
+	#}
+	#close(INP);
 	
 	$templateContents =~s/BLOCKGUID_HERE/$guid/ig;
 	$templateContents =~s/BLOCKRMID_HERE/$rmid/ig;
@@ -717,8 +714,12 @@ sub createNewDCIndex {
 	my $projectArea = $_[2]; 
 	my $blockName = $_[3];
 	my $childRmid = $_[4];
+	my $rhpProject = $_[5];
 	my $currentDate = getDate(); 
 	my $templateContents = ""; 
+
+	$currentDate =~s/::/ /ig;
+
 	
 	if (index($blockName, "BL_") !=-1) {
 		$blockName =~s/BL_/PT_/ig;
@@ -735,12 +736,21 @@ sub createNewDCIndex {
 	
 	close(TEMPL);
 	
+	my $browserGUID = getStereotypeIDs("Part", $rhpProject);
+	my $groupGUID = getStereotypeIDs("Part", $rhpProject);
+	
+	if ($browserGUID eq "") {$browserGUID = "Part";}
+	if ($groupGUID eq "") {$groupGUID = "Part";}
+
+	
 	$templateContents =~s/PARTRMID_HERE/$rmid/ig;
 	$templateContents =~s/PARTGUID_HERE/$guid/ig;
 	$templateContents =~s/_PROJECTAREAID_HERE/$projectArea/ig;
 	$templateContents =~s/PARTNAME_HERE/$partName/ig;
 	$templateContents =~s/CURRENTDATE_HERE/$currentDate/ig;
 	$templateContents =~s/CHILDRMID_HERE/$childRmid/ig;
+	$templateContents =~s/BROWSERGUID_HERE/$browserGUID/ig;
+	$templateContents =~s/GROUPGUID_HERE/$groupGUID/ig;
 	
 	return $templateContents; 
 	
@@ -1090,13 +1100,22 @@ sub isFile{
 
 sub getDate {
 	
-	#my $dt = TimeDate -> now;
-	#my $date = 	$dt->mdy;
-	#$date =~s/-/./ig;
-	#my $time = $dt->hms; 
+#	my $dt = TimeDate -> now;
+#	my $date = 	$dt->mdy;
+#	$date =~s/-/./ig;
+#	my $time = $dt->hms; 
+#	
+my ($sec, $min, $hr, $day, $mon, $year) = localtime;
+my $curMon = $mon+1;
+my $curYear = 1900+$year;
+
+#my $curDate = ("%01d.%01d.%04d %02d:%02d:%02d", $mon +1, $day , 1900 + $year, $hr, $min, $sec);
+
+my $curDate = $curMon . "." . $day . "." . $curYear . "::" . $hr . ":" . $min . ":" . $sec;
 	
-	#return $date . "::" . $time;
-	return localtime();
+#	return $date . "::" . $time;
+	return $curDate;
+#	return localtime();
 
 }
 
@@ -1925,7 +1944,8 @@ sub renameElement{
 	my $NameToChange = $_[1]; 
 	my $GUIDToChange = $_[2]; 
 	my $newName = $_[3]; 
-	my $type = $_[4];
+	my $newLabel = $_[4];
+	my $type = $_[5];
 	
 	
 	my @contents_arr = split("\n",$FileContents); 
@@ -1964,6 +1984,10 @@ sub renameElement{
 		
 		if ($inElement eq "true"){
 			$line =~s/$NameToChange/$newName/ig;
+			if ($newLabel ne ""){
+				$line =~ s/<_displayName type.*/<_displayName type=\"a\">$newLabel<\/_displayName>/ig;
+				$line =~ s/<LABEL.*/<LABEL>$newLabel<\/LABEL>/ig;
+			}
 		}
 		
 		if ($newFileContents eq "") {
@@ -1978,6 +2002,71 @@ sub renameElement{
 	return $newFileContents; 
 	
 }
+
+sub getStereotypeIDs {
+	
+	my $type = $_[0];
+	$type = "I" . $type; 
+	my $rhpProject = $_[1];
+
+	my $wsName = "WORKSPACE_" . $rhpProject; 
+	my $workspace = getEnvironments($wsName);
+	my $fileDirName = "RHAPSODY_FILE_DIR_" . $rhpProject; 	
+	my $rhapsody_file_dir = getEnvironments($fileDirName);
+	
+	my $fullPath = $workspace  . "\/" .  $rhapsody_file_dir;
+	
+	my $parentFolders = qx/find "$fullPath" \-type f \-exec grep \-H \'<_name type=\"a\">ST_Systems<\/_name>\' \{\} \\\;/;
+	my $parentFolder = findCorrectFileName($parentFolders, "ST_Systems");
+	my $fileContents = "";
+
+	open (READ_PRT, '<', $parentFolder) or die "Cannot open file $parentFolder"; 
+	my $inType = "false";
+	my $guid = ""; 
+	my $inStereotypes = "false";
+	my $inSysML = "false";
+	
+	while (<READ_PRT>){
+		chomp($_);
+		next if $guid ne ""; 
+		my $line = $_; 
+		if (index($line, "<$type type=\"e\">")!=-1) { 
+			$inType = "true";
+		}
+		
+		if ($inType eq "true"){
+			if(index($line, "<Stereotypes type")!=-1){$inStereotypes = "true";} 
+			if (index($line, "<\/Stereotypes>")!=-1){
+				$inStereotypes = "false";
+				$inSysML = "false";
+			}
+			
+			if ($inStereotypes eq "true"){
+				if (index($line,"<_hsubsystem type=\"a\">SysML")!=-1){$inSysML = "true";} 
+				if ($inSysML eq "true"){
+					if (index($line, "<_hid type=\"a\">")!=-1) { 
+						$line =~s/<_hid type=\"a\">//ig;
+						$line =~s/<\/_hid>//ig;
+						$line =~s/\s//ig; 
+						$line =~s/GUID/GUID /ig;
+						$guid = $line;
+					}
+				}
+			}
+		}
+		
+		if (index($line,"<\/$type>")!=-1) {
+			$inType = "false";
+			$inStereotypes = "false";
+			$inSysML = "false";
+		}
+	}
+
+	close (READ_PRT);
+
+	return $guid;
+
+}	
 
 
 
